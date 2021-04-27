@@ -11,7 +11,7 @@ namespace Proyecto_BD
 {
 
 
-    public partial class Formulario1
+    public partial class LoginHospital1
     {
 
         /// <summary>
@@ -49,6 +49,15 @@ namespace Proyecto_BD
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBox3;
+
+        /// <summary>
+        /// Control TextBox4.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox4;
 
         /// <summary>
         /// Control Button2.

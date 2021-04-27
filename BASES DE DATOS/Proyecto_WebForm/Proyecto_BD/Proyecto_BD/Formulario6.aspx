@@ -27,10 +27,10 @@
             <asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
             <br />
             <br />
-            <asp:Button ID="Button2" runat="server" Text="Last Page" />
+            <asp:Button ID="Button2" runat="server" Text="Last Page" OnClick="Button2_Click" />
             <br />
             <br />
-            <asp:Button ID="Button1" runat="server" Text="Next Page" />
+            <asp:Button ID="Button1" runat="server" Text="Next Page" OnClick="Button1_Click" />
         </div>
     </form>
 </body>

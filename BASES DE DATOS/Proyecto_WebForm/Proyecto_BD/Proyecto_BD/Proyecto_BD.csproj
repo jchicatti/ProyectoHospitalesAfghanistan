@@ -75,10 +75,12 @@
     <Content Include="Formulario6.aspx" />
     <Content Include="FormularioResumen.aspx" />
     <Content Include="Inicio.aspx" />
+    <Content Include="LoginHospital.aspx" />
     <Content Include="RegistroHospital.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Conexion.cs" />
     <Compile Include="Formulario1.aspx.cs">
       <DependentUpon>Formulario1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -128,12 +130,20 @@
     <Compile Include="FormularioResumen.aspx.designer.cs">
       <DependentUpon>FormularioResumen.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Hospital.cs" />
     <Compile Include="Inicio.aspx.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Inicio.aspx.designer.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LoginHospital.aspx.cs">
+      <DependentUpon>LoginHospital.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoginHospital.aspx.designer.cs">
+      <DependentUpon>LoginHospital.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegistroHospital.aspx.cs">

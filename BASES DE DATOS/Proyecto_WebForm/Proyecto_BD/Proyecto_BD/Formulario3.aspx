@@ -51,10 +51,10 @@
             <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
             <br />
             <br />
-            <asp:Button ID="Button2" runat="server" Text="Last Page" />
+            <asp:Button ID="Button2" runat="server" Text="Previous Page" OnClick="Button2_Click" />
             <br />
             <br />
-            <asp:Button ID="Button1" runat="server" Text="Next Page" />
+            <asp:Button ID="Button1" runat="server" Text="Next Page" OnClick="Button1_Click" />
             <br />
         </div>
     </form>

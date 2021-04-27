@@ -46,10 +46,10 @@
             <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
             <br />
             <br />
-            <asp:Button ID="Button2" runat="server" Text="Last Page" />
+            <asp:Button ID="Button2" runat="server" Text="Last Page" OnClick="Button2_Click" />
             <br />
             <br />
-            <asp:Button ID="Button1" runat="server" Text="Finish Update" />
+            <asp:Button ID="Button1" runat="server" Text="Finish Update" OnClick="Button1_Click" />
         </div>
     </form>
 </body>

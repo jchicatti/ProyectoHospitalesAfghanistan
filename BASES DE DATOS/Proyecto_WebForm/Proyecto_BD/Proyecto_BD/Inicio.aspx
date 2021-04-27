@@ -13,7 +13,7 @@
             <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Register New Hospital" Width="315px" />
             <br />
             <br />
-            <asp:Button ID="Button2" runat="server" Text="Update Existing Hospital" Width="314px" />
+            <asp:Button ID="Button2" runat="server" Text="Update Existing Hospital" Width="314px" OnClick="Button2_Click" />
             <br />
         </div>
     </form>

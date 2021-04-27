@@ -7,19 +7,19 @@ using System.Web.UI.WebControls;
 
 namespace Proyecto_BD
 {
-    public partial class Formulario2 : System.Web.UI.Page
+    public partial class LoginHospital1 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void Button2_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Formulario3.aspx");
+            Response.Redirect("Inicio.aspx");
         }
 
-        protected void Button2_Click(object sender, EventArgs e)
+        protected void Button1_Click(object sender, EventArgs e)
         {
             Response.Redirect("Formulario1.aspx");
         }
