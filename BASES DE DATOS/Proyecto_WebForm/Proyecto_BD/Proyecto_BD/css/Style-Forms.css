@@ -1,0 +1,198 @@
+﻿body {
+    font-family: sans-serif;
+}
+
+.header {
+    margin: 0;
+    background-color: rgb(176, 14, 10);
+    height: auto;
+}
+
+.logo-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 12%;
+    padding-right: 12%;
+}
+
+    .logo-menu img {
+        height: 50px;
+        margin-top: 15px;
+    }
+
+.menu a {
+    text-decoration: none;
+    color: rgb(0,0,0);
+    display: block;
+    padding: 12px 10px;
+    font-size: 25px;
+    font-stretch: extra-condensed;
+}
+
+    .menu a:hover {
+        color: rgb(255,255,255);
+        transition: 0.5s;
+    }
+
+.registro {
+    margin-left: 10%;
+    margin-right: 25%;
+    padding: 5%;
+    border: dashed;
+    border-color: rgb(176, 14, 10);
+    margin-top: 5%;
+}
+.left {
+    width: 28%;
+    float: left;
+    text-align: right;
+    height: 149px;
+}
+
+.right {
+    width: 65%;
+    margin-left: 10px;
+    float: left;
+}
+
+.imP ul {
+    list-style: none;
+    margin: 0;
+}
+
+    .imP ul li {
+        display: inline-block;
+        margin-left: 5px;
+        margin-right: 15px;
+    }
+
+        .imP ul li img {
+            height: 30px;
+        }
+
+.footer {
+    background-color: rgb(230,230,230);
+    height: 150px;
+    text-align: center;
+    padding-top: 30px;
+    font-size: 14px;
+    letter-spacing: 7px;
+}
+
+    .footer p {
+        margin: 5px;
+    }
+
+    .footer img {
+        height: 50px;
+        margin-top: 10px;
+    }
+
+.button {
+    color: white;
+    background-color: #ae0e0a;
+    border: none;
+    text-align: center;
+    border-color: #ae0e0a;
+    font-size: 16px;
+    display: inline-block;
+    padding: 15px 32px;
+}
+
+.buttonl {
+    color: white;
+    background-color: #ae0e0a;
+    border: none;
+    text-align: center;
+    border-color: #ae0e0a;
+    font-size: 16px;
+    display: inline-block;
+    padding: 15px 32px;
+    float: left;
+}
+
+.buttonr {
+    color: white;
+    background-color: #ae0e0a;
+    border: none;
+    text-align: center;
+    border-color: #ae0e0a;
+    font-size: 16px;
+    display: inline-block;
+    padding: 15px 32px;
+    float: right;
+}
+
+.res {
+    text-align: center;
+    margin-left: 15%;
+    margin-right: 15%;
+    padding-left: 1%;
+    border: dashed;
+    border-color: rgb(176, 14, 10);
+    margin-top: 30px
+}
+
+    .res h1 {
+        color: #ae0e0a;
+    }
+
+    .res h3 {
+        color: #ae0e0a;
+    }
+
+.portada {
+    margin: 0;
+    background-image: url("Imagenes/amex.png");
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+}
+
+.titulo {
+    background-color: rgba(56, 56, 56, 0.88);
+    height: 400px;
+}
+
+.drop {
+    border: medium dashed #ae0e0a;
+    margin: 0;
+}
+
+.catalogo ul {
+    list-style: none;
+    margin: 0;
+}
+
+    .catalogo ul li {
+        display: inline-block;
+        width: 100px;
+        margin-right: 20px;
+    }
+
+.label {
+    color: rgb(176, 14, 10);
+}
+
+.label2 {
+    color: rgb(56, 56, 56);
+}
+
+.orden {
+    background-color: rgb(185, 181, 165);
+    margin-left: 80px;
+    margin-right: 80px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+    .orden h3 {
+        margin-top: 10px;
+        font-stretch: condensed;
+        font-style: normal;
+    }
+
+.error {
+    color: #ae0e0a;
+}

@@ -4,12 +4,19 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+    <link rel="stylesheet" href="css/Style-Forms.css"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            Update Report<br />
+        <header class="header">
+            <div class="menu">
+                <a>VOXMAPP</a>
+            </div>
+        </header>
+        <div class="registro">
+            <h2>Update Report</h2><br />
             <br />
             Update Status<br />
             <asp:RadioButtonList ID="RadioButtonList1" runat="server">
@@ -21,7 +28,8 @@
             </asp:RadioButtonList>
             <br />
             Comments:
-            <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+            <br />
+            <asp:TextBox ID="TextBox4" runat="server" Width="575px"></asp:TextBox>
             <br />
             <br />
             Problem Status<br />
@@ -42,15 +50,18 @@
                 <asp:ListItem Value="5">OTHER</asp:ListItem>
             </asp:RadioButtonList>
             <br />
-            Comments:
-            <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
+            Comments:<br />
+&nbsp;<asp:TextBox ID="TextBox5" runat="server" Width="607px"></asp:TextBox>
             <br />
             <br />
-            <asp:Button ID="Button2" runat="server" Text="Last Page" OnClick="Button2_Click" />
+            <br />
+            <asp:Button ID="Button2" runat="server" CssClass="buttonl" Text="Previous Page" OnClick="Button2_Click" />
+            <asp:Button ID="Button1" runat="server" CssClass="buttonr" Text="Finish Update" OnClick="Button1_Click" />
             <br />
             <br />
-            <asp:Button ID="Button1" runat="server" Text="Finish Update" OnClick="Button1_Click" />
         </div>
     </form>
+    <p>
+        &nbsp;</p>
 </body>
 </html>

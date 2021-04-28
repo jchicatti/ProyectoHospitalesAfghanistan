@@ -16,12 +16,12 @@ namespace Proyecto_BD
 
         protected void Button2_Click(object sender, EventArgs e)
         {
-            Response.Redirect("RegistroHospita2.aspx");
+            Response.Redirect("RegistroHospital.aspx");
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Formulario3.aspx");
+            Response.Redirect("Formulario2.aspx");
         }
     }
 }
