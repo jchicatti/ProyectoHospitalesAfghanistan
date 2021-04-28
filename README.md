@@ -5,7 +5,7 @@
 La compañía [VoxMapp](http://voxmapp.com) diseña y crea soluciones tecnológicas para la recolección y análisis de datos. Dentro de sus múltiples proyectos, recaban datos de hospitales en varios países para ofrecer información puntual y pertinente respecto al manejo del COVID-19.
 
 La compañía tiene un _baseline_ de hospitales con datos estáticos (como el nombre del hospital, la ubicación geográfica, y el tipo de hospital).
-Una vez al mes, la compañía realiza un _update_ de los datos de los hospitales a través de una encuesta que puede ser telefónica o presencial. El _update_ es realizado por un empleado que entrevista a un doctor del hospital cuyos datos se pretenden actualizar. Los datos tanto del entrevistador como del doctor se registran en el _update_.
+Una vez al mes, la compañía realiza un _update_ de los datos de los hospitales a través de una encuesta telefónica. El _update_ es realizado por un empleado que entrevista a un doctor del hospital cuyos datos se pretenden actualizar. Los datos tanto del entrevistador como del doctor se registran en el _update_.
 
 El _update_ consiste en una serie de preguntas sobre el hospital en el que trabaja el doctor; es una "fotografía" del hospital en ese momento. La recabación de datos comprende el inventario del hospital, su protocolo COVID-19, el personal disponible, y el estado de los casos.
 - Respecto al inventario, se le pregunta al hospital sobre la existencia de ciertos productos: se registra el número de días antes de que se agote el suministro de cada insumo para el tratamiento de COVID-19.
