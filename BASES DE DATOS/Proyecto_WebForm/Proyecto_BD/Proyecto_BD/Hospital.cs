@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Npgsql;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -33,10 +34,10 @@ namespace Proyecto_BD
 
             try
             {
-                String query = "SELECT max(hospital.idHospital) FROM hospital";
-                SqlConnection con = Conexion.AgregarConexion();
-                SqlCommand cmd = new SqlCommand(query, con);
-                SqlDataReader rd = cmd.ExecuteReader();
+                String query = "SELECT max(idHospital) FROM encuesta.hospital";
+                NpgsqlConnection con = Conexion.AgregarConexion();
+                NpgsqlCommand cmd = new NpgsqlCommand(query, con);
+                NpgsqlDataReader rd = cmd.ExecuteReader();
                 if (rd.Read())
                 {
                     try
@@ -53,10 +54,10 @@ namespace Proyecto_BD
                     contID = 0;
                 contID++;
 
-                SqlConnection con2 = Conexion.AgregarConexion();
-                String query2 = String.Format("INSERT INTO hospital VALUES({0},'{1}','{2}','{3}','{4}')",
+                NpgsqlConnection con2 = Conexion.AgregarConexion();
+                String query2 = String.Format("INSERT INTO encuesta.hospital VALUES({0},'{1}','{2}','{3}','{4}')",
                     contID, this.name, this.adress, this.contact, this.moph);
-                SqlCommand cmd2 = new SqlCommand(query2, con2);
+                NpgsqlCommand cmd2 = new NpgsqlCommand(query2, con2);
                 int a = cmd2.ExecuteNonQuery();
                 if (a > 0)
                     res = "Registration succesful!";
@@ -71,7 +72,7 @@ namespace Proyecto_BD
             return res;
         }
         
-        public int ObtenerId() //Unused
+        /*public int ObtenerId()
         {
             int res = -1;
 
@@ -91,6 +92,6 @@ namespace Proyecto_BD
             { }
 
             return res;
-        }
+        }*/
     }
 }
