@@ -41,7 +41,7 @@ namespace Proyecto_BD
             {
                 Label1.Text = "Fields required.";
             }
-            Response.Redirect(".");
+            //Response.Redirect(".");
         }
     }
 }
