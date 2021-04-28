@@ -21,7 +21,7 @@ Con los _updates_ completos, se realiza una serie de tablas que alimentan a Tabl
 ## Equipo
 - Josué Chicatti
 - Sebastian Dulong ([**@dulongski**](https://github.com/dulongski))
-- Guillermo Naranjo
+- Guillermo Naranjo ([**guillermoNaranjo**](https://github.com/guillermoNaranjo))
 - Ana Pizaña
 - Ulises Quevedo ([**@JoseUlisesQuevedo**](https://github.com/JoseUlisesQuevedo))
 - Julieta Rivero ([**@Ju-Riv**](https://github.com/Ju-Riv))
