@@ -19,7 +19,7 @@ Se realiza un reporte diario sobre estos _status_ (el número de hospitales encu
 Con los _updates_ completos, se realiza una serie de tablas que alimentan a Tableau Public, con el cual se hacen tableros analíticos que muestran información relevante y pertinente a las personas que toman decisiones en VoxMapp.
 
 ## Equipo
-- Josué Chicatti ([**@jchicatti**](https://github.com/jjchicatti))
+- Josué Chicatti ([**@jchicatti**](https://github.com/jchicatti))
 - Sebastian Dulong ([**@dulongski**](https://github.com/dulongski))
 - Guillermo Naranjo ([**guillermoNaranjo**](https://github.com/guillermoNaranjo))
 - Ana Pizaña
