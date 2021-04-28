@@ -12,7 +12,13 @@
             COVID Inventory Count<br />
             <br />
             Available COVID test kits reserves in days:
-            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+            <asp:DropDownList ID="DropDownList1" runat="server" Width="133px">
+                <asp:ListItem>0</asp:ListItem>
+                <asp:ListItem Value="3 ">3 </asp:ListItem>
+                <asp:ListItem>7</asp:ListItem>
+                <asp:ListItem>15</asp:ListItem>
+                <asp:ListItem>30</asp:ListItem>
+            </asp:DropDownList>
             <br />
             <br />
             Number of available COVID test kits:
@@ -23,7 +29,7 @@
             <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
             <br />
             <br />
-            <asp:Button ID="Button2" runat="server" Text="Previous Page" OnClick="Button2_Click" />
+            <asp:Button ID="Button2" runat="server" Text="Last Page" OnClick="Button2_Click" />
             <br />
             <br />
             <asp:Button ID="Button1" runat="server" Text="Next Page" OnClick="Button1_Click" />

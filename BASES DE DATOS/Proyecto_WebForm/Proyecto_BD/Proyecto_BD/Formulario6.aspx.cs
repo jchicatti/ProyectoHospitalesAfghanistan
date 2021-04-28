@@ -21,7 +21,12 @@ namespace Proyecto_BD
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            Response.Redirect("FormularioResumen.aspx");
+            Response.Redirect("Formulario2.aspx");
+        }
+
+        protected void TextBox3_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

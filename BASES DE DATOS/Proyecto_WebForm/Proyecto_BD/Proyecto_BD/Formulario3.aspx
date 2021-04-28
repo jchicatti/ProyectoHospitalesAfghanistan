@@ -44,14 +44,20 @@
             </asp:RadioButtonList>
             <br />
             How regularly do you report your COVID tracking results to the MOPH?
-            <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+            <asp:DropDownList ID="DropDownList2" runat="server" Width="133px">
+                <asp:ListItem Value="0">Every 3 days</asp:ListItem>
+                <asp:ListItem Value="1">Every 7 days</asp:ListItem>
+                <asp:ListItem Value="2">Every 15 days</asp:ListItem>
+                <asp:ListItem Value="3">Every 30 days or more</asp:ListItem>
+                <asp:ListItem Value="5">Never</asp:ListItem>
+            </asp:DropDownList>
             <br />
             <br />
             Number of COVID cases referred to PHC:
             <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
             <br />
             <br />
-            <asp:Button ID="Button2" runat="server" Text="Previous Page" OnClick="Button2_Click" />
+            <asp:Button ID="Button2" runat="server" Text="Last Page" OnClick="Button2_Click" />
             <br />
             <br />
             <asp:Button ID="Button1" runat="server" Text="Next Page" OnClick="Button1_Click" />

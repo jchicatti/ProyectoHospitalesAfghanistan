@@ -21,7 +21,7 @@ namespace Proyecto_BD
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Formulario1.aspx");
+            Response.Redirect("Formulario6.aspx");
         }
     }
 }

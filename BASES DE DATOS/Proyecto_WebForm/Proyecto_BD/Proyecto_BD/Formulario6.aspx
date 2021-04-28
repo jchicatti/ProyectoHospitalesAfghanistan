@@ -12,19 +12,43 @@
             General Inventory Count<br />
             <br />
             Available oxygen reserves in days:
-            <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+            <asp:DropDownList ID="DropDownList1" runat="server" Width="133px">
+                <asp:ListItem>0</asp:ListItem>
+                <asp:ListItem Value="3 ">3 </asp:ListItem>
+                <asp:ListItem>7</asp:ListItem>
+                <asp:ListItem>15</asp:ListItem>
+                <asp:ListItem>30</asp:ListItem>
+            </asp:DropDownList>
             <br />
             <br />
             Available antipyretics reserves in days:
-            <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+            <asp:DropDownList ID="DropDownList2" runat="server" Width="133px">
+                <asp:ListItem>0</asp:ListItem>
+                <asp:ListItem Value="3 ">3 </asp:ListItem>
+                <asp:ListItem>7</asp:ListItem>
+                <asp:ListItem>15</asp:ListItem>
+                <asp:ListItem>30</asp:ListItem>
+            </asp:DropDownList>
             <br />
             <br />
             Available anesthesic drugs/muscular relaxatns reserves in days:
-            <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
+            <asp:DropDownList ID="DropDownList3" runat="server" Width="133px">
+                <asp:ListItem>0</asp:ListItem>
+                <asp:ListItem Value="3 ">3 </asp:ListItem>
+                <asp:ListItem>7</asp:ListItem>
+                <asp:ListItem>15</asp:ListItem>
+                <asp:ListItem>30</asp:ListItem>
+            </asp:DropDownList>
             <br />
             <br />
             Available alcohol solution/soap for handwashing reserves in days:
-            <asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
+            <asp:DropDownList ID="DropDownList4" runat="server" Width="133px">
+                <asp:ListItem>0</asp:ListItem>
+                <asp:ListItem Value="3 ">3 </asp:ListItem>
+                <asp:ListItem>7</asp:ListItem>
+                <asp:ListItem>15</asp:ListItem>
+                <asp:ListItem>30</asp:ListItem>
+            </asp:DropDownList>
             <br />
             <br />
             <asp:Button ID="Button2" runat="server" Text="Last Page" OnClick="Button2_Click" />
