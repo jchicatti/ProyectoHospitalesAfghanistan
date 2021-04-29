@@ -22,9 +22,9 @@ Con los _updates_ completos, se realiza una serie de tablas que alimentan a Tabl
 
 - Un hospital está conformado por sus datos estáticos, tales como su localización, nombre y tipo.
 - Cada hospital tiene N contactos.
-- - Cada contacto tiene 1 teléfono, nombre y posición.
+  - Cada contacto tiene 1 teléfono, nombre y posición.
 - 1 Hospital tiene N updates.
-- -Un update tiene un entrevistador y un entrevistado. A su vez, un entrevistador puede realizar varios updates y un entrevistado contestar varios updates. 
+  - Un update tiene un entrevistador y un entrevistado. A su vez, un entrevistador puede realizar varios updates y un entrevistado contestar varios updates. 
 - Un update tiene un inventario, un protocolo, un registro de personal y un registro de casos. 
   - Un inventario tiene N productos con cierta existencia (número y duración para pruebas COVID-19 y ventiladores, y solo duración para reservas de oxígeno, antipiréticos, anestesia, relajantes musculares, soluciones alcohólicas mayores al 70%, jabón de manos, y materiales de protección para el personal). Estos mismos productos pueden pertenecer a N inventarios. 
   - Un protocolo está conformado por varios sub protocolos que se cumplen o no.
