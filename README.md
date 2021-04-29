@@ -20,17 +20,17 @@ Con los _updates_ completos, se realiza una serie de tablas que alimentan a Tabl
 
 ## User story
 
--Un hospital está conformado por sus datos estáticos, tales como su localización, nombre y tipo
--Cada hospital tiene N contactos
-  -Cada contacto tiene 1 teléfono, nombre y posición
--1 Hospital tiene N updates 
+- Un hospital está conformado por sus datos estáticos, tales como su localización, nombre y tipo
+- Cada hospital tiene N contactos
+  - Cada contacto tiene 1 teléfono, nombre y posición
+- 1 Hospital tiene N updates 
   -Un update tiene un entrevistador y un entrevistado. A su vez, un entrevistador puede realizar varios updates y un entrevistado contestar varios updates. 
--Un update tiene un inventario, un protocolo, un registro de personal y un registro de casos. 
-  -Un inventario tiene N productos con cierta existencia (número y duración para pruebas COVID-19 y      ventiladores, y solo duración para reservas de oxígeno, antipiréticos, anestesia, relajantes          musculares, soluciones alcohólicas mayores al 70%, jabón de manos, y materiales de protección para    el personal) . Estos mismos productos pueden pertenecer a N inventarios. 
-  -Un protocolo está conformado por varios sub protocolos que se cumplen o no.
-  -Un registro de personal está conformado por el número de doctores y paramédicos en ese momento. 
-  -Un registro de casos de COVID-19 está conformado por varias categorías: los pacientes con            síntomas, positivos, en cuidado intensivo, fallecidos (por COVID-19 y no COVID-19), recuperados de    COVID-19, y referidos al Ministro de Salud Pública. 
--Un update tiene un status sobre su completitud, un status sobre los problemas que se presentaron y     un status sobre la acción a tomar. Además, un update tiene un status sobre los fondos 
+- Un update tiene un inventario, un protocolo, un registro de personal y un registro de casos. 
+  - Un inventario tiene N productos con cierta existencia (número y duración para pruebas COVID-19 y      ventiladores, y solo duración para reservas de oxígeno, antipiréticos, anestesia, relajantes          musculares, soluciones alcohólicas mayores al 70%, jabón de manos, y materiales de protección para    el personal) . Estos mismos productos pueden pertenecer a N inventarios. 
+  - Un protocolo está conformado por varios sub protocolos que se cumplen o no.
+  - Un registro de personal está conformado por el número de doctores y paramédicos en ese momento. 
+  - Un registro de casos de COVID-19 está conformado por varias categorías: los pacientes con            síntomas, positivos, en cuidado intensivo, fallecidos (por COVID-19 y no COVID-19), recuperados de    COVID-19, y referidos al Ministro de Salud Pública. 
+- Un update tiene un status sobre su completitud, un status sobre los problemas que se presentaron y     un status sobre la acción a tomar. Además, un update tiene un status sobre los fondos 
 
 
 ## Equipo
