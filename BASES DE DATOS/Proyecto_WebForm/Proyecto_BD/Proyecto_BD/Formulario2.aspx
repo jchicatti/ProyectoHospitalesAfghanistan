@@ -4,15 +4,26 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+    <link rel="stylesheet" href="css/Style-Forms.css"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-        &nbsp;Protection Material for Personnel Inventory Count<br />
+        <header class="header">
+            <div class="menu">
+                <a>VOXMAPP</a>
+            </div>
+        </header>
+        <div class="registro">
+            <h2>
+            Protection Material for Personnel Inventory Count
+              </h2>
             <br />
-            Available disposable masks reserves in days:
-            <asp:DropDownList ID="DropDownList1" runat="server" Width="133px">
+            <br />
+            <div class="right">
+                Available disposable masks reserves in days:</div>
+            <asp:DropDownList ID="DropDownList1" runat="server" CssClass="right" Width="133px">
                 <asp:ListItem>0</asp:ListItem>
                 <asp:ListItem Value="3 ">3 </asp:ListItem>
                 <asp:ListItem>7</asp:ListItem>
@@ -21,8 +32,8 @@
             </asp:DropDownList>
             <br />
             <br />
-            Available dispable vinyl gloves reserves in days:
-            <asp:DropDownList ID="DropDownList2" runat="server" Width="133px">
+            <div class="right">Available dispable vinyl gloves reserves in days:</div>
+            <asp:DropDownList ID="DropDownList2" runat="server" CssClass="right" Width="133px">
                 <asp:ListItem>0</asp:ListItem>
                 <asp:ListItem Value="3 ">3 </asp:ListItem>
                 <asp:ListItem>7</asp:ListItem>
@@ -31,8 +42,8 @@
             </asp:DropDownList>
             <br />
             <br />
-            Available disposable hats reserves in days:
-            <asp:DropDownList ID="DropDownList3" runat="server" Width="133px">
+            <div class="right">Available disposable hats reserves in days:</div>
+            <asp:DropDownList ID="DropDownList3" runat="server" CssClass="right" Width="133px">
                 <asp:ListItem>0</asp:ListItem>
                 <asp:ListItem Value="3 ">3 </asp:ListItem>
                 <asp:ListItem>7</asp:ListItem>
@@ -41,8 +52,8 @@
             </asp:DropDownList>
             <br />
             <br />
-            Available disposable aprons reserves in days:
-            <asp:DropDownList ID="DropDownList4" runat="server" Width="133px">
+            <div class="right">Available disposable aprons reserves in days:</div>
+            <asp:DropDownList ID="DropDownList4" runat="server" CssClass="right" Width="133px">
                 <asp:ListItem>0</asp:ListItem>
                 <asp:ListItem Value="3 ">3 </asp:ListItem>
                 <asp:ListItem>7</asp:ListItem>
@@ -51,8 +62,8 @@
             </asp:DropDownList>
             <br />
             <br />
-            Available visors reserves in days:
-            <asp:DropDownList ID="DropDownList5" runat="server" Width="133px">
+            <div class="right">Available visors reserves in days:</div>
+            <asp:DropDownList ID="DropDownList5" runat="server" CssClass="right" Width="133px">
                 <asp:ListItem>0</asp:ListItem>
                 <asp:ListItem Value="3 ">3 </asp:ListItem>
                 <asp:ListItem>7</asp:ListItem>
@@ -61,8 +72,8 @@
             </asp:DropDownList>
             <br />
             <br />
-            Available disposable shoe covers reserves in days:
-            <asp:DropDownList ID="DropDownList6" runat="server" Width="133px">
+            <div class="right">Available disposable shoe covers reserves in days:</div>
+            <asp:DropDownList ID="DropDownList6" runat="server" CssClass="right" Width="133px">
                 <asp:ListItem>0</asp:ListItem>
                 <asp:ListItem Value="3 ">3 </asp:ListItem>
                 <asp:ListItem>7</asp:ListItem>
@@ -71,10 +82,11 @@
             </asp:DropDownList>
             <br />
             <br />
-            <asp:Button ID="Button2" runat="server" Text="Last Page" OnClick="Button2_Click" />
             <br />
             <br />
-            <asp:Button ID="Button1" runat="server" Text="Next Page" OnClick="Button1_Click" />
+            <asp:Button ID="Button2" runat="server" CssClass="buttonl" Text="Previous Page" OnClick="Button2_Click" />
+            <asp:Button ID="Button1" runat="server" CssClass="buttonr" Text="Next Page" OnClick="Button1_Click" />
+            <br />
         </div>
     </form>
 </body>

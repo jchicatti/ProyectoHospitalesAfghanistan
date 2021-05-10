@@ -1,26 +1,30 @@
-﻿using System;
+﻿using Npgsql;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI.WebControls;
+using System.Windows;
 
 namespace Proyecto_BD
 {
     public class Conexion
     {
-        static readonly string defaultQuery = "SELECT idHospital AS 'Reg. Number', name AS 'Name', contact AS 'Contact', moph AS 'MOPH Number' FROM hospital";
-        public static SqlConnection AgregarConexion()
+        static readonly string defaultQuery = "SELECT idHospital, name, contact, moph FROM encuesta.hospital";
+        public static NpgsqlConnection AgregarConexion()
         {
-            SqlConnection con;
+            NpgsqlConnection con;
             try
             {
-                con = new SqlConnection("Data Source=JCHICATT\\SQLEXPRESS;Initial Catalog=encuesta;Integrated Security=True");
+                //con = new NpgsqlConnection("Data Source=JCHICATT\\SQLEXPRESS;Initial Catalog=encuesta;Integrated Security=True");
+                con = new NpgsqlConnection("Host=localhost;database=postgres;user id=postgres;password=admin");
                 con.Open();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 con = null;
+                MessageBox.Show(""+ex);
             }
             return con;
         }
@@ -29,9 +33,9 @@ namespace Proyecto_BD
         {
             try
             {
-                SqlConnection con = AgregarConexion();
-                SqlCommand cmd = new SqlCommand("SELECT name FROM hospital", con);
-                SqlDataReader rd = cmd.ExecuteReader();
+                NpgsqlConnection con = AgregarConexion();
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT name FROM hospital", con);
+                NpgsqlDataReader rd = cmd.ExecuteReader();
 
                 while (rd.Read())
                 {
@@ -48,9 +52,9 @@ namespace Proyecto_BD
         {
             try
             {
-                SqlConnection con = AgregarConexion();
-                SqlCommand cmd = new SqlCommand(defaultQuery, con);
-                SqlDataReader rd = cmd.ExecuteReader();
+                NpgsqlConnection con = AgregarConexion();
+                NpgsqlCommand cmd = new NpgsqlCommand(defaultQuery, con);
+                NpgsqlDataReader rd = cmd.ExecuteReader();
                 gv.DataSource = rd;
                 gv.DataBind();
                 rd.Close();
