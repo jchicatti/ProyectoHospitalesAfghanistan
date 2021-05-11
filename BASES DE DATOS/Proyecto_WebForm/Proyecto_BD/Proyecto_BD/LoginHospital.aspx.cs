@@ -14,14 +14,24 @@ namespace Proyecto_BD
 
         }
 
-        protected void Button2_Click(object sender, EventArgs e)
+        protected void Button5_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Inicio.aspx");
+            
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
             Response.Redirect("Formulario1.aspx");
+        }
+
+        protected void Button4_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("UpdateContacto.aspx");
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Inicio.aspx");
         }
     }
 }

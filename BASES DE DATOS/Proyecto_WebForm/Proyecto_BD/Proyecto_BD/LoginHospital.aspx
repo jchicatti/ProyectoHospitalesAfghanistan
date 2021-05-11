@@ -16,28 +16,28 @@
             </div>
         </header>
         <div class="registro">
-            <h2>Health Facility/Hospital General Information</h2><br />
+            <h2>Registered Health Facilities/Hospitals</h2>
+            <asp:GridView ID="GridView1" runat="server">
+            </asp:GridView>
             <br />
-            Name:&nbsp;<br />
-&nbsp;<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-            <br />
-            <br />
-            Address:<br />
-&nbsp;<asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+            Select Hospital to Update: <asp:DropDownList ID="DropDownList1" runat="server">
+            </asp:DropDownList>
             <br />
             <br />
-            Contact number:<br />
-&nbsp;<asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+            <asp:Button ID="Button5" runat="server" CssClass="buttonl" Text="Confirm" OnClick="Button5_Click"/>
             <br />
             <br />
-            MOPH number:<br />
-&nbsp;<asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
-            <br />
+&nbsp;<br />
+            <asp:Label ID="Label1" runat="server"></asp:Label>
             <br />
             <br />
             <asp:Button ID="Button2" runat="server" CssClass="buttonl" Text="Previous Page" OnClick="Button2_Click"/>
             <asp:Button ID="Button1" runat="server" CssClass="buttonr" Text="Start updating this hospital" OnClick="Button1_Click"/>
             <br />
+            <br />
+            <br />
+            <br />
+            <asp:Button ID="Button4" runat="server" CssClass="buttonr" Text="Update Hospital Contacts" OnClick="Button4_Click"/>
         </div>
     </form>
 </body>

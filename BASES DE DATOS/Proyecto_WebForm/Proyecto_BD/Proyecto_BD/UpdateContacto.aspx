@@ -1,29 +1,19 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RegistroHospital.aspx.cs" Inherits="Proyecto_BD.Registro_Hospital" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UpdateContacto.aspx.cs" Inherits="Proyecto_BD.UpdateContacto" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <link rel="stylesheet" href="css/Style-Forms.css"/>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
+    <link href="css/Style-Forms.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <form id="form1" runat="server">
-        <header class="header">
-            <div class="menu">
-                <a>VOXMAPP</a>
-            </div>
-        </header>
+        <div class="header">
+            <br />
+            VOXMAP</div>
         <div class="registro">
-            <h2>Health Facility/Hospital General Information</h2>
-            <br />
-            Name:&nbsp;<br />
-&nbsp;<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-            <br />
-            <br />
-            Address:<br />
-&nbsp;<asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+            <h2>Health Facility/Hospital Contact Details</h2>
             <br />
             <br />
             Contact number 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Contact name 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Contact type 1<br />
@@ -56,45 +46,12 @@
             </asp:DropDownList>
             <br />
             <br />
-            Latitud&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Longitud&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Elevation<br />
-&nbsp;<asp:TextBox ID="TextBox10" runat="server"></asp:TextBox>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="TextBox11" runat="server"></asp:TextBox>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="TextBox12" runat="server"></asp:TextBox>
             <br />
-            <br />
-            MOPH:<br />
-&nbsp;<asp:TextBox ID="TextBox13" runat="server"></asp:TextBox>
-            <br />
-            <br />
-            District: <asp:DropDownList ID="DropDownList3" runat="server">
-            </asp:DropDownList>
-            <br />
-            <br />
-            Type:
-            <asp:DropDownList ID="DropDownList2" runat="server">
-                <asp:ListItem Value="0">Statal</asp:ListItem>
-                <asp:ListItem Value="1">Regional</asp:ListItem>
-                <asp:ListItem Value="2">District</asp:ListItem>
-                <asp:ListItem Value="3">Other</asp:ListItem>
-            </asp:DropDownList>
-            <br />
-            <br />
-            <br />
-            <asp:Button ID="Button1" runat="server" CssClass="button" Text="Register this hospital" OnClick="Button1_Click" />
+            <asp:Button ID="Button1" runat="server" CssClass="button" Text="Update Contact Details" OnClick="Button1_Click" />
             <br />
             <br />
             <br />
             <asp:Label ID="Label1" runat="server" Text="Status"></asp:Label>
-            <br />
-            <br />
-            Test:       <br />
-            <asp:DropDownList ID="DropDownList1" CssClass="drop" runat="server" AutoPostBack="True" Height="38px" Width="216px">
-            </asp:DropDownList>
-            <br />
-            <br />
-            <br />
-            <asp:GridView ID="GridView1" runat="server">
-            </asp:GridView>
             <br />
             <br />
             <asp:Button ID="Button2" runat="server" CssClass="buttonl" Text="Previous Page" OnClick="Button2_Click" />

@@ -113,6 +113,7 @@
     <Content Include="Inicio.aspx" />
     <Content Include="LoginHospital.aspx" />
     <Content Include="RegistroHospital.aspx" />
+    <Content Include="UpdateContacto.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -188,6 +189,13 @@
     </Compile>
     <Compile Include="RegistroHospital.aspx.designer.cs">
       <DependentUpon>RegistroHospital.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateContacto.aspx.cs">
+      <DependentUpon>UpdateContacto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UpdateContacto.aspx.designer.cs">
+      <DependentUpon>UpdateContacto.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -28,14 +28,28 @@ namespace Proyecto_BD
             String nombre = TextBox1.Text;
             String dom = TextBox2.Text;
             String tel = TextBox3.Text;
-            String moph = TextBox4.Text;
+            String moph = TextBox13.Text;
+            String numero_1 = TextBox3.Text;
+            String numero_2 = TextBox6.Text;
+            String numero_3 = TextBox8.Text;
+            String nombre_1 = TextBox5.Text;
+            String nombre_2 = TextBox7.Text;
+            String nombre_3 = TextBox9.Text;
+            String tipo_1 = DropDownList8.Text;
+            String tipo_2 = DropDownList7.Text;
+            String tiepo_3 = DropDownList6.Text;
+            String latitud = TextBox10.Text;
+            String longitud = TextBox11.Text;
+            String altitud = TextBox12.Text;
+            String tipo_hospital = DropDownList3.Text;
+            String distrito = DropDownList2.Text;
 
             if (!nombre.Equals("") && !dom.Equals("") && !tel.Equals("") && !moph.Equals(""))
             {
                 Hospital c = new Hospital(nombre, dom, tel, moph);
                 Label1.Text = c.AgregaHospital();
                 Session["Nombre"] = nombre;
-                //Response.Redirect("Formulario1.aspx");
+                Response.Redirect("Formulario1.aspx");
             }
             else
             {
