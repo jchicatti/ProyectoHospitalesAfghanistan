@@ -1,0 +1,12 @@
+drop table covid_cases;
+drop table inventario;
+drop table personel;
+drop table protocolo;
+drop table update_hospital;
+drop table catalogo_accion;
+drop table catalogo_problemas;
+drop table catalogo_recursos;
+drop table catalogo_status_cuestionario;
+drop table personel_vm;
+drop table hospital_contact;
+drop table hospital;
