@@ -1,0 +1,123 @@
+enum hospital_type_enum {
+  district
+  regional
+  provincial
+}
+
+Table District {
+  id_district int pk
+  district_name varchar
+}
+
+Table Province{
+  id_province int pk
+  province_name varchar
+}
+
+
+Table Hospital as H {
+  id_hospital int pk
+  hospital_name varchar 
+  adress varchar 
+  latitude double 
+  longitude double
+  altitude double
+  district int [ref: > District.id_district]
+  province int [ref: > Province.id_province]
+  hospital_type hospital_type_enum
+  MOPH_number int
+}
+enum funds_enum {
+  "Yes-Government"
+  "Yes-Private"
+  "Yes-Both"
+  "No"
+  "Doesn't know"
+}
+Table Update_hospital as UH {
+  id_update int pk
+  name_responder varchar(50) 
+  id_personel_vm int [ref: > Personel_VM.id_personel_vm]
+  id_hospital int [ref: > H.id_hospital]
+  id_questionnaire_status int [ref: > CSC.id_status]
+  id_problem_status int [ref: > CP.id_problem]
+  id_action_status int [ref: > CA.id_action]
+  funds funds_enum 
+  additional_comments varchar //CAN BE NULL
+  update_date timestamp
+}
+
+Table Personel_VM{
+  id_personel_vm int pk
+  employeee_name varchar
+}
+
+Table Telephone {
+  id_telephone int pk
+  telephone varchar
+  id_hospital int [ref: > Hospital.id_hospital] //CAN BE NULL
+  active boolean
+}
+
+Table Questionnaire_Status_Catalog as CSC {
+  id_status int pk
+  status varchar 
+}
+
+Table Problem_catalog as CP {
+  id_problem int pk
+  problem varchar
+}
+
+Table Action_catalog as CA {
+  id_action int pk
+  action_name varchar
+}
+
+Table Protocol {
+  id_protocol int pk
+  id_update int [ref: - UH.id_update] //UNIQUE
+  covid_screening boolean
+  covid_awareness boolean
+  avg_test_result_time int
+  test_capacity boolean
+  covid_tracking boolean
+  MOPH_report boolean
+  
+}
+
+Table Covid_Cases {
+  id_casefile int pk
+  id_update int [ref: - UH.id_update] //UNIQUE
+  patients_with_symptoms int
+  positive_patients int
+  intensive_care int
+  covid_deaths int
+  non_covid_deaths int
+  covid_recovered int
+  PHC_referred int
+}
+
+Table Personel {
+  id_personel int pk 
+  id_update int [ref: - UH.id_update] //UNIQUE
+  no_doctors int
+  no_paramedics int
+}
+
+Table Inventory {
+  id_update int pk [ref: > UH.id_update]
+  id_product int pk [ref: > CR.id_product]
+  days_remaining int
+}
+
+enum resource_type_enum {
+  covid
+  general
+}
+
+Table Resource_Catalog as CR {
+  id_product int pk
+  product_name varchar
+  product_type resource_type_enum
+}
