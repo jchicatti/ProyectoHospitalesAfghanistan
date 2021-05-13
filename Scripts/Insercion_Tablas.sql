@@ -498,6 +498,6 @@ values
 insert into hospital
 (hospital_name, address, latitude, longitude, altitude, district, province, hospital_type, MOPH_number)
 values
-('Angeles','Periferico Sur',100,200,300, 800,99,'distrital',1023),
-('SEDNA','EDOMEX',200,1,3020, 809,69,'regional',1038),
-('Cardiologia','Centro',3,4,5, 810,100,'distrital',93837)
+('Angeles','Periferico Sur',100,200,300, 4,5,'distrital',1023),
+('SEDNA','EDOMEX',200,1,3020, 2,3,'regional',1038),
+('Cardiologia','Centro',3,4,5, 4,11,'distrital',93837)
