@@ -32,7 +32,7 @@ CREATE TABLE Hospital (
   district int references District (id_district) ON UPDATE CASCADE ON DELETE CASCADE,
   province int references Province (id_province) ON UPDATE CASCADE ON DELETE CASCADE,
   hospital_type hospital_type_enum not null,
-  MOPH_number int not null
+  MOPH_number int unique not null
 );
 
 
