@@ -11,7 +11,7 @@ namespace Proyecto_BD
     {
         public int idHospital { get; set; }
         public String name { get; set; }
-        public String adress { get; set; }
+        public String address { get; set; }
         public String contact { get; set; }
         public String moph { get; set; }
 
@@ -19,10 +19,10 @@ namespace Proyecto_BD
         {
         }
 
-        public Hospital(string name, string adress, string contact, string moph)
+        public Hospital(string name, string address, string contact, string moph)
         {
             this.name = name;
-            this.adress = adress;
+            this.address = address;
             this.contact = contact;
             this.moph = moph;
         }
@@ -34,7 +34,7 @@ namespace Proyecto_BD
 
             try
             {
-                String query = "SELECT max(idHospital) FROM encuesta.hospital";
+                String query = "SELECT max(idHospital) FROM hospital";
                 NpgsqlConnection con = Conexion.AgregarConexion();
                 NpgsqlCommand cmd = new NpgsqlCommand(query, con);
                 NpgsqlDataReader rd = cmd.ExecuteReader();
@@ -55,8 +55,8 @@ namespace Proyecto_BD
                 contID++;
 
                 NpgsqlConnection con2 = Conexion.AgregarConexion();
-                String query2 = String.Format("INSERT INTO encuesta.hospital VALUES({0},'{1}','{2}','{3}','{4}')",
-                    contID, this.name, this.adress, this.contact, this.moph);
+                String query2 = String.Format("INSERT INTO hospital VALUES({0},'{1}','{2}','{3}','{4}')",
+                    contID, this.name, this.address, this.contact, this.moph);
                 NpgsqlCommand cmd2 = new NpgsqlCommand(query2, con2);
                 int a = cmd2.ExecuteNonQuery();
                 if (a > 0)

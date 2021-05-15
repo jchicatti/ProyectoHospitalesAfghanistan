@@ -66,7 +66,7 @@
 &nbsp;<asp:TextBox ID="TextBox13" runat="server"></asp:TextBox>
             <br />
             <br />
-            District: <asp:DropDownList ID="DropDownList3" runat="server">
+            District: <asp:DropDownList ID="DropDownList3" runat="server" AutoPostBack="True">
             </asp:DropDownList>
             <br />
             <br />
@@ -84,7 +84,7 @@
             <br />
             <br />
             <br />
-            <asp:Label ID="Label1" runat="server" Text="Status"></asp:Label>
+            <asp:Label ID="Label1" runat="server" Text="Status" BorderColor="#000099" BorderStyle="Dotted"></asp:Label>
             <br />
             <br />
             Test:       <br />

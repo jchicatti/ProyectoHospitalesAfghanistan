@@ -1,6 +1,3 @@
-
-
-
 create table Province(
  id_province serial primary key,
  province_name varchar(60)
@@ -11,15 +8,11 @@ create table District(
  district_name varchar(60)
 );
 
-
-
-
 CREATE TYPE hospital_type_enum AS ENUM (
   'distrital',
   'regional',
   'provincial'
 );
-
 
 
 CREATE TABLE Hospital (

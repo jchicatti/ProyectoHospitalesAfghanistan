@@ -11,7 +11,10 @@ namespace Proyecto_BD
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                Conexion.LlenarHospitales(DropDownList1);
+            }
         }
 
         protected void Button5_Click(object sender, EventArgs e)

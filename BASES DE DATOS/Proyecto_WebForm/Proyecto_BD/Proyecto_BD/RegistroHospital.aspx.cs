@@ -11,16 +11,19 @@ namespace Proyecto_BD
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            PostLog();
             if (!IsPostBack)
             {
                 Conexion.LlenarHospitales(DropDownList1);
                 Conexion.InventarioTotal(GridView1);
+                Conexion.LlenarDistritos(DropDownList3);
             }
         }
-
         protected void Button2_Click(object sender, EventArgs e)
         {
+            Session["log"] = ChangeLog();
             Response.Redirect("Inicio.aspx");
+
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -49,13 +52,55 @@ namespace Proyecto_BD
                 Hospital c = new Hospital(nombre, dom, tel, moph);
                 Label1.Text = c.AgregaHospital();
                 Session["Nombre"] = nombre;
+                Session["log"] = ChangeLog();
                 Response.Redirect("Formulario1.aspx");
             }
             else
             {
                 Label1.Text = "Fields required.";
             }
-            //Response.Redirect(".");
+        }
+        public List<string> ChangeLog()
+        {
+            List<string> log = new List<string>
+            {
+                "",
+                TextBox1.Text,
+                TextBox2.Text,
+                TextBox3.Text,
+                //TextBox4.Text,
+                "",
+                TextBox5.Text,
+                TextBox6.Text,
+                TextBox7.Text,
+                TextBox8.Text,
+                TextBox9.Text,
+                TextBox10.Text,
+                TextBox11.Text,
+                TextBox12.Text
+            };
+
+            return log;
+        }
+        public void PostLog()
+        {
+            List<string> log;
+            if (Session["log"] != null)
+            {
+                log = (List<string>)Session["log"];
+                TextBox1.Text = log[1];
+                TextBox2.Text = log[2];
+                TextBox3.Text = log[3];
+                //TextBox4.Text = log[4];
+                TextBox5.Text = log[5];
+                TextBox6.Text = log[6];
+                TextBox7.Text = log[7];
+                TextBox8.Text = log[8];
+                TextBox9.Text = log[9];
+                TextBox10.Text = log[10];
+                TextBox11.Text = log[11];
+                TextBox12.Text = log[12];
+            }
         }
     }
 }

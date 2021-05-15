@@ -20,7 +20,7 @@
             <asp:GridView ID="GridView1" runat="server">
             </asp:GridView>
             <br />
-            Select Hospital to Update: <asp:DropDownList ID="DropDownList1" runat="server">
+            Select Hospital to Update: <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True">
             </asp:DropDownList>
             <br />
             <br />
