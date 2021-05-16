@@ -7,13 +7,11 @@ namespace Proyecto_BD
 {
     public class Conexion
     {
-        static readonly string defaultQuery = "SELECT * FROM hospital";
         public static NpgsqlConnection AgregarConexion()
         {
             NpgsqlConnection con;
             try
             {
-                //con = new NpgsqlConnection("Data Source=JCHICATT\\SQLEXPRESS;Initial Catalog=encuesta;Integrated Security=True");
                 con = new NpgsqlConnection("Host=localhost;database=bla;user id=postgres;password=admin");
                 con.Open();
             }
@@ -34,7 +32,7 @@ namespace Proyecto_BD
 
                 while (rd.Read())
                 {
-                    dd.Items.Add(rd["name"].ToString());
+                    dd.Items.Add(rd["hospital_name"].ToString());
                 }
                 rd.Close();
                 con.Close();
@@ -88,6 +86,63 @@ namespace Proyecto_BD
                 while (rd.Read())
                 {
                     dd.Items.Add(rd["district_name"].ToString());
+                }
+                rd.Close();
+                con.Close();
+            }
+            catch (Exception)
+            {
+            }
+        }
+        public static void EnumFunds(DropDownList dd)
+        {
+            try
+            {
+                NpgsqlConnection con = AgregarConexion();
+                NpgsqlCommand cmd = new NpgsqlCommand("select unnest(enum_range(null::funds_enum))", con);
+                NpgsqlDataReader rd = cmd.ExecuteReader();
+
+                while (rd.Read())
+                {
+                    dd.Items.Add(rd["unnest"].ToString());
+                }
+                rd.Close();
+                con.Close();
+            }
+            catch (Exception)
+            {
+            }
+        }
+        public static void EnumHospitalType(DropDownList dd)
+        {
+            try
+            {
+                NpgsqlConnection con = AgregarConexion();
+                NpgsqlCommand cmd = new NpgsqlCommand("select unnest(enum_range(null::hospital_type_enum))", con);
+                NpgsqlDataReader rd = cmd.ExecuteReader();
+
+                while (rd.Read())
+                {
+                    dd.Items.Add(rd["unnest"].ToString());
+                }
+                rd.Close();
+                con.Close();
+            }
+            catch (Exception)
+            {
+            }
+        }
+        public static void EnumResourceType(DropDownList dd)
+        {
+            try
+            {
+                NpgsqlConnection con = AgregarConexion();
+                NpgsqlCommand cmd = new NpgsqlCommand("select unnest(enum_range(null::resource_type_enum))", con);
+                NpgsqlDataReader rd = cmd.ExecuteReader();
+
+                while (rd.Read())
+                {
+                    dd.Items.Add(rd["unnest"].ToString());
                 }
                 rd.Close();
                 con.Close();

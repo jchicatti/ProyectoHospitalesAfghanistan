@@ -17,3 +17,4 @@ drop table district;
 drop type funds_enum;
 drop type hospital_type_enum;
 drop type resource_type_enum;
+drop type phone_type_enum;

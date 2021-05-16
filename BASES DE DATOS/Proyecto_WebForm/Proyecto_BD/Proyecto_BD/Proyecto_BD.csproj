@@ -190,6 +190,7 @@
     <Compile Include="RegistroHospital.aspx.designer.cs">
       <DependentUpon>RegistroHospital.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Telephone.cs" />
     <Compile Include="UpdateContacto.aspx.cs">
       <DependentUpon>UpdateContacto.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

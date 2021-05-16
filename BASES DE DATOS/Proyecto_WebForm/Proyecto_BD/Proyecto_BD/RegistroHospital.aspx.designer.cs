@@ -141,15 +141,6 @@ namespace Proyecto_BD
         protected global::System.Web.UI.WebControls.TextBox TextBox11;
 
         /// <summary>
-        /// Control TextBox12.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox12;
-
-        /// <summary>
         /// Control TextBox13.
         /// </summary>
         /// <remarks>
@@ -157,6 +148,15 @@ namespace Proyecto_BD
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBox13;
+
+        /// <summary>
+        /// Control DropDownList2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList2;
 
         /// <summary>
         /// Control DropDownList3.
@@ -168,13 +168,13 @@ namespace Proyecto_BD
         protected global::System.Web.UI.WebControls.DropDownList DropDownList3;
 
         /// <summary>
-        /// Control DropDownList2.
+        /// Control DropDownList9.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList2;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList9;
 
         /// <summary>
         /// Control Button1.

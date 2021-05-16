@@ -496,8 +496,8 @@ values
 
 --- Agregamos un par de hospitales falsos
 insert into hospital
-(hospital_name, address, latitude, longitude, altitude, district, province, hospital_type, MOPH_number)
+(hospital_name, address, latitude, longitude, district, province, hospital_type, MOPH_number)
 values
-('Angeles','Periferico Sur',100,200,300, 4,5,'distrital',1023),
-('SEDNA','EDOMEX',200,1,3020, 2,3,'regional',1038),
-('Cardiologia','Centro',3,4,5, 4,11,'distrital',93837)
+('Angeles','Periferico Sur',100,200, 4,5,'Distrital','A10-23'),
+('SEDNA','EDOMEX',200,1, 2,3,'Regional','10-38'),
+('Cardiologia','Centro',3,4, 4,11,'Provincial','93-837')

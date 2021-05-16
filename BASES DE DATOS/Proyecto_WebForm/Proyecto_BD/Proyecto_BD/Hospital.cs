@@ -9,21 +9,29 @@ namespace Proyecto_BD
 {
     public class Hospital
     {
-        public int idHospital { get; set; }
-        public String name { get; set; }
-        public String address { get; set; }
-        public String contact { get; set; }
-        public String moph { get; set; }
+        private int idHospital { get; set; }
+        private string name { get; set; }
+        private string address { get; set; }
+        private double latitude { get; set; }
+        private double longitude { get; set; }
+        private int district { get; set; }
+        private int province { get; set; }
+        private string type { get; set; }
+        private string moph { get; set; }
 
         public Hospital()
         {
         }
 
-        public Hospital(string name, string address, string contact, string moph)
+        public Hospital(string name, string address, double latitude, double longitude, int district, int province, string type, string moph)
         {
             this.name = name;
             this.address = address;
-            this.contact = contact;
+            this.latitude = latitude;
+            this.longitude = longitude;
+            this.district = district;
+            this.province = province;
+            this.type = type;
             this.moph = moph;
         }
 
@@ -34,33 +42,35 @@ namespace Proyecto_BD
 
             try
             {
-                String query = "SELECT max(idHospital) FROM hospital";
-                NpgsqlConnection con = Conexion.AgregarConexion();
-                NpgsqlCommand cmd = new NpgsqlCommand(query, con);
-                NpgsqlDataReader rd = cmd.ExecuteReader();
-                if (rd.Read())
-                {
-                    try
-                    {
-                        contID = rd.GetInt32(0);
-                        con.Close();
-                    }
-                    catch (Exception)
-                    {
-                        contID = 0;
-                    }
-                }
-                else
-                    contID = 0;
-                contID++;
-
                 NpgsqlConnection con2 = Conexion.AgregarConexion();
-                String query2 = String.Format("INSERT INTO hospital VALUES({0},'{1}','{2}','{3}','{4}')",
-                    contID, this.name, this.address, this.contact, this.moph);
+                String query2 = String.Format("INSERT INTO Hospital (hospital_name, address, latitude, longitude, district, province, hospital_type, MOPH_number) " +
+                    "VALUES('{0}','{1}',{2},{3},{4},{5},'{6}','{7}')",
+                    this.name, this.address, this.latitude, this.longitude,
+                    this.district, this.province, this.type, this.moph);
                 NpgsqlCommand cmd2 = new NpgsqlCommand(query2, con2);
                 int a = cmd2.ExecuteNonQuery();
                 if (a > 0)
-                    res = "Registration succesful!";
+                {
+                    String query = "SELECT max(id_hospital) FROM Hospital";
+                    NpgsqlConnection con = Conexion.AgregarConexion();
+                    NpgsqlCommand cmd = new NpgsqlCommand(query, con);
+                    NpgsqlDataReader rd = cmd.ExecuteReader();
+                    if (rd.Read())
+                    {
+                        try
+                        {
+                            contID = rd.GetInt32(0);
+                            con.Close();
+                        }
+                        catch (Exception)
+                        {
+                            contID = 0;
+                        }
+                    }
+                    else
+                        contID = 0;
+                    res = "Registration succesful!" + " ID: " + contID;
+                }
                 else
                     res = "Connection error";
             }
@@ -71,27 +81,5 @@ namespace Proyecto_BD
 
             return res;
         }
-        
-        /*public int ObtenerId()
-        {
-            int res = -1;
-
-            try
-            {
-                SqlConnection con = Conexion.AgregarConexion();
-                SqlCommand cmd = new SqlCommand(String.Format("SELECT idCliente FROM cliente WHERE nombre='{0}'", this.name), con);
-                SqlDataReader rd = cmd.ExecuteReader();
-                if (rd.Read())
-                {
-                    res = rd.GetInt32(0);
-                    con.Close();
-                }
-                rd.Close();
-            }
-            catch (Exception)
-            { }
-
-            return res;
-        }*/
     }
 }

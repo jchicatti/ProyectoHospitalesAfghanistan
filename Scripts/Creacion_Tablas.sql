@@ -9,23 +9,21 @@ create table District(
 );
 
 CREATE TYPE hospital_type_enum AS ENUM (
-  'distrital',
-  'regional',
-  'provincial'
+  'Distrital',
+  'Regional',
+  'Provincial'
 );
 
-
 CREATE TABLE Hospital (
-  id_hospital serial PRIMARY key ,
+  id_hospital serial PRIMARY key,
   hospital_name varchar(50) not NULL,
   address varchar(100) not null,
-  latitude double precision not null,
-  longitude double precision not null,
-  altitude double precision not null,
+  latitude double precision,
+  longitude double precision,
   district int references District (id_district) ON UPDATE CASCADE ON DELETE CASCADE,
   province int references Province (id_province) ON UPDATE CASCADE ON DELETE CASCADE,
   hospital_type hospital_type_enum not null,
-  MOPH_number int unique not null
+  MOPH_number varchar(20) unique not null
 );
 
 
@@ -34,9 +32,16 @@ CREATE TABLE Personel_VM (
   employee_name varchar(50) not null
 );
 
+CREATE TYPE phone_type_enum AS ENUM (
+  'Landline',
+  'Cellphone'
+);
+
 CREATE TABLE Telephone (
   id_telephone serial PRIMARY KEY,
   telephone varchar(15) not null,
+  contact_name varchar(50),
+  phone_type phone_type_enum not null,
   id_hospital int references Hospital (id_hospital) ON UPDATE CASCADE ON DELETE CASCADE,
   active boolean not null
 );
@@ -67,11 +72,11 @@ CREATE TYPE funds_enum AS ENUM (
 CREATE TABLE Update_hospital (
   id_update SERIAL PRIMARY KEY,
   name_responder varchar(50),
-  id_personel_vm int references Personel_VM (id_personel_vm) ON UPDATE CASCADE ON DELETE CASCADE ,
+  id_personel_vm int references Personel_VM (id_personel_vm) ON UPDATE CASCADE ON DELETE CASCADE,
   id_hospital int references Hospital (id_hospital) ON UPDATE CASCADE ON DELETE CASCADE,
-  id_questionnare_status int references Questionnaire_Status_Catalog (id_status) ON UPDATE CASCADE ON DELETE CASCADE not null  ,
-  id_problem_status int references Problem_Catalog (id_problem)ON UPDATE CASCADE ON DELETE CASCADE not null ,
-  id_action_status int references Action_Catalog (id_action)ON UPDATE CASCADE ON DELETE cascade not null ,
+  id_questionnare_status int references Questionnaire_Status_Catalog (id_status) ON UPDATE CASCADE ON DELETE CASCADE not null,
+  id_problem_status int references Problem_Catalog (id_problem)ON UPDATE CASCADE ON DELETE CASCADE not null,
+  id_action_status int references Action_Catalog (id_action)ON UPDATE CASCADE ON DELETE cascade not null,
   funds funds_enum,
   additional_comments varchar(300),
   update_date timestamp not null
