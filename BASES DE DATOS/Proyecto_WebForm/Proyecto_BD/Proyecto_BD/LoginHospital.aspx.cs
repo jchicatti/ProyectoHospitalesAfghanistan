@@ -14,6 +14,7 @@ namespace Proyecto_BD
             if (!IsPostBack)
             {
                 Conexion.LlenarHospitales(DropDownList1);
+                Conexion.InventarioTotal(GridView1);
             }
         }
 

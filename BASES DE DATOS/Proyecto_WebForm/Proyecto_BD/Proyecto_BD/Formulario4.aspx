@@ -66,6 +66,9 @@
 &nbsp;<asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
             <br />
             <br />
+            <asp:Label ID="Label1" runat="server" BorderColor="#FF9900" BorderStyle="Dotted" Text="Label"></asp:Label>
+            <br />
+            <br />
             <br />
             <asp:Button ID="Button2" runat="server" CssClass="buttonl" Text="Previous Page" OnClick="Button2_Click" />
             <asp:Button ID="Button1" runat="server" CssClass="buttonr" Text="Next Page" OnClick="Button1_Click" />

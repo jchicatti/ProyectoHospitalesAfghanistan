@@ -11,7 +11,7 @@ namespace Proyecto_BD
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            PostLog();
+            
             if (!IsPostBack)
             {
                 Conexion.EnumHospitalType(DropDownList2);
@@ -19,6 +19,7 @@ namespace Proyecto_BD
                 Conexion.LlenarProvincias(DropDownList9);
                 Conexion.LlenarHospitales(DropDownList1);
                 Conexion.InventarioTotal(GridView1);
+                PostLog();
             }
         }
         protected void Button2_Click(object sender, EventArgs e)
@@ -117,7 +118,6 @@ namespace Proyecto_BD
                 TextBox1.Text,
                 TextBox2.Text,
                 TextBox3.Text,
-                //TextBox4.Text,
                 "",
                 TextBox5.Text,
                 TextBox6.Text,
@@ -126,9 +126,10 @@ namespace Proyecto_BD
                 TextBox9.Text,
                 TextBox10.Text,
                 TextBox11.Text,
-                //TextBox12.Text
                 "",
-                TextBox13.Text
+                TextBox13.Text,
+                (DropDownList3.SelectedIndex).ToString(),
+                (DropDownList9.SelectedIndex).ToString()
             };
 
             return log;
@@ -142,7 +143,6 @@ namespace Proyecto_BD
                 TextBox1.Text = log[1];
                 TextBox2.Text = log[2];
                 TextBox3.Text = log[3];
-                //TextBox4.Text = log[4];
                 TextBox5.Text = log[5];
                 TextBox6.Text = log[6];
                 TextBox7.Text = log[7];
@@ -150,8 +150,9 @@ namespace Proyecto_BD
                 TextBox9.Text = log[9];
                 TextBox10.Text = log[10];
                 TextBox11.Text = log[11];
-                //TextBox12.Text = log[12];
                 TextBox13.Text = log[13];
+                DropDownList3.SelectedIndex = Convert.ToInt32(log[14]);
+                DropDownList9.SelectedIndex = Convert.ToInt32(log[15]);
             }
         }
     }

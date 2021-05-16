@@ -61,6 +61,7 @@
             <asp:TextBox ID="TextBox3" runat="server" Width="134px"></asp:TextBox>
             <br />
             <br />
+            <asp:Label ID="Label1" runat="server" BorderColor="#FF9900" BorderStyle="Dotted" Text="Label"></asp:Label>
             <br />
             <br />
             <asp:Button ID="Button2" runat="server" CssClass="buttonl" Text="Cancel update" OnClick="Button2_Click" />
