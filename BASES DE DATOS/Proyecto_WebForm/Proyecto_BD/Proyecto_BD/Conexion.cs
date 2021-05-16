@@ -27,7 +27,7 @@ namespace Proyecto_BD
             try
             {
                 NpgsqlConnection con = AgregarConexion();
-                NpgsqlCommand cmd = new NpgsqlCommand("SELECT hospital_name FROM hospital", con);
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT hospital_name FROM hospital order by id_hospital desc", con);
                 NpgsqlDataReader rd = cmd.ExecuteReader();
 
                 while (rd.Read())
@@ -46,7 +46,7 @@ namespace Proyecto_BD
             try
             {
                 NpgsqlConnection con = AgregarConexion();
-                NpgsqlCommand cmd = new NpgsqlCommand("SELECT * FROM hospital", con);
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT * FROM hospital order by id_hospital desc", con);
                 NpgsqlDataReader rd = cmd.ExecuteReader();
                 gv.DataSource = rd;
                 gv.DataBind();
@@ -150,6 +150,47 @@ namespace Proyecto_BD
             catch (Exception)
             {
             }
+        }
+        public static void MophList(DropDownList dd, string hospital_name)
+        {
+            try
+            {
+                NpgsqlConnection con = AgregarConexion();
+                NpgsqlCommand cmd = new NpgsqlCommand("select moph_number from hospital h where h.hospital_name='" + hospital_name + "'", con);
+                NpgsqlDataReader rd = cmd.ExecuteReader();
+
+                while (rd.Read())
+                {
+                    dd.Items.Add(rd["moph_number"].ToString());
+                }
+                rd.Close();
+                con.Close();
+            }
+            catch (Exception)
+            {
+            }
+        }
+        public static int ObtenerId(string moph)
+        {
+            int res = -1;
+
+            try
+            {
+                NpgsqlConnection con = Conexion.AgregarConexion();
+                NpgsqlCommand cmd = new NpgsqlCommand(String.Format("select id_hospital from hospital h where h.moph_number='{0}'", moph), con);
+                NpgsqlDataReader rd = cmd.ExecuteReader();
+                if (rd.Read())
+                {
+                    res = rd.GetInt32(0);
+                    con.Close();
+                }
+                rd.Close();
+            }
+            catch (Exception)
+            {
+            }
+
+            return res;
         }
     }
 }

@@ -66,7 +66,7 @@ namespace Proyecto_BD
                         string resInsert = c.AgregaHospital();
                         bool wasInserted = int.TryParse(resInsert.Substring(28), out int id_hospital);
                         Label1.Text += "\n" + resInsert;
-                        Session["id_hospital"] = id_hospital;
+                        Session["id_hospital_register"] = id_hospital;
                         Session["logRH"] = ChangeLog();
 
                         //4. El MOPH es único

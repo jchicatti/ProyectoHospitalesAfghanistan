@@ -20,12 +20,13 @@
             <asp:GridView ID="GridView1" runat="server">
             </asp:GridView>
             <br />
-            Select Hospital to Update: <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True">
+            Select Hospital to Update: <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
             </asp:DropDownList>
             <br />
             <br />
-            <asp:Button ID="Button5" runat="server" CssClass="buttonl" Text="Confirm" OnClick="Button5_Click"/>
-            <br />
+            <asp:Label ID="Label2" runat="server" Text="Please certify the MOPH number:"></asp:Label>
+&nbsp;<asp:DropDownList ID="DropDownList2" runat="server" AutoPostBack="True">
+            </asp:DropDownList>
             <br />
 &nbsp;<br />
             <asp:Label ID="Label1" runat="server"></asp:Label>
