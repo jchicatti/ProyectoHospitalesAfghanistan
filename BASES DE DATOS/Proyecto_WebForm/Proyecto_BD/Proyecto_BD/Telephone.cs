@@ -30,7 +30,7 @@ namespace Proyecto_BD
             try
             {
                 NpgsqlConnection con2 = Conexion.AgregarConexion();
-                String query2 = String.Format("insert into Telephone(telephone, contact_name, phone_type, id_hopsital, active) values('{0}', '{1}', '{2}', {3}, true)",
+                String query2 = String.Format("insert into Telephone(telephone, contact_name, phone_type, id_hospital, active) values('{0}', '{1}', '{2}', {3}, true)",
                     this.telephone, this.contact_name, this.phone_type, this.id_hospital);
                 NpgsqlCommand cmd2 = new NpgsqlCommand(query2, con2);
                 int a = cmd2.ExecuteNonQuery();

@@ -38,7 +38,7 @@
             <h2>Monthly COVID Related Questions</h2>
             <br />
             <br />
-            Last month, how many patients with COVID symtoms have you observed?<br />
+            Last month, how many patients with COVID symptoms have you observed?<br />
 &nbsp;<asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
             <br />
             <br />
@@ -62,7 +62,7 @@
 &nbsp;<asp:TextBox ID="TextBox8" runat="server"></asp:TextBox>
             <br />
             <br />
-            On avarage for the last month, how quikly was your health center able to obtain COVID test results?<br />
+            On avarage for the last month, how quickly was your health center able to obtain COVID test results? (in days)<br />
 &nbsp;<asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
             <br />
             <br />

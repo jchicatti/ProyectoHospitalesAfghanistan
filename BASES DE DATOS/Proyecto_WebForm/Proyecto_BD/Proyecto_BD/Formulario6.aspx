@@ -40,7 +40,7 @@
             <div class="right">Available oxygen reserves in days:</div>
             <asp:DropDownList ID="DropDownList1" runat="server" Width="133px">
                 <asp:ListItem>0</asp:ListItem>
-                <asp:ListItem Value="3 ">3 </asp:ListItem>
+                <asp:ListItem>3</asp:ListItem>
                 <asp:ListItem>7</asp:ListItem>
                 <asp:ListItem>15</asp:ListItem>
                 <asp:ListItem>30</asp:ListItem>
@@ -50,17 +50,17 @@
             <div class="right">Available antipyretics reserves in days:</div>
             <asp:DropDownList ID="DropDownList2" runat="server" Width="133px">
                 <asp:ListItem>0</asp:ListItem>
-                <asp:ListItem Value="3 ">3 </asp:ListItem>
+                <asp:ListItem>3</asp:ListItem>
                 <asp:ListItem>7</asp:ListItem>
                 <asp:ListItem>15</asp:ListItem>
                 <asp:ListItem>30</asp:ListItem>
             </asp:DropDownList>
             <br />
             <br />
-            <div class="right">Available anesthesic drugs/muscular relaxatns reserves in days:</div>
+            <div class="right">Available anesthesic drugs/muscular relaxants reserves in days:</div>
             <asp:DropDownList ID="DropDownList3" runat="server" Width="133px">
                 <asp:ListItem>0</asp:ListItem>
-                <asp:ListItem Value="3 ">3 </asp:ListItem>
+                <asp:ListItem>3</asp:ListItem>
                 <asp:ListItem>7</asp:ListItem>
                 <asp:ListItem>15</asp:ListItem>
                 <asp:ListItem>30</asp:ListItem>
@@ -70,11 +70,12 @@
             <div class="right">Available alcohol solution/soap for handwashing reserves in days:</div>
             <asp:DropDownList ID="DropDownList4" runat="server" Width="133px">
                 <asp:ListItem>0</asp:ListItem>
-                <asp:ListItem Value="3 ">3 </asp:ListItem>
+                <asp:ListItem>3 </asp:ListItem>
                 <asp:ListItem>7</asp:ListItem>
                 <asp:ListItem>15</asp:ListItem>
                 <asp:ListItem>30</asp:ListItem>
             </asp:DropDownList>
+            <br />
             <br />
             <br />
             <br />

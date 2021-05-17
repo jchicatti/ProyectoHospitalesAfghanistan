@@ -31,8 +31,8 @@
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:DropDownList ID="DropDownList8" runat="server">
-                <asp:ListItem Value="0">Landline</asp:ListItem>
-                <asp:ListItem Value="1">Cellphone</asp:ListItem>
+                <asp:ListItem Value="Landline">Landline</asp:ListItem>
+                <asp:ListItem Value="Cellphone">Cellphone</asp:ListItem>
             </asp:DropDownList>
             <br />
             <br />
@@ -41,8 +41,8 @@
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="TextBox7" runat="server"></asp:TextBox>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:DropDownList ID="DropDownList7" runat="server">
-                <asp:ListItem Value="0">Landline</asp:ListItem>
-                <asp:ListItem Value="1">Cellphone</asp:ListItem>
+                <asp:ListItem Value="Landline">Landline</asp:ListItem>
+                <asp:ListItem Value="Cellphone">Cellphone</asp:ListItem>
             </asp:DropDownList>
             <br />
             <br />
@@ -51,8 +51,8 @@
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="TextBox9" runat="server"></asp:TextBox>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:DropDownList ID="DropDownList6" runat="server">
-                <asp:ListItem Value="0">Landline</asp:ListItem>
-                <asp:ListItem Value="1">Cellphone</asp:ListItem>
+                <asp:ListItem Value="Landline">Landline</asp:ListItem>
+                <asp:ListItem Value="Cellphone">Cellphone</asp:ListItem>
             </asp:DropDownList>
             <br />
             <br />

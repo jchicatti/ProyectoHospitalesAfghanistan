@@ -67,6 +67,7 @@ namespace Proyecto_BD
                         bool wasInserted = int.TryParse(resInsert.Substring(28), out int id_hospital);
                         Label1.Text += "\n" + resInsert;
                         Session["id_hospital_register"] = id_hospital;
+                        Session["id_hospital_update"] = id_hospital;
                         Session["logRH"] = ChangeLog();
 
                         //4. El MOPH es único
@@ -77,12 +78,12 @@ namespace Proyecto_BD
                                 Telephone t = new Telephone(numero_1, nombre_1, tipo_1, id_hospital);
                                 Label1.Text += t.AddTelephone();
                             }
-                            if (isNumeric1 && numero_1.Length == 10)
+                            if (isNumeric2 && numero_2.Length == 10)
                             {
                                 Telephone t = new Telephone(numero_2, nombre_2, tipo_2, id_hospital);
                                 Label1.Text += t.AddTelephone();
                             }
-                            if (isNumeric1 && numero_1.Length == 10)
+                            if (isNumeric3 && numero_3.Length == 10)
                             {
                                 Telephone t = new Telephone(numero_3, nombre_3, tipo_3, id_hospital);
                                 Label1.Text += t.AddTelephone();

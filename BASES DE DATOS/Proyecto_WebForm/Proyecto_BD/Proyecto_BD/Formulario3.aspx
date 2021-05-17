@@ -56,12 +56,7 @@
             </asp:RadioButtonList>
             <br />
             Have you recieved COVID related resources in the last month?<br />
-&nbsp;<asp:DropDownList ID="DropDownList1" runat="server" Width="183px">
-                <asp:ListItem>Yes Government</asp:ListItem>
-                <asp:ListItem Value="1">Yes Non Government</asp:ListItem>
-                <asp:ListItem Value="3">Yes Both</asp:ListItem>
-                <asp:ListItem Value="4">None</asp:ListItem>
-                <asp:ListItem Value="5">Don&#39;t Know</asp:ListItem>
+&nbsp;<asp:DropDownList ID="DropDownList1" runat="server" Width="183px" AutoPostBack="True">
             </asp:DropDownList>
             <br />
             <br />
@@ -73,11 +68,11 @@
             <br />
             How regularly do you report your COVID tracking results to the MOPH?<br />
 &nbsp;<asp:DropDownList ID="DropDownList2" runat="server" Width="133px">
-                <asp:ListItem Value="0">Every 3 days</asp:ListItem>
-                <asp:ListItem Value="1">Every 7 days</asp:ListItem>
-                <asp:ListItem Value="2">Every 15 days</asp:ListItem>
-                <asp:ListItem Value="3">Every 30 days or more</asp:ListItem>
-                <asp:ListItem Value="5">Never</asp:ListItem>
+                <asp:ListItem Value="3">Every 3 days</asp:ListItem>
+                <asp:ListItem Value="7">Every 7 days</asp:ListItem>
+                <asp:ListItem Value="15">Every 15 days</asp:ListItem>
+                <asp:ListItem Value="30">Every 30 days or more</asp:ListItem>
+                <asp:ListItem Value="0">Never</asp:ListItem>
             </asp:DropDownList>
             <br />
             <br />

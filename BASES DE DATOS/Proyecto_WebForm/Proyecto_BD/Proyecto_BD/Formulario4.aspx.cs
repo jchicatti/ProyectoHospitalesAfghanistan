@@ -61,8 +61,8 @@ namespace Proyecto_BD
                 TextBox6.Text = "-1";
             if (TextBox7.Text.Equals(""))
                 TextBox7.Text = "-1";
-            if (TextBox7.Text.Equals(""))
-                TextBox7.Text = "-1";
+            if (TextBox8.Text.Equals(""))
+                TextBox8.Text = "-1";
             return int.TryParse(TextBox2.Text, out _) && int.TryParse(TextBox3.Text, out _) && int.TryParse(TextBox4.Text, out _) && int.TryParse(TextBox5.Text, out _)
                 && int.TryParse(TextBox6.Text, out _) && int.TryParse(TextBox7.Text, out _) && int.TryParse(TextBox8.Text, out _);
         }

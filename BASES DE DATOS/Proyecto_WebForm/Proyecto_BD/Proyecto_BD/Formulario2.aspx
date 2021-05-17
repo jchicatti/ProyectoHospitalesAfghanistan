@@ -44,7 +44,7 @@
                 Available disposable masks reserves in days:</div>
             <asp:DropDownList ID="DropDownList1" runat="server" CssClass="right" Width="133px">
                 <asp:ListItem>0</asp:ListItem>
-                <asp:ListItem Value="3 ">3 </asp:ListItem>
+                <asp:ListItem Value="3">3 </asp:ListItem>
                 <asp:ListItem>7</asp:ListItem>
                 <asp:ListItem>15</asp:ListItem>
                 <asp:ListItem>30</asp:ListItem>

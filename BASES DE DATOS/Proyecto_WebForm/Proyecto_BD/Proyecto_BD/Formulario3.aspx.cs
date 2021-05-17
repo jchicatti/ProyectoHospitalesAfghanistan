@@ -13,6 +13,7 @@ namespace Proyecto_BD
         {
             if (!IsPostBack)
             {
+                Conexion.EnumFunds(DropDownList1);
                 PostLog();
             }
         }
@@ -22,12 +23,13 @@ namespace Proyecto_BD
             if (ValidInput())
             {
                 Session["logF3"] = ChangeLog();
-                Response.Redirect("Formulario4.aspx");
+                //Response.Redirect("Formulario4.aspx");
             }
             else
             {
                 Label1.Text = "Verify all inputs are numeric and try again.";
             }
+            Label1.Text = "" + RadioButtonList1.SelectedIndex;
         }
 
         protected void Button2_Click(object sender, EventArgs e)
