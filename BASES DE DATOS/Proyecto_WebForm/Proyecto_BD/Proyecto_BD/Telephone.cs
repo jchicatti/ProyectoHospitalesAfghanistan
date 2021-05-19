@@ -38,12 +38,12 @@ namespace Proyecto_BD
                     res = "Telephone added succesfully!";
                 else
                     res = "Connection error";
+                con2.Close();
             }
             catch (Exception e)
             {
                 res = e.Message;
             }
-
             return res;
         }
     }

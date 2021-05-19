@@ -28,6 +28,7 @@ namespace Proyecto_BD
             {
                 Session["logF1"] = ChangeLog();
                 Response.Redirect("Formulario2.aspx");
+                Conexion.finished1 = true;
             }
             else
             {

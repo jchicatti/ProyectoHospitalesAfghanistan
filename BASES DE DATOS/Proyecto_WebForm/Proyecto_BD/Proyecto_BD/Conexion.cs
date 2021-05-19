@@ -7,6 +7,13 @@ namespace Proyecto_BD
 {
     public class Conexion
     {
+        public static bool finished1;
+        //public static bool finished2;
+        public static bool finished3;
+        public static bool finished4;
+        public static bool finished5;
+        //public static bool finished6;
+
         public static NpgsqlConnection AgregarConexion()
         {
             NpgsqlConnection con;

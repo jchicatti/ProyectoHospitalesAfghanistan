@@ -23,7 +23,8 @@ namespace Proyecto_BD
             if (ValidInput())
             {
                 Session["logF3"] = ChangeLog();
-                //Response.Redirect("Formulario4.aspx");
+                Conexion.finished3 = true;
+                Response.Redirect("Formulario4.aspx");
             }
             else
             {
@@ -37,6 +38,7 @@ namespace Proyecto_BD
             if (ValidInput())
             {
                 Session["logF3"] = ChangeLog();
+                Conexion.finished4 = true;
                 Response.Redirect("Formulario2.aspx");
             }
             else
