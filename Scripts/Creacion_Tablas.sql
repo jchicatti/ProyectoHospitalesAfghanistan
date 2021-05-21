@@ -91,7 +91,7 @@ CREATE TABLE Protocol (
   avg_test_result_time numeric(4),
   test_capacity boolean,
   covid_tracking boolean,
-  MOPH_report boolean
+  MOPH_report_often numeric(4)
 );
 
 CREATE TABLE Covid_Cases (

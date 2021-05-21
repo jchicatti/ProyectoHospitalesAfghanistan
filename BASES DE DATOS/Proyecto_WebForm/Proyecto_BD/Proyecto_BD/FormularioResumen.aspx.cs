@@ -10,10 +10,7 @@ namespace Proyecto_BD
 {
     public partial class FormularioResumen : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)
-        {
-
-        }
+        protected void Page_Load(object sender, EventArgs e) { }
 
         protected void Button2_Click(object sender, EventArgs e)
         {
@@ -75,6 +72,7 @@ namespace Proyecto_BD
                     int tracking = Convert.ToInt32(logF3[7]);
                     int moph_report = 0;
                     //DUDA PARA EL TEAM
+                    //Es cada cuanto
 
                     //TABLA: Personel
                     bool isNumeric13 = int.TryParse(logF5[0], out int no_doctors);
