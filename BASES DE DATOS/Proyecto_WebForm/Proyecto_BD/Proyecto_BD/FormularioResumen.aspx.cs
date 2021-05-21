@@ -22,14 +22,14 @@ namespace Proyecto_BD
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Inicio.aspx");
+            TextBox6.Text = AttemptMainInsert();
         }
 
         protected void Button3_Click(object sender, EventArgs e)
         {
             Response.Redirect("Inicio.aspx");
         }
-        private void AttemptMainInsert()
+        private string AttemptMainInsert()
         {
             List<string> logF1 = (List<string>)Session["logF1"];
             List<string> logF2 = (List<string>)Session["logF2"];
@@ -74,6 +74,7 @@ namespace Proyecto_BD
                     int testcapacity = Convert.ToInt32(logF3[6]);
                     int tracking = Convert.ToInt32(logF3[7]);
                     int moph_report = 0;
+                    //DUDA PARA EL TEAM
 
                     //TABLA: Personel
                     bool isNumeric13 = int.TryParse(logF5[0], out int no_doctors);
@@ -91,7 +92,7 @@ namespace Proyecto_BD
                     //Insert update
                     NpgsqlConnection con1 = Conexion.AgregarConexion();
                     String query1 = String.Format("insert into update_hospital (name_responder, id_personel_vm, id_questionnare_status," +
-                        " id_hospital, id_problem_status, id_action_status, funds, additional_comments, update_time) " +
+                        " id_hospital, id_problem_status, id_action_status, funds, additional_comments, update_date) " +
                         "VALUES('{0}', {1}, {2}, {3}, {4}, {5}, '{6}', '{7}', (select current_timestamp))", name_responder, id_personel_vm, id_questionnare_status,
                         id_hospital, id_problem_status, id_action_status, funds, additional_comments);
                     NpgsqlCommand cmd1 = new NpgsqlCommand(query1, con1);
@@ -102,6 +103,11 @@ namespace Proyecto_BD
                         && isNumeric12 && isNumeric13 && isNumeric14 && isNumeric15 && isNumeric16 && isNumeric17 && isNumeric18 && isNumeric19 && isNumeric20 && isNumeric21
                         && id_questionnare_status >= 1 && id_problem_status >= 1 && id_action_status >= 1
                         && ib(screening) && ib(awareness) && ib(testcapacity) && ib(tracking) && ib(moph_report))
+                        /*
+                         * ib(int b) verifica que el numero sea booleano (0 o 1) osea que se hayan contestado
+                         * los YES or NO del questionario. Si ib() es falso entonces no se rellenaron esos campos.
+                         */ 
+                        //Quitar los nuleables de aquí
                     {
                         int a = cmd1.ExecuteNonQuery();
                         if (a > 0)
@@ -125,18 +131,23 @@ namespace Proyecto_BD
                             else
                                 id_update = 1;
                             res += "Updated succesfully! ";
-
-
-                        }  
+                        }
                         else
                             res = "Connection error.";
                     }
-                    con1.Close();
 
-                    //Insert inventory
-                    NpgsqlConnection con2 = Conexion.AgregarConexion();
-                    String query2 = String.Format("insert into inventory (id_update, id_product, days_remaining) VALUES({0}, {1}, {2})", id_update, 0, counts[0]);
-                    NpgsqlCommand cmd2 = new NpgsqlCommand(query2, con2);
+                    //Else if
+                    if (isNumeric13 && isNumeric14) { }
+
+                    if (id_questionnare_status >= 1 && id_problem_status >= 1 && id_action_status >= 1) { }
+
+                    if (isNumeric1 && isNumeric2 && isNumeric3 && isNumeric4 && isNumeric5 && isNumeric6 && isNumeric7 && isNumeric8 && isNumeric9 && isNumeric10 && isNumeric11) { }
+
+                    if (ib(screening) && ib(awareness) && isNumeric12 && ib(testcapacity) && ib(tracking) && ib(moph_report)) { }
+
+                    if (isNumeric15 && isNumeric16 && isNumeric17 && isNumeric18 && isNumeric19 && isNumeric20 && isNumeric21) { }
+
+                    con1.Close();
 
                     //Insert protocol
                     NpgsqlConnection con3 = Conexion.AgregarConexion();
@@ -154,42 +165,46 @@ namespace Proyecto_BD
 
                     //Insert covid_cases
                     NpgsqlConnection con5 = Conexion.AgregarConexion();
-                    String query5 = String.Format("insert into covid_cases (id_upddate, patients_with_symptoms, positive_patients, intensive_care, covid_deaths, non_covid_deaths, covid_recovered, phc_referred) " +
+                    String query5 = String.Format("insert into covid_cases (id_update, patients_with_symptoms, positive_patients, intensive_care, covid_deaths, non_covid_deaths, covid_recovered, phc_referred) " +
                         "VALUES({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})",
                         id_update, symptomatics, positives, icu, covid_deaths, non_covid_deaths, covid_recovered, phc_referred);
                     NpgsqlCommand cmd5 = new NpgsqlCommand(query5, con5);
 
-                    if (id_hospital > 0)
-                    {
-                        int a2 = cmd2.ExecuteNonQuery();
+                    /*
+                     * Este IF checa que sí se haya insertado un update para
+                     * empezar a meterle la información ahí.
+                     * 
+                     */
+                    if (id_update > 0) {
                         int a3 = cmd3.ExecuteNonQuery();
                         int a4 = cmd4.ExecuteNonQuery();
                         int a5 = cmd5.ExecuteNonQuery();
+
+                        NpgsqlConnection con2 = Conexion.AgregarConexion();
+                        for(int i = 0; i<counts.Length; i++)
+                        {
+                            res += "Producto clave. " + (i + 1) + ". ";
+                            String query2 = String.Format("insert into inventory (id_update, id_product, days_remaining) VALUES({0}, {1}, {2})", id_update, i+1, counts[i]);
+                            NpgsqlCommand cmd2 = new NpgsqlCommand(query2, con2);
+                            int a2 = cmd2.ExecuteNonQuery();
+                        }
+                        con2.Close();
                     }
-                    con2.Close();
                     con3.Close();
                     con4.Close();
                     con5.Close();
-
-                    if (isNumeric13 && isNumeric14) { }
-
-                    if (id_questionnare_status >= 1 && id_problem_status >= 1 && id_action_status >= 1) { }
-
-                    if (isNumeric1 && isNumeric2 && isNumeric3 && isNumeric4 && isNumeric5 && isNumeric6 && isNumeric7 && isNumeric8 && isNumeric9 && isNumeric10 && isNumeric11) { }
-
-                    if (ib(screening) && ib(awareness) && isNumeric12 && ib(testcapacity) && ib(tracking) && ib(moph_report)) { }
-
-                    if (isNumeric15 && isNumeric16 && isNumeric17 && isNumeric18 && isNumeric19 && isNumeric20 && isNumeric21) { }
                 }
             }
+            return res;
         }
+
         private bool ib(int b)
         {
             return b == 0 || b == 1;
         }
         private bool tof(int b)
         {
-            return b == 1;
+            return b == 0;
         }
     }
 }

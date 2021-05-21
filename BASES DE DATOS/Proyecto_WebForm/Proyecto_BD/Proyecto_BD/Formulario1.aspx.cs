@@ -27,8 +27,8 @@ namespace Proyecto_BD
             if (ValidInput())
             {
                 Session["logF1"] = ChangeLog();
-                Response.Redirect("Formulario2.aspx");
                 Conexion.finished1 = true;
+                Response.Redirect("Formulario2.aspx");
             }
             else
             {

@@ -76,6 +76,7 @@
 &nbsp;<asp:TextBox ID="TextBox5" runat="server" Width="607px"></asp:TextBox>
             <br />
             <br />
+            <asp:TextBox ID="TextBox6" runat="server" ReadOnly="True" TextMode="MultiLine" Height="66px" Width="267px"></asp:TextBox>
             <br />
             <br />
             <asp:Button ID="Button2" runat="server" CssClass="buttonl" Text="Previous Page" OnClick="Button2_Click" />
