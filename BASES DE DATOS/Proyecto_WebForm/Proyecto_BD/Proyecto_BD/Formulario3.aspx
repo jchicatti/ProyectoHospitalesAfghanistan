@@ -68,11 +68,11 @@
             <br />
             How regularly do you report your COVID tracking results to the MOPH?<br />
 &nbsp;<asp:DropDownList ID="DropDownList2" runat="server" Width="133px">
+                <asp:ListItem Value="0">Never</asp:ListItem>
                 <asp:ListItem Value="3">Every 3 days</asp:ListItem>
                 <asp:ListItem Value="7">Every 7 days</asp:ListItem>
                 <asp:ListItem Value="15">Every 15 days</asp:ListItem>
                 <asp:ListItem Value="30">Every 30 days or more</asp:ListItem>
-                <asp:ListItem Value="0">Never</asp:ListItem>
             </asp:DropDownList>
             <br />
             <br />

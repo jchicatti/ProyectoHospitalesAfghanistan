@@ -70,9 +70,7 @@ namespace Proyecto_BD
                     bool isNumeric12 = int.TryParse(logF4[2], out int avg_test_result);
                     int testcapacity = Convert.ToInt32(logF3[6]);
                     int tracking = Convert.ToInt32(logF3[7]);
-                    int moph_report = 0;
-                    //DUDA PARA EL TEAM
-                    //Es cada cuanto
+                    int moph_report = Convert.ToInt32(logF3[3]);
 
                     //TABLA: Personel
                     bool isNumeric13 = int.TryParse(logF5[0], out int no_doctors);
