@@ -199,5 +199,39 @@ namespace Proyecto_BD
 
             return res;
         }
+        public static void LlenarContactos(DropDownList dd, string id_hospital)
+        {
+            try
+            {
+                NpgsqlConnection con = AgregarConexion();
+                NpgsqlCommand cmd = new NpgsqlCommand(String.Format("select id_telephone, contact_name from telephone where id_hospital = '{0}'", id_hospital), con);
+                NpgsqlDataReader rd = cmd.ExecuteReader();
+                dd.DataSource = rd;
+                dd.DataValueField = "id_telephone";
+                dd.DataTextField = "contact_name";
+                dd.DataBind();
+                con.Close();
+            }
+            catch (Exception)
+            {
+            }
+        }
+        
+        public static void DatosContactos(GridView gv, string id_hospital)
+        {
+            try
+            {
+                NpgsqlConnection con = AgregarConexion();
+                NpgsqlCommand cmd = new NpgsqlCommand(String.Format("select contact_name, telephone, phone_type, " +
+                    "active from telephone where id_hospital = '{0}' order by contact_name ", id_hospital), con);
+                NpgsqlDataReader rd = cmd.ExecuteReader();
+                gv.DataSource = rd;
+                gv.DataBind();
+                rd.Close();
+            }
+            catch (Exception)
+            {
+            }
+        }
     }
 }

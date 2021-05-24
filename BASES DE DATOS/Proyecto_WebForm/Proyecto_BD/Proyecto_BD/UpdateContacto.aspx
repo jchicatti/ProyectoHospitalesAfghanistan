@@ -14,29 +14,27 @@
             VOXMAP</div>
         <div class="registro">
             <h2>Health Facility/Hospital Contact Details</h2>
+            <asp:GridView ID="GridView1" runat="server">
+            </asp:GridView>
             <br />
+            <strong>Change existing contact status</strong><br />
             <br />
-            Contact number 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Contact name 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Contact type 1<br />
-&nbsp;<asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:DropDownList ID="DropDownList8" runat="server">
-                <asp:ListItem Value="Landline">Landline</asp:ListItem>
-                <asp:ListItem Value="Cellphone">Cellphone</asp:ListItem>
-            </asp:DropDownList>
-            <br />
-            <br />
-            Contact number 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Contact name 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Contact type 2 <br />
-&nbsp;<asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="TextBox7" runat="server"></asp:TextBox>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Select id_telephone:&nbsp;
             <asp:DropDownList ID="DropDownList7" runat="server">
-                <asp:ListItem Value="Landline">Landline</asp:ListItem>
-                <asp:ListItem Value="Cellphone">Cellphone</asp:ListItem>
             </asp:DropDownList>
             <br />
             <br />
-            Contact number 3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Contact name 3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Contact type 3<br />
+            <asp:Button ID="Button3" runat="server" CssClass="button" Text="Change status to active/inactive" OnClick="Button3_Click" Width="289px" />
+            &nbsp;<br />
+            <br />
+            <asp:Label ID="Label2" runat="server" Text="Status: "></asp:Label>
+            <br />
+            <br />
+            <strong>Register new contact</strong><br />
+            <br />
+            Contact number&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Contact name&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Contact type
+            <br />
+            <br />
 &nbsp;<asp:TextBox ID="TextBox8" runat="server"></asp:TextBox>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="TextBox9" runat="server"></asp:TextBox>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -46,16 +44,16 @@
             </asp:DropDownList>
             <br />
             <br />
-            <br />
-            <asp:Button ID="Button1" runat="server" CssClass="button" Text="Update Contact Details" OnClick="Button1_Click" />
-            <br />
+            <asp:Button ID="Button1" runat="server" CssClass="button" Text="Register" OnClick="Button1_Click" Width="209px" />
             <br />
             <br />
             <asp:Label ID="Label1" runat="server" Text="Status: "></asp:Label>
-            <asp:TextBox ID="TextBox10" runat="server" ReadOnly="True" TextMode="MultiLine" Width="392px" Height="55px" Visible="False"></asp:TextBox>
             <br />
             <br />
-            <asp:Button ID="Button2" runat="server" CssClass="buttonl" Text="Previous Page" OnClick="Button2_Click" />
+            <asp:Button ID="Button4" runat="server" CssClass="button" Text="Refresh" OnClick="Button4_Click" Width="209px" />
+            <br />
+            <br />
+            <asp:Button ID="Button2" runat="server" CssClass="button" Text="Previous Page" OnClick="Button2_Click" Width="209px" />
         </div>
     </form>
 </body>

@@ -46,5 +46,47 @@ namespace Proyecto_BD
             }
             return res;
         }
+        public static void ChangeStatus(string id_telephone)
+        {
+            int status = -1;
+
+            try
+            {
+                NpgsqlConnection con = Conexion.AgregarConexion();
+                String query = String.Format("select cast(active as int) from telephone where id_telephone = '{0}'", id_telephone);
+                NpgsqlCommand cmd = new NpgsqlCommand(query, con);
+                NpgsqlDataReader rd = cmd.ExecuteReader();
+                if (rd.Read())
+                {
+                    status = rd.GetInt32(0);
+                    con.Close();
+                }
+                rd.Close();
+
+
+                if (status == 0)
+                {
+                    NpgsqlConnection con2 = Conexion.AgregarConexion();
+                    String query2 = String.Format("update telephone set active = true where id_telephone = '{0}'", id_telephone);
+                    NpgsqlCommand cmd2 = new NpgsqlCommand(query2, con2);
+                    cmd2.ExecuteNonQuery();
+                    con2.Close();
+                }
+                else 
+                {
+                    NpgsqlConnection con2 = Conexion.AgregarConexion();
+                    String query2 = String.Format("update telephone set active = false where id_telephone = '{0}'", id_telephone);
+                    NpgsqlCommand cmd2 = new NpgsqlCommand(query2, con2);
+                    cmd2.ExecuteNonQuery();
+                    con2.Close();
+                }
+
+            }
+
+            catch (Exception)
+            {
+
+            }
+        }
     }
 }
