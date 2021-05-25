@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using System.Web.UI.WebControls;
 
 namespace Proyecto_BD
 {
@@ -69,7 +70,7 @@ namespace Proyecto_BD
                     }
                     else
                         contID = 0;
-                    res = "Registration succesful!" + " ID: " + contID;
+                    res = "Registration succesful!" + " ID: " + contID + ". \n";
                 }
                 else
                     res = "Connection error";
@@ -79,6 +80,31 @@ namespace Proyecto_BD
                 res = e.Message;
             }
 
+            return res;
+        }
+        public bool HospitalesSimilares(GridView gv)
+        {
+            bool res = false;
+            try
+            {
+                NpgsqlConnection con = Conexion.AgregarConexion();
+                NpgsqlCommand cmd = new NpgsqlCommand(String.Format("select h.hospital_name as Name, h.address as Address, concat(latitude, ', ', longitude) as Location, " +
+                    "h.moph_number as MOPH, d.district_name as District, p.province_name as Province, h.hospital_type as Type " +
+                    "from hospital h join district d on (h.district = d.id_district) join province p on (h.province = p.id_province) " +
+                    "where h.hospital_name like '%{0}%' or h.address like '%{1}%' or h.moph_number like '%{2}%' " +
+                    "or((h.latitude between {3} - 0.1 and {3} + 0.1) and(h.longitude between {4} - 0.1 and {4} + 0.1)) ", this.name, this.address, this.moph, this.latitude, this.longitude), con);
+                NpgsqlDataReader rd = cmd.ExecuteReader();
+                if (rd.HasRows)
+                {
+                    res = true;
+                    gv.DataSource = rd;
+                    gv.DataBind();
+                }
+                rd.Close();
+            }
+            catch (Exception)
+            {
+            }
             return res;
         }
     }

@@ -59,7 +59,7 @@
             Latitud&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Longitud&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
 &nbsp;<asp:TextBox ID="TextBox10" runat="server"></asp:TextBox>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="TextBox11" runat="server"></asp:TextBox>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+            <br />
             <br />
             MOPH:<br />
 &nbsp;<asp:TextBox ID="TextBox13" runat="server"></asp:TextBox>
@@ -79,22 +79,15 @@
             </asp:DropDownList>
             <br />
             <br />
-            <br />
-            <asp:Button ID="Button1" runat="server" CssClass="button" Text="Register this hospital" OnClick="Button1_Click" />
-            <br />
+            <asp:Label ID="Label1" runat="server" Font-Bold="True" Text="Verify the hospital you are registering is not a duplicate of the following:" Visible="False"></asp:Label>
             <br />
             <br />
-            <asp:Label ID="Label1" runat="server" Text="Status: " BorderColor="#000099" BorderStyle="Dotted"></asp:Label>
-            <br />
-            <br />
-            Test:       <br />
-            <asp:DropDownList ID="DropDownList1" CssClass="drop" runat="server" AutoPostBack="True" Height="38px" Width="216px">
-            </asp:DropDownList>
-            <br />
-            <br />
-            <br />
-            <asp:GridView ID="GridView1" runat="server">
+            <asp:GridView ID="GridView1" runat="server" Visible="False">
             </asp:GridView>
+            <asp:Button ID="Button3" CssClass="buttonl" runat="server" Text="It is not a duplicate." Visible="False" OnClick="Button3_Click1" />
+            <asp:Button ID="Button1" runat="server" CssClass="button" Text="Register this hospital" OnClick="Button1_Click" Width="260px" />
+            <br />
+            <asp:TextBox ID="TextBox14" runat="server" BorderStyle="None" TextMode="MultiLine" Height="48px" Width="374px"></asp:TextBox>
             <br />
             <br />
             <asp:Button ID="Button2" runat="server" CssClass="buttonl" Text="Previous Page" OnClick="Button2_Click" />
