@@ -64,6 +64,24 @@ cc2.positive_patients/all_patients.patient_no as positive_percentage
 from most_recent_update_by_hospital mrubh2 
 join covid_cases cc2 );
 
+-- View de provincias sin capacidad de hacer pruebas
+create view provinces_wout_covid_test_cap as
+select p.id_province , p.province_name, p2.test_capacity 
+from most_recent_update_by_hospital mrubh 
+join hospital h using (id_hospital)
+join province p on h.province = p.id_province 
+join protocol p2 using (id_update)
+where exists (select * from protocol p3 where p3.test_capacity = false)
+
+-- View de distritos sin capacidad de hacer pruebas
+create view districts_wout_covid_test_cap as
+select d.id_district, d.district_name , p2.test_capacity 
+from most_recent_update_by_hospital mrubh 
+join hospital h using (id_hospital)
+join district d on h.district = d.id_district 
+join protocol p2 using (id_update)
+where exists (select * from protocol p3 where p3.test_capacity = false)
+
 -- para probar la primera view (deben salir los días 23 y 24)
 insert into update_hospital 
 (name_responder, id_personel_vm,id_hospital,id_questionnare_status,id_problem_status,id_action_status,funds,additional_comments,update_date)
