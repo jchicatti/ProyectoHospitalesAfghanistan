@@ -43,6 +43,15 @@ create view hospital_telephone as (
 select id_hospital, h.hospital_name, count(t.id_telephone), t.active from hospital h join telephone t using (id_hospital) group by t.active, h.id_hospital order by h.id_hospital
 );
 
+--Vista con el número de updates realizados por cada empleado el último mes
+create view last_month_updates as (
+select pv.id_personel_vm as "Employee id",pv.employee_name as "Employee name",count(uh.id_update)as "Updates number" from update_hospital uh join 
+personel_vm pv using (id_personel_vm) where 
+((extract('month' from age(now(),uh.update_date)))=0 and (extract('year' from age(now(),uh.update_date)))=0 and (extract('day' from age(now(),uh.update_date)))<=31) 
+or ((extract('month' from age(now(),uh.update_date)))<=1 and (extract('year' from age(now(),uh.update_date)))=0 and (extract('day' from age(now(),uh.update_date)))=0) 
+group by pv.id_personel_vm
+);
+
 -- View de porcentajes de muertos, recuperados y positivos por hospital, no jala si covid cases está vacía porque all patients va a estar vacía
 create view patient_percentages as (
 with all_patients as(
