@@ -12,6 +12,7 @@ namespace Proyecto_BD
         protected void Page_Load(object sender, EventArgs e)
         {
             string id_hospital = Session["id_hospital_update"].ToString();
+            Label3.Text = Session["hospital_name"].ToString();
 
             if (!IsPostBack)
             {

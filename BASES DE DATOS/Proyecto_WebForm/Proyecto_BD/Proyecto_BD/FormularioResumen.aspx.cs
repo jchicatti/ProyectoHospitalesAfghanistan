@@ -26,6 +26,7 @@ namespace Proyecto_BD
         {
             Response.Redirect("Inicio.aspx");
         }
+
         private string AttemptMainInsert()
         {
             List<string> logF1 = (List<string>)Session["logF1"];
@@ -34,21 +35,25 @@ namespace Proyecto_BD
             List<string> logF4 = (List<string>)Session["logF4"];
             List<string> logF5 = (List<string>)Session["logF5"];
             List<string> logF6 = (List<string>)Session["logF6"];
-            String res = "";
+            String res = ".";
 
-            if (logF1 != null && logF2 != null && logF3 != null && logF4 != null && logF5 != null && logF6 != null)
+            // QUESTIONNAIRE COMPLETE 
+            if (logF1 != null && logF2 != null && logF3 != null && logF4 != null && logF5 != null && logF6 != null && RadioButtonList1.SelectedIndex == 0)
             {
                 if (Conexion.finished1 && Conexion.finished3 && Conexion.finished4 && Conexion.finished5)
                 {
                     //TABLA: Update_hospital
                     string name_responder = "John Doe";
                     int id_personel_vm = 1;
-                    int id_questionnare_status = RadioButtonList1.SelectedIndex + 1;
                     int id_hospital = (int)Session["id_hospital_update"];
-                    int id_problem_status = RadioButtonList2.SelectedIndex + 1;
-                    int id_action_status = RadioButtonList3.SelectedIndex + 1;
                     string funds = logF3[1];
-                    string additional_comments = TextBox4.Text + " " + TextBox5.Text;
+                    string additional_comments = TextBox5.Text;
+
+                    // TABLA: Update_hospital -> Status Questionnaire-Problem-Action
+                    // Completed
+                    int id_questionnare_status = 1;
+                    int id_problem_status = 1;
+                    int id_action_status = 1; 
 
                     //TABLA: Inventory (Counts)
                     bool isNumeric1 = int.TryParse(logF6[1], out int oxygen);
@@ -97,13 +102,12 @@ namespace Proyecto_BD
 
                     if (isNumeric1 && isNumeric2 && isNumeric3 && isNumeric4 && isNumeric5 && isNumeric6 && isNumeric7 && isNumeric8 && isNumeric9 && isNumeric10 && isNumeric11
                         && isNumeric12 && isNumeric13 && isNumeric14 && isNumeric15 && isNumeric16 && isNumeric17 && isNumeric18 && isNumeric19 && isNumeric20 && isNumeric21
-                        && id_questionnare_status >= 1 && id_problem_status >= 1 && id_action_status >= 1
                         && ib(screening) && ib(awareness) && ib(testcapacity) && ib(tracking) && ib(moph_report))
-                        /*
-                         * ib(int b) verifica que el numero sea booleano (0 o 1) osea que se hayan contestado
-                         * los YES or NO del questionario. Si ib() es falso entonces no se rellenaron esos campos.
-                         */ 
-                        //Quitar los nuleables de aquí
+                    /*
+                     * ib(int b) verifica que el numero sea booleano (0 o 1) osea que se hayan contestado
+                     * los YES or NO del questionario. Si ib() es falso entonces no se rellenaron esos campos.
+                     */
+
                     {
                         int a = cmd1.ExecuteNonQuery();
                         if (a > 0)
@@ -131,17 +135,8 @@ namespace Proyecto_BD
                         else
                             res = "Connection error.";
                     }
-
-                    //Else if
-                    if (isNumeric13 && isNumeric14) { }
-
-                    if (id_questionnare_status >= 1 && id_problem_status >= 1 && id_action_status >= 1) { }
-
-                    if (isNumeric1 && isNumeric2 && isNumeric3 && isNumeric4 && isNumeric5 && isNumeric6 && isNumeric7 && isNumeric8 && isNumeric9 && isNumeric10 && isNumeric11) { }
-
-                    if (ib(screening) && ib(awareness) && isNumeric12 && ib(testcapacity) && ib(tracking) && ib(moph_report)) { }
-
-                    if (isNumeric15 && isNumeric16 && isNumeric17 && isNumeric18 && isNumeric19 && isNumeric20 && isNumeric21) { }
+                    else
+                        res += "Questionnaire was not answered completely.";
 
                     con1.Close();
 
@@ -191,6 +186,109 @@ namespace Proyecto_BD
                     con5.Close();
                 }
             }
+
+            // QUESTIONNAIRE NOT DONE
+            else if (RadioButtonList1.SelectedIndex != 0 || RadioButtonList2.SelectedIndex != 0)
+            {
+                //TABLA: Update_hospital
+                string name_responder = "John Doe";
+                int id_personel_vm = 1;
+                int id_hospital = (int)Session["id_hospital_update"];
+                string funds = "";
+                string additional_comments = TextBox5.Text;
+
+                // TABLA: Update_hospital -> Status Questionnaire-Problem-Action
+                int id_questionnare_status = 0;
+                int id_problem_status = 0;
+                int id_action_status = 0;
+
+                if (RadioButtonList3.SelectedIndex == 0) // It was a test
+                {
+                    id_questionnare_status = 4;
+                    id_problem_status = 1;
+                    id_action_status = 1;
+                }
+                else
+                {
+                    if (RadioButtonList4.SelectedIndex == 1) // Phone not answered
+                    {
+                        id_questionnare_status = 3;
+                        id_problem_status = 4;
+                        id_action_status = 2;
+                    }
+                    else
+                    {
+                        if (RadioButtonList2.SelectedIndex == 1) // Wrong contact numbers
+                        {
+                            id_questionnare_status = 3;
+                            id_problem_status = 5;
+                            id_action_status = 3;
+                        }
+                        else if (RadioButtonList2.SelectedIndex == 2) // Doctor quit
+                        {
+                            id_questionnare_status = 3; 
+                            id_problem_status = 6;
+                            id_action_status = 3;
+                        }
+                        else if (RadioButtonList2.SelectedIndex == 3) // Doctor bussy
+                        {
+                            id_questionnare_status = 3;
+                            id_problem_status = 1;
+                            id_action_status = 2;
+                        } 
+                        else if (RadioButtonList2.SelectedIndex == 4) // Refused to speak
+                        {
+                            id_questionnare_status = 3;
+                            id_problem_status = 3;
+                            id_action_status = 4;
+                        }
+                            
+                    }
+                }
+
+                Label1.Text = id_questionnare_status.ToString() + id_problem_status.ToString() + id_action_status.ToString();
+
+                //Insert update
+                NpgsqlConnection con1 = Conexion.AgregarConexion();
+                String query1 = String.Format("insert into update_hospital (name_responder, id_personel_vm, id_questionnare_status," +
+                    " id_hospital, id_problem_status, id_action_status, funds, additional_comments, update_date) " +
+                    "VALUES('{0}', {1}, {2}, {3}, {4}, {5}, '{6}', '{7}', (select current_timestamp))", name_responder, id_personel_vm, id_questionnare_status,
+                    id_hospital, id_problem_status, id_action_status, funds, additional_comments);
+                NpgsqlCommand cmd1 = new NpgsqlCommand(query1, con1);
+
+                int id_update = 0;
+
+                if (id_questionnare_status >= 1 && id_problem_status >= 1 && id_action_status >= 1)
+                {
+                    int a = cmd1.ExecuteNonQuery();
+                    if (a > 0)
+                    {
+                        String query = "SELECT max(id_update) FROM update_hospital uh";
+                        NpgsqlConnection con = Conexion.AgregarConexion();
+                        NpgsqlCommand cmd = new NpgsqlCommand(query, con);
+                        NpgsqlDataReader rd = cmd.ExecuteReader();
+                        if (rd.Read())
+                        {
+                            try
+                            {
+                                id_update = rd.GetInt32(0);
+                                con.Close();
+                            }
+                            catch (Exception)
+                            {
+                                id_update = 1;
+                            }
+                        }
+                        else
+                            id_update = 1;
+                        res += "Updated succesfully! ";
+                    }
+                    else
+                        res = "Connection error.";
+                }
+
+                con1.Close();
+            }
             return res;
         }
 
@@ -201,6 +299,65 @@ namespace Proyecto_BD
         private bool tof(int b)
         {
             return b == 0;
+        }
+        protected void RadioButtonList3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string ans = RadioButtonList3.SelectedIndex.ToString();
+            if (ans.Equals("0"))
+            {
+                RadioButtonList1.Items.Clear();
+                RadioButtonList2.Items.Clear();
+                RadioButtonList4.Items.Clear();
+                Label2.Text = "You can now finish the update.";
+                Label1.Text = "";
+                Label3.Text = "";
+            }
+            else
+            {
+                RadioButtonList4.Items.Clear();
+                Label2.Text = "Was phone answered?";
+                RadioButtonList4.Items.Add("Yes");
+                RadioButtonList4.Items.Add("No");
+            }
+        }
+
+        protected void RadioButtonList4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string ans = RadioButtonList4.SelectedIndex.ToString();
+            if (ans.Equals("1"))
+            {
+                RadioButtonList1.Items.Clear();
+                RadioButtonList2.Items.Clear();
+                Label3.Text = "You can now finish the update.";
+                Label1.Text = "";
+            }
+            else
+            {
+                RadioButtonList1.Items.Clear();
+                Label3.Text = "Was the questionnaire completed?";
+                RadioButtonList1.Items.Add("Yes");
+                RadioButtonList1.Items.Add("No");
+            }
+        }
+        protected void RadioButtonList1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string ans = RadioButtonList1.SelectedIndex.ToString();
+
+            if (ans.Equals("0"))
+            {
+                RadioButtonList2.Items.Clear();
+                Label1.Text = "You can now finish the update.";
+            }
+            else
+            {
+                RadioButtonList2.Items.Clear();
+                Label1.Text = "Why is the questionnaire not completed?";
+                RadioButtonList2.Items.Add("Some answers missing.");
+                RadioButtonList2.Items.Add("Wrong contact numbers.");
+                RadioButtonList2.Items.Add("Doctor no longer in this hospital.");
+                RadioButtonList2.Items.Add("Doctor said he was busy at the moment.");
+                RadioButtonList2.Items.Add("Doctor refused to give information or says he needs special permition.");
+            }
         }
     }
 }

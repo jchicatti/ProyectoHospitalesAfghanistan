@@ -35,41 +35,31 @@
                 <StaticSelectedStyle BackColor="#5D7B9D" />
             </asp:Menu>
             <br />
-            <h2>Update Report</h2><br />
+            <h2>Update Report</h2>
             <br />
-            <strong>Update Status</strong><br />
-            <br />
-            <asp:RadioButtonList ID="RadioButtonList1" runat="server">
-                <asp:ListItem Value="1">QUESTIONNAIRE COMPLETED</asp:ListItem>
-                <asp:ListItem Value="2">QUESTIONNAIRE COMPLETED PARTIALLY</asp:ListItem>
-                <asp:ListItem Value="3">QUESTIONNAIRE NOT DONE</asp:ListItem>
-                <asp:ListItem Value="4">THIS WAS A TEST</asp:ListItem>
-                <asp:ListItem Value="5">OTHER</asp:ListItem>
+            <strong>Was this a test?<br />
+            </strong><br />
+            <asp:RadioButtonList ID="RadioButtonList3" runat="server" AutoPostBack="True" OnSelectedIndexChanged="RadioButtonList3_SelectedIndexChanged">
+                <asp:ListItem Value="0">Yes</asp:ListItem>
+                <asp:ListItem Value="1">No</asp:ListItem>
             </asp:RadioButtonList>
             <br />
-            Comments:
+            <asp:Label ID="Label2" runat="server" style="font-weight: 700"></asp:Label>
+            &nbsp;phone<br />
             <br />
-            <asp:TextBox ID="TextBox4" runat="server" Width="575px"></asp:TextBox>
-            <br />
-            <br />
-            <strong>Problem Status</strong><br />
-            <br />
-            <asp:RadioButtonList ID="RadioButtonList2" runat="server">
-                <asp:ListItem Value="1">NO PROBLEM</asp:ListItem>
-                <asp:ListItem Value="2">SOME DATA IS MISSING</asp:ListItem>
-                <asp:ListItem Value="3">REFUSED TO SPEAK</asp:ListItem>
-                <asp:ListItem Value="4">WRONG PHONE NUMBER</asp:ListItem>
-                <asp:ListItem Value="5">DOCTOR HAS QUIT</asp:ListItem>
+            <asp:RadioButtonList ID="RadioButtonList4" runat="server" style="font-size: medium" Width="116px" AutoPostBack="True" OnSelectedIndexChanged="RadioButtonList4_SelectedIndexChanged">
             </asp:RadioButtonList>
             <br />
-            <strong>Action Status</strong><br />
+            <asp:Label ID="Label3" runat="server" style="font-weight: 700"></asp:Label>
+            &nbsp;complete<br />
             <br />
-            <asp:RadioButtonList ID="RadioButtonList3" runat="server">
-                <asp:ListItem Value="1">NO ADDITIONAL ACTION NEEDED</asp:ListItem>
-                <asp:ListItem Value="2">CALL BACK TOMORROW</asp:ListItem>
-                <asp:ListItem Value="3">FIND NEW PHONE NUMBER</asp:ListItem>
-                <asp:ListItem Value="4">AUTHORIZATION</asp:ListItem>
-                <asp:ListItem Value="5">OTHER</asp:ListItem>
+            <asp:RadioButtonList ID="RadioButtonList1" runat="server" style="font-size: medium" AutoPostBack="True" OnSelectedIndexChanged="RadioButtonList1_SelectedIndexChanged">
+            </asp:RadioButtonList>
+            <br />
+            <asp:Label ID="Label1" runat="server" style="font-weight: 700"></asp:Label>
+            &nbsp;why not<br />
+            <br />
+            <asp:RadioButtonList ID="RadioButtonList2" runat="server" style="font-size: medium">
             </asp:RadioButtonList>
             <br />
             Comments:<br />
@@ -79,10 +69,10 @@
             <asp:TextBox ID="TextBox6" runat="server" ReadOnly="True" TextMode="MultiLine" Height="66px" Width="267px"></asp:TextBox>
             <br />
             <br />
+            <br />
+            <br />
             <asp:Button ID="Button2" runat="server" CssClass="buttonl" Text="Previous Page" OnClick="Button2_Click" />
             <asp:Button ID="Button1" runat="server" CssClass="buttonr" Text="Finish Update" OnClick="Button1_Click" />
-            <br />
-            <br />
             <br />
             <br />
             <br />

@@ -14,6 +14,9 @@
             VOXMAP</div>
         <div class="registro">
             <h2>Health Facility/Hospital Contact Details</h2>
+            <asp:Label ID="Label3" runat="server" style="font-weight: 700; font-style: italic; font-size: large"></asp:Label>
+            <br />
+            <br />
             <asp:GridView ID="GridView1" runat="server">
             </asp:GridView>
             <br />

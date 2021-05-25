@@ -34,6 +34,7 @@ namespace Proyecto_BD
         protected void Button4_Click(object sender, EventArgs e)
         {
             Session["id_hospital_update"] = Conexion.ObtenerId(DropDownList2.SelectedValue);
+            Session["hospital_name"] = DropDownList1.SelectedValue;
             Response.Redirect("UpdateContacto.aspx");
         }
 

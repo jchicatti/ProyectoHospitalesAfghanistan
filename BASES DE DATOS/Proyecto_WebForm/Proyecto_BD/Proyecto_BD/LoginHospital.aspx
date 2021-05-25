@@ -33,12 +33,15 @@
             <br />
             <br />
             <asp:Button ID="Button2" runat="server" CssClass="buttonl" Text="Previous Page" OnClick="Button2_Click"/>
-            <asp:Button ID="Button1" runat="server" CssClass="buttonr" Text="Start updating this hospital" OnClick="Button1_Click"/>
+            <br />
+            <br />
+            <br />
+            <asp:Button ID="Button1" runat="server" CssClass="buttonr" Text="Start updating this hospital" OnClick="Button1_Click" Width="340px"/>
             <br />
             <br />
             <br />
             <br />
-            <asp:Button ID="Button4" runat="server" CssClass="buttonr" Text="Update Hospital Contacts" OnClick="Button4_Click"/>
+            <asp:Button ID="Button4" runat="server" CssClass="buttonr" Text="Hospital Contact Information" OnClick="Button4_Click" Width="340px"/>
         </div>
     </form>
 </body>
