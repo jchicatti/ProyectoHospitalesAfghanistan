@@ -508,3 +508,9 @@ insert into update_hospital
 values
 ('Abdul -Ghani', 1,1,1,1,1,  'No','','2021-06-22 19:10:25-07'),
 ('Abdul -Shakor', 1,2,3,1,1,  'Yes-Private','','2021-06-23 19:10:25-07');
+
+insert into covid_cases 
+(id_update, patients_with_symptoms,positive_patients,intensive_care,covid_deaths,non_covid_deaths,covid_recovered,phc_referred)
+values
+(1,25,24,14,9,2,3,5),
+(2,35,21,10,6,0,3,6);
