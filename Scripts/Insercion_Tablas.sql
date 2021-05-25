@@ -494,23 +494,7 @@ values
 ('Ziruk'),
 ('Zurmat');
 
---- Agregamos un par de hospitales falsos
-insert into hospital
-(hospital_name, address, latitude, longitude, district, province, hospital_type, MOPH_number)
-values
-('Angeles','Periferico Sur',100,200, 4,5,'Distrital','A10-23'),
-('SEDNA','EDOMEX',200,1, 2,3,'Regional','10-38'),
-('Cardiologia','Centro',3,4, 4,11,'Provincial','93-837')
 
 
-insert into update_hospital 
-(name_responder, id_personel_vm,id_hospital,id_questionnare_status,id_problem_status,id_action_status,funds,additional_comments,update_date)
-values
-('Abdul -Ghani', 1,1,1,1,1,  'No','','2021-06-22 19:10:25-07'),
-('Abdul -Shakor', 1,2,3,1,1,  'Yes-Private','','2021-06-23 19:10:25-07');
 
-insert into covid_cases 
-(id_update, patients_with_symptoms,positive_patients,intensive_care,covid_deaths,non_covid_deaths,covid_recovered,phc_referred)
-values
-(1,25,24,14,9,2,3,5),
-(2,35,21,10,6,0,3,6);
+
