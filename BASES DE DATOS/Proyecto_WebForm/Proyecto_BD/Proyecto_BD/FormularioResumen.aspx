@@ -45,19 +45,19 @@
             </asp:RadioButtonList>
             <br />
             <asp:Label ID="Label2" runat="server" style="font-weight: 700"></asp:Label>
-            &nbsp;phone<br />
+            &nbsp;<br />
             <br />
             <asp:RadioButtonList ID="RadioButtonList4" runat="server" style="font-size: medium" Width="116px" AutoPostBack="True" OnSelectedIndexChanged="RadioButtonList4_SelectedIndexChanged">
             </asp:RadioButtonList>
             <br />
             <asp:Label ID="Label3" runat="server" style="font-weight: 700"></asp:Label>
-            &nbsp;complete<br />
+            &nbsp;<br />
             <br />
             <asp:RadioButtonList ID="RadioButtonList1" runat="server" style="font-size: medium" AutoPostBack="True" OnSelectedIndexChanged="RadioButtonList1_SelectedIndexChanged">
             </asp:RadioButtonList>
             <br />
             <asp:Label ID="Label1" runat="server" style="font-weight: 700"></asp:Label>
-            &nbsp;why not<br />
+            <br />
             <br />
             <asp:RadioButtonList ID="RadioButtonList2" runat="server" style="font-size: medium">
             </asp:RadioButtonList>

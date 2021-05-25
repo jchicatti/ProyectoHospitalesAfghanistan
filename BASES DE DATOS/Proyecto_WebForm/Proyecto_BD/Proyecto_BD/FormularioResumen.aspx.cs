@@ -194,7 +194,6 @@ namespace Proyecto_BD
                 string name_responder = "John Doe";
                 int id_personel_vm = 1;
                 int id_hospital = (int)Session["id_hospital_update"];
-                string funds = "";
                 string additional_comments = TextBox5.Text;
 
                 // TABLA: Update_hospital -> Status Questionnaire-Problem-Action
@@ -251,9 +250,9 @@ namespace Proyecto_BD
                 //Insert update
                 NpgsqlConnection con1 = Conexion.AgregarConexion();
                 String query1 = String.Format("insert into update_hospital (name_responder, id_personel_vm, id_questionnare_status," +
-                    " id_hospital, id_problem_status, id_action_status, funds, additional_comments, update_date) " +
-                    "VALUES('{0}', {1}, {2}, {3}, {4}, {5}, '{6}', '{7}', (select current_timestamp))", name_responder, id_personel_vm, id_questionnare_status,
-                    id_hospital, id_problem_status, id_action_status, funds, additional_comments);
+                    " id_hospital, id_problem_status, id_action_status, additional_comments, update_date) " +
+                    "VALUES('{0}', {1}, {2}, {3}, {4}, {5}, '{6}', (select current_timestamp))", name_responder, id_personel_vm, id_questionnare_status,
+                    id_hospital, id_problem_status, id_action_status, additional_comments);
                 NpgsqlCommand cmd1 = new NpgsqlCommand(query1, con1);
 
                 int id_update = 0;
