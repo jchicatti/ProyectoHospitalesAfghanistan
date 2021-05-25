@@ -30,6 +30,18 @@ join protocol p using (id_update)
 join covid_cases cc using (id_update)
 order by cc.positive_patients desc 
 
+--Vista con el nombre de hospitales que tienen <=1 números de telefono
+create view hospitals_w_few_contacts as (
+with aux as (
+select h.id_hospital as id, h.hospital_name as nam, t.telephone as tel, t.active as status from hospital h join telephone t using (id_hospital)
+), telefonos as ( 
+select aux.id as id, aux.nam as hospital, count(aux.tel) as num_tel from aux where aux.status=true group by aux.id, aux.nam
+) select telefonos.hospital, telefonos.id, telefonos.num_tel from telefonos where telefonos.num_tel<=1);
+
+--Vista con hospitales registrados y el número de telefonos que tienen divididos en activos y no activos 
+create view hospital_telephone as (
+select id_hospital, h.hospital_name, count(t.id_telephone), t.active from hospital h join telephone t using (id_hospital) group by t.active, h.id_hospital order by h.id_hospital
+);
 
 
 
