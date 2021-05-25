@@ -494,10 +494,7 @@ values
 ('Ziruk'),
 ('Zurmat');
 
---- Agregamos un par de hospitales falsos
-insert into hospital
-(hospital_name, address, latitude, longitude, district, province, hospital_type, MOPH_number)
-values
-('Angeles','Periferico Sur',100,200, 4,5,'Distrital','A10-23'),
-('SEDNA','EDOMEX',200,1, 2,3,'Regional','10-38'),
-('Cardiologia','Centro',3,4, 4,11,'Provincial','93-837')
+
+
+
+
