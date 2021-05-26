@@ -137,7 +137,7 @@ from counts
 
 --A8 Personel Counts
   --A8.1 by hospital
-  create view personel_counts_byProvince_lastWave as (
+  create view personel_counts_byHospital_lastWave as (
 select h.id_hospital ,h.hospital_name,h.latitude, h.longitude ,no_doctors  as "Number of doctors", no_paramedics as "Number of Paramedics"
 from most_recent_complete_update_by_hospital mrubh 
 join hospital h on (mrubh.id_hospital = h.id_hospital)
