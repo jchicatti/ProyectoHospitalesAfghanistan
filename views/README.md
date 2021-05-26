@@ -71,11 +71,18 @@
 7. Evolución de muertes / casos / recuperados. 
 
 
-    7.1 Muertes mensuales por provicincia **monthly_deaths_by_province**
+    7.1 ¿Cómo ha evlucionado el número de muertes en cada provincia? **monthly_deaths_by_province**
  
  Utiliza el histórico de todos los updates (completos) y agrupa primero por provincia y luego por mes/año, con la suma de las muertes de los hospitales de esa provincia
  <img width="499" alt="DeathTrends" src="https://user-images.githubusercontent.com/47492091/119738257-0a9d4800-be46-11eb-8c3c-1ccdebd8bda4.png">
- **NOTA**: Trunca las fechas para quedarse solamente con el año y el mes
+
+
+**NOTA**: Trunca las fechas para quedarse solamente con el año y el mes
+
+    7.1.2 Para cada mes, ¿Cómo rankea cada provincia en cuanto a número de muertes?
+    
+  Utiliza el hhistórico de todos los updates (completos) y agrupa por mes y luego por provincia. Ordena las provincias de cada mes por número de muerte y les asigna una posición usando rank().
+  <img width="535" alt="DeathRanks" src="https://user-images.githubusercontent.com/47492091/119738633-9ca55080-be46-11eb-9864-d8f1f2a40c91.png">
 
 
 
