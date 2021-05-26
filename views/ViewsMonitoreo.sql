@@ -19,3 +19,11 @@ FROM update_hospital uh
     where uh2.id_questionnare_status = 1 
     GROUP BY uh2.id_hospital 
   ) ms ON uh.id_hospital = ms.id_hospital AND uh.update_date = most_recent
+  
+  --View de los problemas por hospital 
+ create view recent_problems as
+ SELECT uh2.id_hospital, MAX(uh2.update_date) AS most_recent , p1.id_problem, p1.problem 
+    FROM update_hospital uh2 join problem_catalog p1 on (uh2.id_problem_status= p1.id_problem)
+    where uh2.id_questionnare_status in (2,3,5)
+    GROUP BY uh2.id_hospital , p1.id_problem 
+    order by uh2.id_hospital ;
