@@ -1,12 +1,23 @@
-# Documentación de los views
-
-
-
-
+# Documentación de las vistas
 
 ## Views de monitoreo: 
 
+- ¿Cuál es el update más reciente por hospital?
 
+  **most_recent_update_by_hospital**
+  
+  Regresa, para cada hospital, la entrada del update más reciente que exista.
+  
+  Depende de la tabla **update_hospital**.
+  
+- ¿Cuál es el update _completo_ más reciente por hospital?
+
+  **most_recent_complete_update_by_hospital**
+  
+  Regresa, para cada hospital, la entrada del update completo más reciente que exista. De no existir ni un solo update completo, no regresa nada.
+  
+  Depende de la tabla **update_hospital**.
+  
 ## Views de análisis: 
 
 
