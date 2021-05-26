@@ -14,7 +14,7 @@
 
   **most_recent_complete_update_by_hospital**
   
-  Regresa, para cada hospital, la entrada del update completo más reciente que exista. De no existir ni un solo update completo, no regresa nada.
+  Regresa, para cada hospital, la entrada del update completo más reciente que exista. De no existir ni un solo update completo de cierto hospital, no regresa ninguna entrada para dicho hospital.
   
   Depende de la tabla **update_hospital**.
   
