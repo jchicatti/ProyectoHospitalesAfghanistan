@@ -21,6 +21,7 @@
 ## Views de análisis: 
 
 1. ¿Cuántas muertes y cuántos casos hay por provincia?
+  
   **cases_and_deaths_by_province**
   
   Regresa, para cada provincia, el acumulado de muertes y casos.
@@ -28,6 +29,7 @@
   Depende de las tablas **covid_cases**, **hospital** y **province**, y de la view **most_recent_complete_update_by_hospital**.
 
 2. ¿Qué hospitales realizan awareness campaigns?
+  
   **hospitals_with_awareness_campaigns**
   
   Regresa los hospitales que realizan campañas de prevención COVID-19.
@@ -35,6 +37,7 @@
   Depende de la tabla **protocol** y de la view **most_recent_complete_update_by_hospital**.
  
 3. ¿Cómo se correlacionan las campañas de prevención con los casos que hay por hospital?
+  
   **hospitals_awareness_cases**
   
   Regresa, para cada hospital, los casos y si se realizan campañas de prevención COVID-19. (añadir histograma)
@@ -42,6 +45,7 @@
   Depende de las tablas **covid_cases**, **hospital** y **protocol**, y de la view **most_recent_complete_update_by_hospital**.
 
 4. ¿Qué porcentaje de muertos, recuperados, y positivos hay por hospital?
+  
   **patient_percentages**
   
   Regresa, para cada hospital, el porcentaje de muertos, recuperados, y positivos. Se considera que muertos + recuperados + positivos es el número total de pacientes.
@@ -49,6 +53,7 @@
   Depende de la tabla **covid_cases** y de la view **most_recent_complete_update_by_hospital**.
 
 5. ¿Qué provincias no tienen la capacidad de hacer pruebas COVID-19?
+  
   **provinces_wout_test_cap**
   
   Regresa las provincias con al menos un hospital sin capacidad de hacer pruebas COVID-19.
