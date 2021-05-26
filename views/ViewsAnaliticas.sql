@@ -203,4 +203,30 @@ join province pr on (h.province = pr.id_province)
 group by product_name
 )
 
+--A10 Porcentaje de los protocolos implementados por los hospitalese 
+create view Protocol_pct_byHospital_lastWave as (
+select h2.id_hospital,h2.hospital_name , 
+((cast(covid_screening as int)+ cast(covid_awareness as int)+cast(test_capacity as int)+cast(covid_tracking as int))*100)/4 as pctgProtocol
+from most_recent_complete_update_by_hospital mrubh 
+join hospital h2 on (mrubh.id_hospital = h2.id_hospital)
+join protocol p on (mrubh.id_update = p.id_update)
+)
+--A11 Porcentaje promedio del protocolo implementado por provincia
+create view Avg_protocol_pct_byProvince  as (
+with pctgByHospital as (
+select h2.id_hospital,p2.province_name ,h2.hospital_name , 
+((cast(covid_screening as int)+ cast(covid_awareness as int)+cast(test_capacity as int)+cast(covid_tracking as int))*100)/4 as pctgProtocol
+from most_recent_complete_update_by_hospital mrubh 
+join hospital h2 on (mrubh.id_hospital = h2.id_hospital)
+join protocol p on (mrubh.id_update = p.id_update)
+join province p2 on (h2.province = p2.id_province)
+)
+
+select province_name, avg(pctgprotocol)
+from pctgByHospital
+group by province_name
+)
+
+
+
 
