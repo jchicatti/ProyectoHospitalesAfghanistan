@@ -24,15 +24,15 @@
 
 
 ## Views de utilidad:
-- ¿Qué hospitales están en riesgo de quedarse sin contactos?
+1. ¿Qué hospitales están en riesgo de quedarse sin contactos?
 
 ![Captura_menores_tel](https://user-images.githubusercontent.com/70484786/119583629-9eaad900-bd8c-11eb-8034-d53fcd178970.PNG)
 
-- ¿Qué hospitales tenemos registrados y cuántos teléfonos de contacto tienen cada uno (divididos en activos y no activos)?
+2. ¿Qué hospitales tenemos registrados y cuántos teléfonos de contacto tienen cada uno (divididos en activos y no activos)?
 
 ![tel_hosp](https://user-images.githubusercontent.com/70484786/119703917-aca83a80-be1c-11eb-8fa5-4b1c544ae233.PNG)
 
-- ¿Cuántos updates ha realizado cada empleado del call center en el último mes?
+3. ¿Cuántos updates ha realizado cada empleado del call center en el último mes?
 
 ![captura_last_month](https://user-images.githubusercontent.com/70484786/119583709-c8fc9680-bd8c-11eb-9c43-4a66f45246a9.PNG)
 
