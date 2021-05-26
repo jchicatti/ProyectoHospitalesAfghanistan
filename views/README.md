@@ -69,7 +69,7 @@
   Depende de las tablas **covid_cases**, **hospital**, **protocol** y **district** y de la view **most_recent_complete_update_by_hospital**.
   
 7. Evolución de muertes / casos / recuperados
- 7.1 Muertes mensuales por provicincia **monthly_deaths_by_province**
+    7.1 Muertes mensuales por provicincia **monthly_deaths_by_province**
  
  Utiliza todos los updates completos y agrupa primero por provincia y luego por mes/año, con la suma de las muertes de los hospitales de esa provincia
 
