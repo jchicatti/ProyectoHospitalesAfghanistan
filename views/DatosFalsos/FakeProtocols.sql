@@ -1,103 +1,403 @@
---- ASUME QUE YA EXISTEN 50 UPDATES CREADOS ---
+--- ASUME QUE YA EXISTEN 200 UPDATES CREADOS ---
 insert into protocol 
 (id_update, covid_screening,covid_awareness,avg_test_result_time,test_capacity,covid_tracking,moph_report)
 values
-( 1 , TRUE , FALSE , 56 , FALSE , FALSE , FALSE )
+( 1 , FALSE , TRUE , 81 , TRUE , FALSE , TRUE )
 ,
-( 2 , FALSE , TRUE , 43 , FALSE , TRUE , FALSE )
+( 2 , FALSE , TRUE , 87 , FALSE , FALSE , FALSE )
 ,
-( 3 , TRUE , FALSE , 49 , FALSE , FALSE , TRUE )
+( 3 , TRUE , FALSE , 27 , TRUE , FALSE , TRUE )
 ,
-( 4 , FALSE , TRUE , 59 , TRUE , FALSE , FALSE )
+( 4 , TRUE , TRUE , 9 , TRUE , TRUE , TRUE )
 ,
-( 5 , TRUE , FALSE , 75 , TRUE , TRUE , TRUE )
+( 5 , TRUE , TRUE , 33 , TRUE , FALSE , FALSE )
 ,
-( 6 , FALSE , FALSE , 83 , FALSE , FALSE , TRUE )
+( 6 , FALSE , FALSE , 54 , TRUE , FALSE , FALSE )
 ,
-( 7 , TRUE , TRUE , 38 , TRUE , FALSE , FALSE )
+( 7 , TRUE , TRUE , 38 , FALSE , FALSE , TRUE )
 ,
-( 8 , FALSE , TRUE , 22 , FALSE , FALSE , FALSE )
+( 8 , FALSE , FALSE , 72 , TRUE , FALSE , TRUE )
 ,
-( 9 , FALSE , FALSE , 40 , FALSE , FALSE , FALSE )
+( 9 , TRUE , FALSE , 34 , FALSE , TRUE , TRUE )
 ,
-( 10 , TRUE , FALSE , 51 , TRUE , TRUE , TRUE )
+( 10 , TRUE , FALSE , 51 , TRUE , FALSE , TRUE )
 ,
-( 11 , TRUE , TRUE , 44 , TRUE , FALSE , FALSE )
+( 11 , FALSE , TRUE , 2 , TRUE , TRUE , FALSE )
 ,
-( 12 , TRUE , TRUE , 64 , FALSE , FALSE , FALSE )
+( 12 , TRUE , TRUE , 92 , TRUE , TRUE , FALSE )
 ,
-( 13 , TRUE , TRUE , 71 , FALSE , TRUE , TRUE )
+( 13 , FALSE , FALSE , 50 , FALSE , TRUE , FALSE )
 ,
-( 14 , TRUE , TRUE , 64 , FALSE , TRUE , FALSE )
+( 14 , TRUE , TRUE , 95 , TRUE , FALSE , FALSE )
 ,
-( 15 , FALSE , TRUE , 95 , FALSE , TRUE , FALSE )
+( 15 , TRUE , FALSE , 44 , FALSE , TRUE , TRUE )
 ,
-( 16 , TRUE , FALSE , 71 , TRUE , FALSE , TRUE )
+( 16 , FALSE , TRUE , 92 , TRUE , TRUE , FALSE )
 ,
-( 17 , FALSE , TRUE , 81 , FALSE , TRUE , TRUE )
+( 17 , TRUE , TRUE , 32 , FALSE , FALSE , FALSE )
 ,
-( 18 , TRUE , TRUE , 61 , FALSE , TRUE , TRUE )
+( 18 , TRUE , TRUE , 12 , TRUE , TRUE , TRUE )
 ,
-( 19 , TRUE , TRUE , 30 , FALSE , TRUE , TRUE )
+( 19 , TRUE , FALSE , 39 , TRUE , FALSE , TRUE )
 ,
-( 20 , FALSE , TRUE , 4 , FALSE , FALSE , FALSE )
+( 20 , TRUE , TRUE , 39 , FALSE , FALSE , FALSE )
 ,
-( 21 , FALSE , TRUE , 65 , TRUE , TRUE , TRUE )
+( 21 , FALSE , TRUE , 23 , TRUE , TRUE , FALSE )
 ,
-( 22 , FALSE , TRUE , 35 , FALSE , TRUE , TRUE )
+( 22 , FALSE , TRUE , 93 , FALSE , TRUE , FALSE )
 ,
-( 23 , FALSE , TRUE , 16 , FALSE , FALSE , FALSE )
+( 23 , TRUE , FALSE , 22 , TRUE , TRUE , FALSE )
 ,
-( 24 , FALSE , TRUE , 41 , FALSE , TRUE , FALSE )
+( 24 , TRUE , TRUE , 89 , FALSE , TRUE , TRUE )
 ,
-( 25 , FALSE , FALSE , 7 , TRUE , TRUE , TRUE )
+( 25 , FALSE , TRUE , 94 , FALSE , FALSE , FALSE )
 ,
-( 26 , FALSE , TRUE , 61 , FALSE , FALSE , FALSE )
+( 26 , FALSE , TRUE , 46 , TRUE , TRUE , TRUE )
 ,
-( 27 , TRUE , TRUE , 66 , TRUE , TRUE , FALSE )
+( 27 , FALSE , TRUE , 83 , FALSE , FALSE , TRUE )
 ,
-( 28 , FALSE , FALSE , 18 , TRUE , TRUE , FALSE )
+( 28 , TRUE , TRUE , 36 , FALSE , FALSE , TRUE )
 ,
-( 29 , TRUE , TRUE , 39 , TRUE , TRUE , FALSE )
+( 29 , FALSE , TRUE , 57 , TRUE , FALSE , FALSE )
 ,
-( 30 , TRUE , FALSE , 19 , FALSE , TRUE , TRUE )
+( 30 , FALSE , TRUE , 67 , FALSE , TRUE , TRUE )
 ,
-( 31 , TRUE , TRUE , 81 , TRUE , TRUE , FALSE )
+( 31 , TRUE , TRUE , 1 , TRUE , TRUE , FALSE )
 ,
-( 32 , TRUE , TRUE , 9 , TRUE , FALSE , TRUE )
+( 32 , FALSE , TRUE , 68 , TRUE , TRUE , TRUE )
 ,
-( 33 , FALSE , FALSE , 63 , TRUE , TRUE , FALSE )
+( 33 , FALSE , TRUE , 18 , TRUE , TRUE , FALSE )
 ,
-( 34 , TRUE , TRUE , 19 , FALSE , TRUE , FALSE )
+( 34 , FALSE , TRUE , 38 , TRUE , TRUE , TRUE )
 ,
-( 35 , TRUE , TRUE , 6 , FALSE , TRUE , FALSE )
+( 35 , FALSE , FALSE , 93 , FALSE , TRUE , TRUE )
 ,
-( 36 , FALSE , TRUE , 92 , FALSE , FALSE , FALSE )
+( 36 , TRUE , FALSE , 43 , FALSE , FALSE , FALSE )
 ,
-( 37 , TRUE , FALSE , 14 , FALSE , TRUE , FALSE )
+( 37 , FALSE , TRUE , 4 , FALSE , FALSE , FALSE )
 ,
-( 38 , TRUE , TRUE , 83 , FALSE , FALSE , TRUE )
+( 38 , FALSE , FALSE , 45 , FALSE , TRUE , FALSE )
 ,
-( 39 , FALSE , TRUE , 25 , TRUE , TRUE , TRUE )
+( 39 , TRUE , TRUE , 22 , FALSE , TRUE , FALSE )
 ,
-( 40 , TRUE , TRUE , 76 , FALSE , FALSE , TRUE )
+( 40 , FALSE , TRUE , 13 , FALSE , TRUE , TRUE )
 ,
-( 41 , TRUE , TRUE , 39 , TRUE , FALSE , FALSE )
+( 41 , TRUE , FALSE , 79 , FALSE , FALSE , FALSE )
 ,
-( 42 , FALSE , FALSE , 47 , TRUE , TRUE , TRUE )
+( 42 , TRUE , TRUE , 47 , FALSE , TRUE , FALSE )
 ,
-( 43 , TRUE , TRUE , 4 , FALSE , FALSE , TRUE )
+( 43 , FALSE , TRUE , 10 , TRUE , TRUE , TRUE )
 ,
-( 44 , TRUE , TRUE , 72 , FALSE , TRUE , FALSE )
+( 44 , FALSE , TRUE , 60 , FALSE , FALSE , FALSE )
 ,
-( 45 , TRUE , TRUE , 29 , FALSE , TRUE , FALSE )
+( 45 , FALSE , TRUE , 36 , TRUE , FALSE , TRUE )
 ,
-( 46 , TRUE , FALSE , 5 , FALSE , FALSE , TRUE )
+( 46 , TRUE , FALSE , 7 , TRUE , TRUE , FALSE )
 ,
-( 47 , TRUE , FALSE , 26 , TRUE , TRUE , FALSE )
+( 47 , TRUE , FALSE , 76 , TRUE , TRUE , TRUE )
 ,
-( 48 , FALSE , FALSE , 25 , TRUE , FALSE , TRUE )
+( 48 , TRUE , FALSE , 88 , TRUE , TRUE , TRUE )
 ,
-( 49 , FALSE , TRUE , 31 , FALSE , FALSE , TRUE )
+( 49 , TRUE , FALSE , 13 , TRUE , TRUE , TRUE )
 ,
-( 50 , TRUE , TRUE , 68 , TRUE , FALSE , TRUE )
+( 50 , FALSE , TRUE , 48 , FALSE , TRUE , FALSE )
+,
+( 51 , FALSE , FALSE , 3 , FALSE , TRUE , TRUE )
+,
+( 52 , TRUE , FALSE , 75 , FALSE , TRUE , TRUE )
+,
+( 53 , FALSE , TRUE , 43 , FALSE , TRUE , FALSE )
+,
+( 54 , FALSE , FALSE , 69 , FALSE , TRUE , FALSE )
+,
+( 55 , TRUE , FALSE , 9 , TRUE , TRUE , TRUE )
+,
+( 56 , TRUE , FALSE , 85 , TRUE , FALSE , TRUE )
+,
+( 57 , TRUE , FALSE , 78 , TRUE , TRUE , TRUE )
+,
+( 58 , FALSE , FALSE , 24 , TRUE , FALSE , FALSE )
+,
+( 59 , FALSE , TRUE , 58 , FALSE , TRUE , TRUE )
+,
+( 60 , FALSE , TRUE , 5 , TRUE , TRUE , TRUE )
+,
+( 61 , FALSE , FALSE , 24 , FALSE , TRUE , TRUE )
+,
+( 62 , TRUE , FALSE , 30 , TRUE , FALSE , FALSE )
+,
+( 63 , FALSE , FALSE , 11 , TRUE , TRUE , TRUE )
+,
+( 64 , TRUE , TRUE , 10 , TRUE , TRUE , TRUE )
+,
+( 65 , TRUE , FALSE , 14 , FALSE , TRUE , TRUE )
+,
+( 66 , TRUE , FALSE , 21 , FALSE , TRUE , TRUE )
+,
+( 67 , TRUE , FALSE , 56 , FALSE , FALSE , FALSE )
+,
+( 68 , FALSE , TRUE , 64 , TRUE , TRUE , FALSE )
+,
+( 69 , TRUE , FALSE , 31 , TRUE , TRUE , FALSE )
+,
+( 70 , TRUE , FALSE , 37 , TRUE , FALSE , FALSE )
+,
+( 71 , TRUE , TRUE , 58 , FALSE , TRUE , FALSE )
+,
+( 72 , FALSE , FALSE , 58 , FALSE , TRUE , TRUE )
+,
+( 73 , TRUE , TRUE , 86 , TRUE , FALSE , FALSE )
+,
+( 74 , TRUE , FALSE , 20 , TRUE , TRUE , TRUE )
+,
+( 75 , TRUE , FALSE , 34 , FALSE , TRUE , FALSE )
+,
+( 76 , TRUE , FALSE , 74 , FALSE , FALSE , FALSE )
+,
+( 77 , TRUE , TRUE , 30 , TRUE , TRUE , TRUE )
+,
+( 78 , FALSE , TRUE , 26 , FALSE , FALSE , TRUE )
+,
+( 79 , FALSE , TRUE , 93 , TRUE , TRUE , TRUE )
+,
+( 80 , FALSE , FALSE , 85 , FALSE , TRUE , FALSE )
+,
+( 81 , TRUE , FALSE , 66 , TRUE , FALSE , TRUE )
+,
+( 82 , FALSE , FALSE , 74 , FALSE , FALSE , TRUE )
+,
+( 83 , TRUE , FALSE , 57 , TRUE , TRUE , FALSE )
+,
+( 84 , TRUE , TRUE , 69 , TRUE , FALSE , TRUE )
+,
+( 85 , TRUE , FALSE , 76 , FALSE , TRUE , FALSE )
+,
+( 86 , FALSE , TRUE , 33 , TRUE , TRUE , TRUE )
+,
+( 87 , TRUE , FALSE , 78 , TRUE , TRUE , TRUE )
+,
+( 88 , FALSE , FALSE , 78 , FALSE , FALSE , FALSE )
+,
+( 89 , TRUE , FALSE , 76 , TRUE , TRUE , TRUE )
+,
+( 90 , TRUE , FALSE , 22 , FALSE , FALSE , TRUE )
+,
+( 91 , TRUE , TRUE , 77 , TRUE , FALSE , FALSE )
+,
+( 92 , TRUE , TRUE , 64 , FALSE , TRUE , TRUE )
+,
+( 93 , TRUE , FALSE , 65 , FALSE , TRUE , FALSE )
+,
+( 94 , TRUE , TRUE , 21 , TRUE , FALSE , FALSE )
+,
+( 95 , FALSE , FALSE , 37 , FALSE , TRUE , TRUE )
+,
+( 96 , TRUE , FALSE , 69 , FALSE , FALSE , FALSE )
+,
+( 97 , FALSE , FALSE , 8 , TRUE , TRUE , TRUE )
+,
+( 98 , FALSE , FALSE , 16 , FALSE , FALSE , FALSE )
+,
+( 99 , TRUE , FALSE , 72 , FALSE , FALSE , TRUE )
+,
+( 100 , FALSE , FALSE , 3 , FALSE , FALSE , FALSE )
+,
+( 101 , FALSE , FALSE , 57 , FALSE , FALSE , TRUE )
+,
+( 102 , TRUE , FALSE , 10 , TRUE , TRUE , FALSE )
+,
+( 103 , TRUE , TRUE , 44 , TRUE , TRUE , TRUE )
+,
+( 104 , TRUE , TRUE , 13 , FALSE , FALSE , FALSE )
+,
+( 105 , TRUE , TRUE , 22 , FALSE , TRUE , TRUE )
+,
+( 106 , TRUE , TRUE , 73 , TRUE , TRUE , TRUE )
+,
+( 107 , TRUE , FALSE , 74 , FALSE , TRUE , TRUE )
+,
+( 108 , FALSE , TRUE , 65 , FALSE , TRUE , TRUE )
+,
+( 109 , TRUE , FALSE , 66 , FALSE , FALSE , FALSE )
+,
+( 110 , TRUE , TRUE , 9 , TRUE , FALSE , FALSE )
+,
+( 111 , TRUE , FALSE , 57 , FALSE , FALSE , FALSE )
+,
+( 112 , FALSE , FALSE , 60 , FALSE , TRUE , TRUE )
+,
+( 113 , FALSE , FALSE , 69 , TRUE , TRUE , TRUE )
+,
+( 114 , FALSE , FALSE , 22 , FALSE , TRUE , FALSE )
+,
+( 115 , TRUE , TRUE , 19 , FALSE , FALSE , FALSE )
+,
+( 116 , TRUE , TRUE , 84 , FALSE , FALSE , TRUE )
+,
+( 117 , TRUE , FALSE , 80 , TRUE , TRUE , TRUE )
+,
+( 118 , TRUE , TRUE , 30 , TRUE , FALSE , FALSE )
+,
+( 119 , TRUE , FALSE , 81 , FALSE , TRUE , FALSE )
+,
+( 120 , TRUE , TRUE , 68 , FALSE , FALSE , TRUE )
+,
+( 121 , FALSE , FALSE , 97 , FALSE , FALSE , TRUE )
+,
+( 122 , FALSE , FALSE , 91 , FALSE , FALSE , TRUE )
+,
+( 123 , TRUE , TRUE , 97 , TRUE , TRUE , FALSE )
+,
+( 124 , TRUE , TRUE , 31 , FALSE , TRUE , TRUE )
+,
+( 125 , TRUE , TRUE , 83 , FALSE , TRUE , TRUE )
+,
+( 126 , TRUE , FALSE , 9 , TRUE , TRUE , TRUE )
+,
+( 127 , TRUE , TRUE , 55 , TRUE , FALSE , TRUE )
+,
+( 128 , FALSE , TRUE , 21 , FALSE , FALSE , TRUE )
+,
+( 129 , TRUE , FALSE , 25 , FALSE , FALSE , FALSE )
+,
+( 130 , TRUE , FALSE , 5 , TRUE , FALSE , FALSE )
+,
+( 131 , FALSE , FALSE , 40 , TRUE , TRUE , FALSE )
+,
+( 132 , TRUE , TRUE , 14 , FALSE , FALSE , FALSE )
+,
+( 133 , FALSE , TRUE , 2 , FALSE , FALSE , TRUE )
+,
+( 134 , TRUE , TRUE , 81 , FALSE , FALSE , FALSE )
+,
+( 135 , FALSE , TRUE , 2 , FALSE , TRUE , FALSE )
+,
+( 136 , FALSE , FALSE , 50 , TRUE , FALSE , FALSE )
+,
+( 137 , TRUE , FALSE , 64 , FALSE , TRUE , FALSE )
+,
+( 138 , TRUE , FALSE , 58 , FALSE , TRUE , TRUE )
+,
+( 139 , TRUE , TRUE , 60 , FALSE , FALSE , FALSE )
+,
+( 140 , TRUE , TRUE , 5 , TRUE , TRUE , FALSE )
+,
+( 141 , TRUE , FALSE , 44 , TRUE , TRUE , TRUE )
+,
+( 142 , TRUE , FALSE , 3 , FALSE , FALSE , TRUE )
+,
+( 143 , FALSE , FALSE , 82 , TRUE , FALSE , FALSE )
+,
+( 144 , TRUE , TRUE , 43 , FALSE , TRUE , TRUE )
+,
+( 145 , TRUE , TRUE , 66 , FALSE , FALSE , TRUE )
+,
+( 146 , FALSE , FALSE , 92 , FALSE , FALSE , TRUE )
+,
+( 147 , TRUE , TRUE , 80 , TRUE , TRUE , FALSE )
+,
+( 148 , FALSE , FALSE , 58 , FALSE , FALSE , TRUE )
+,
+( 149 , TRUE , TRUE , 12 , TRUE , FALSE , FALSE )
+,
+( 150 , FALSE , FALSE , 62 , TRUE , FALSE , TRUE )
+,
+( 151 , TRUE , FALSE , 98 , TRUE , TRUE , TRUE )
+,
+( 152 , FALSE , TRUE , 29 , TRUE , FALSE , TRUE )
+,
+( 153 , FALSE , TRUE , 22 , TRUE , TRUE , FALSE )
+,
+( 154 , FALSE , FALSE , 80 , TRUE , FALSE , FALSE )
+,
+( 155 , FALSE , TRUE , 27 , TRUE , TRUE , TRUE )
+,
+( 156 , TRUE , TRUE , 75 , TRUE , TRUE , FALSE )
+,
+( 157 , FALSE , FALSE , 85 , FALSE , FALSE , FALSE )
+,
+( 158 , FALSE , TRUE , 75 , FALSE , FALSE , FALSE )
+,
+( 159 , TRUE , FALSE , 78 , FALSE , TRUE , TRUE )
+,
+( 160 , TRUE , TRUE , 18 , FALSE , FALSE , TRUE )
+,
+( 161 , TRUE , TRUE , 45 , FALSE , TRUE , TRUE )
+,
+( 162 , FALSE , TRUE , 78 , TRUE , TRUE , FALSE )
+,
+( 163 , FALSE , FALSE , 3 , TRUE , TRUE , TRUE )
+,
+( 164 , TRUE , TRUE , 52 , FALSE , TRUE , FALSE )
+,
+( 165 , TRUE , TRUE , 31 , TRUE , TRUE , FALSE )
+,
+( 166 , TRUE , FALSE , 13 , FALSE , TRUE , FALSE )
+,
+( 167 , TRUE , FALSE , 36 , FALSE , FALSE , FALSE )
+,
+( 168 , FALSE , FALSE , 70 , FALSE , FALSE , TRUE )
+,
+( 169 , FALSE , TRUE , 70 , TRUE , TRUE , FALSE )
+,
+( 170 , FALSE , FALSE , 52 , FALSE , FALSE , TRUE )
+,
+( 171 , FALSE , TRUE , 73 , TRUE , TRUE , FALSE )
+,
+( 172 , FALSE , FALSE , 38 , TRUE , TRUE , FALSE )
+,
+( 173 , TRUE , TRUE , 20 , FALSE , TRUE , FALSE )
+,
+( 174 , FALSE , TRUE , 46 , FALSE , FALSE , TRUE )
+,
+( 175 , FALSE , TRUE , 69 , TRUE , FALSE , FALSE )
+,
+( 176 , TRUE , FALSE , 42 , TRUE , TRUE , TRUE )
+,
+( 177 , FALSE , FALSE , 40 , TRUE , TRUE , TRUE )
+,
+( 178 , FALSE , FALSE , 21 , TRUE , FALSE , FALSE )
+,
+( 179 , TRUE , TRUE , 50 , FALSE , TRUE , TRUE )
+,
+( 180 , FALSE , FALSE , 3 , FALSE , FALSE , FALSE )
+,
+( 181 , TRUE , FALSE , 91 , FALSE , TRUE , TRUE )
+,
+( 182 , TRUE , FALSE , 49 , FALSE , TRUE , FALSE )
+,
+( 183 , FALSE , TRUE , 53 , FALSE , FALSE , TRUE )
+,
+( 184 , TRUE , TRUE , 89 , FALSE , FALSE , TRUE )
+,
+( 185 , FALSE , TRUE , 5 , TRUE , TRUE , FALSE )
+,
+( 186 , FALSE , TRUE , 51 , TRUE , FALSE , FALSE )
+,
+( 187 , TRUE , TRUE , 85 , TRUE , TRUE , FALSE )
+,
+( 188 , TRUE , FALSE , 73 , FALSE , FALSE , FALSE )
+,
+( 189 , TRUE , FALSE , 61 , FALSE , TRUE , TRUE )
+,
+( 190 , TRUE , FALSE , 32 , FALSE , TRUE , TRUE )
+,
+( 191 , FALSE , TRUE , 4 , FALSE , TRUE , FALSE )
+,
+( 192 , FALSE , FALSE , 58 , TRUE , TRUE , FALSE )
+,
+( 193 , TRUE , FALSE , 53 , TRUE , TRUE , TRUE )
+,
+( 194 , TRUE , TRUE , 26 , TRUE , FALSE , FALSE )
+,
+( 195 , FALSE , FALSE , 39 , TRUE , TRUE , TRUE )
+,
+( 196 , FALSE , FALSE , 99 , FALSE , FALSE , FALSE )
+,
+( 197 , TRUE , TRUE , 46 , FALSE , TRUE , TRUE )
+,
+( 198 , FALSE , TRUE , 27 , TRUE , FALSE , FALSE )
+,
+( 199 , TRUE , FALSE , 99 , FALSE , TRUE , FALSE )
+,
+( 200 , TRUE , FALSE , 21 , TRUE , FALSE , TRUE );
