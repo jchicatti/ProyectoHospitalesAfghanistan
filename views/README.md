@@ -150,6 +150,8 @@
   **NOTA**: Depende del view **most_recent_complete_update_by_hospital** para obtener los views completos de esa wave
   
      8.2 En el ultimo wave de updates ¿Cuántos doctores y paramédicos había en cada provincia?
+     
+ **personel_counts_byProvince_lastWave**
 
 Regresa una lista de las provincias, junto con el número de médicos y paramédicos promedio para los hospitales de esa provincia.
 
@@ -159,6 +161,9 @@ Regresa una lista de las provincias, junto con el número de médicos y paraméd
 
     8.3 En el ultimo wave de updates, ¿cuántos doctores y paramédicos había en el país?
     
+**personel_counts_byCountry_lastWave**
+
+
  Dado que es solo un país, regresa el total de médicos y paramédicos
  
  
@@ -166,6 +171,49 @@ Regresa una lista de las provincias, junto con el número de médicos y paraméd
  
    **NOTA**: Depende del view **most_recent_complete_update_by_hospital** para obtener los views completos de esa wave
 
+9. Conteo de recursos sobrantes
+
+         9.1 En el último wave de updates, ¿Cuántos días de recursos quedan para cada recurso en cada hospital?
+      
+     **days_remaining_byResource_byHospital_lastWave**
+     
+     
+    Regresa para cada hospital, el número de días restantes de cada tipo de recurso
+    
+    <img width="806" alt="Screen Shot 2021-05-26 at 6 03 12 PM" src="https://user-images.githubusercontent.com/47492091/119742100-aa5dd480-be4c-11eb-913e-403ef196bbba.png">
+
+  **NOTA**: Depende del view **most_recent_complete_update_by_hospital** para obtener los views completos de esa wave
+
+     9.2 Para cada hospital, ¿Cuál es el promedio de días restantes de recursos?
+     
+  **avg_days_remaining_byHosptial_lastWave**
+   
+   Similar al view 9.1, pero promedia todos los recursos para cada hospital
+   
+   
+   <img width="602" alt="Screen Shot 2021-05-26 at 6 05 39 PM" src="https://user-images.githubusercontent.com/47492091/119742309-1fc9a500-be4d-11eb-862f-37ce98b564e8.png">
+   
+   **NOTA**: Depende del view **most_recent_complete_update_by_hospital** para obtener los views completos de esa wave
+
+    9.3 Para cada provincia ¿Cuál es el número promedio de días restantes para cada producto?
+    
+  **avg_days_remaining_byProduct_Provinces**
+  
+  Para los hospitales de cada provincia, toma el promedio de los días restantes de cada producto. Es la tabla 9.2 pero agrupada por provincia y promediada. 
+  
+  
+  <img width="580" alt="Screen Shot 2021-05-26 at 6 07 52 PM" src="https://user-images.githubusercontent.com/47492091/119742393-54d5f780-be4d-11eb-926f-4815ac8ba761.png">
+
+  **NOTA**: Depende del view **most_recent_complete_update_by_hospital** para obtener los views completos de esa wave
+
+
+     9.4 A nivel país, ¿En promedio, para cada producto cuántos días de recursos sobran?
+     
+   **avg_daysRemaining_byProduct_country**
+   
+   <img width="467" alt="Screen Shot 2021-05-26 at 6 10 23 PM" src="https://user-images.githubusercontent.com/47492091/119742546-aa120900-be4d-11eb-80dc-2b539c30531e.png">
+   
+   **NOTA**: Depende del view **most_recent_complete_update_by_hospital** para obtener los views completos de esa wave
 
 
 ## Views de utilidad:
