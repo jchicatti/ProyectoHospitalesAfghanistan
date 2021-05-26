@@ -135,4 +135,30 @@ select *, rank() over (partition by ym order by totalrecoveries desc)
 from counts 
 )
 
+--A8 Personel Counts
+  --A8.1 by hospital
+  create view personel_counts_byProvince_lastWave as (
+select h.id_hospital ,h.hospital_name,h.latitude, h.longitude ,no_doctors  as "Number of doctors", no_paramedics as "Number of Paramedics"
+from most_recent_complete_update_by_hospital mrubh 
+join hospital h on (mrubh.id_hospital = h.id_hospital)
+join personel p on (mrubh.id_update = p.id_update)
+)
+--A8.2 by province
+create view personel_counts_byProvince_lastWave as (
+select  p2.province_name,  sum(no_doctors) as "Number of doctors", sum(no_paramedics) as "Number of Paramedics"
+from most_recent_complete_update_by_hospital mrubh 
+join hospital h on (mrubh.id_hospital = h.id_hospital)
+join personel p on (mrubh.id_update = p.id_update)
+join province p2 on (h.province = p2.id_province)
+group by province_name 
+)
+--A8.3 by Country
+create view personel_counts_byCountry_lastWave as (
+select  sum(no_doctors) as "Total number of doctors", sum(no_paramedics) as "Total number of Paramedics"
+from most_recent_complete_update_by_hospital mrubh 
+join hospital h on (mrubh.id_hospital = h.id_hospital)
+join personel p on (mrubh.id_update = p.id_update)
+join province p2 on (h.province = p2.id_province)
+)
+
 
