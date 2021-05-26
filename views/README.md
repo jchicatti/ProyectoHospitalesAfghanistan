@@ -214,6 +214,32 @@ Regresa una lista de las provincias, junto con el número de médicos y paraméd
    <img width="467" alt="Screen Shot 2021-05-26 at 6 10 23 PM" src="https://user-images.githubusercontent.com/47492091/119742546-aa120900-be4d-11eb-80dc-2b539c30531e.png">
    
    **NOTA**: Depende del view **most_recent_complete_update_by_hospital** para obtener los views completos de esa wave
+   
+   
+   
+10. En el último wave, ¿Qué tan completos eran los protocolos de los hospitales?
+
+
+**Protocol_pct_byHospital_lastWave**
+Un hospital puede implementar varios protocolos contra el COVID. Actualmente, la encuesta de Voxmapp recoge un protocolo de 4 partes. Así, podemos considerar que un hospital cumple con un % de esas partes; un hospital que cumple el 100% implementa los 4 protocolos. 
+
+
+<img width="555" alt="Screen Shot 2021-05-26 at 6 14 51 PM" src="https://user-images.githubusercontent.com/47492091/119742849-4b00c400-be4e-11eb-83bb-2d7efcf23129.png">
+
+   **NOTA**: Depende del view **most_recent_complete_update_by_hospital** para obtener los views completos de esa wave
+
+
+11. En el último wave, ¿Qué tan completo era el protocolo promedio de cada provincia?
+
+**Avg_protocol_pct_byProvince**
+
+
+Misma idea de la vista A10, pero promediado por provincia.
+
+<img width="289" alt="Screen Shot 2021-05-26 at 6 16 22 PM" src="https://user-images.githubusercontent.com/47492091/119742979-869b8e00-be4e-11eb-8fb3-057abd5fc5dd.png">
+
+   **NOTA**: Depende del view **most_recent_complete_update_by_hospital** para obtener los views completos de esa wave
+
 
 
 ## Views de utilidad:
