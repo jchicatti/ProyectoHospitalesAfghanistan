@@ -1,6 +1,6 @@
 -- A1: View de casos y muertes por provincia
 create view cases_and_deaths_by_province as
-select p.id_province, count(cc.covid_deaths), count(cc.positive_patients) from covid_cases cc 
+select p.id_province, sum(cc.covid_deaths), sum(cc.positive_patients) from covid_cases cc 
 join most_recent_complete_update_by_hospital mrubh using (id_update)
 join hospital h using (id_hospital)
 join province p on h.province = p.id_province 
