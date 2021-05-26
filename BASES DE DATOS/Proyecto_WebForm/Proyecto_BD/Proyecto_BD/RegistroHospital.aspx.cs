@@ -61,7 +61,6 @@ namespace Proyecto_BD
                         {
                             string resInsert = c.AgregaHospital();
                             bool wasInserted = int.TryParse(resInsert.Substring(28), out int id_hospital);
-                            Label2.Text = id_hospital.ToString();
                             TextBox14.Text = resInsert;
                             Session["id_hospital_register"] = id_hospital;
                             Session["id_hospital_update"] = id_hospital;

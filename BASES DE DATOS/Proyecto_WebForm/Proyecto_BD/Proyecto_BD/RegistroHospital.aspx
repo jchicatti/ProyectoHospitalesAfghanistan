@@ -17,8 +17,6 @@
         </header>
         <div class="registro">
             <h2>Health Facility/Hospital General Information</h2>
-            <asp:Label ID="Label2" runat="server"></asp:Label>
-            <br />
             <br />
             Name:&nbsp;<br />
 &nbsp;<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
@@ -81,6 +79,9 @@
             </asp:DropDownList>
             <br />
             <br />
+            <asp:Button ID="Button1" runat="server" CssClass="button" Text="Register this hospital" OnClick="Button1_Click" Width="260px" />
+            <br />
+            <br />
             <asp:Label ID="Label1" runat="server" Font-Bold="True" Text="Verify the hospital you are registering is not a duplicate of the following:" Visible="False"></asp:Label>
             <br />
             <br />
@@ -89,9 +90,6 @@
             <br />
             <asp:Button ID="Button3" CssClass="buttonl" runat="server" Text="It is not a duplicate." Visible="False" OnClick="Button3_Click1" />
             <br />
-            <br />
-            <br />
-            <asp:Button ID="Button1" runat="server" CssClass="button" Text="Register this hospital" OnClick="Button1_Click" Width="260px" />
             <br />
             <br />
             <asp:TextBox ID="TextBox14" runat="server" BorderStyle="None" TextMode="MultiLine" Height="48px" Width="374px"></asp:TextBox>
