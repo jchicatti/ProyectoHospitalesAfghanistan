@@ -51,3 +51,89 @@ join district d on h.district = d.id_district
 join protocol p2 using (id_update)
 where exists (select * from protocol p3 where p3.test_capacity = false)
 
+-- A7: Trends mensuales por provincia
+
+  --A7.1 Muertes
+  create view monthly_deaths_by_province as (
+select p.province_name , date_trunc('month', uh.update_date) as "year-month", sum(cc.covid_deaths) as "Number of Deaths"
+from update_hospital uh 
+join hospital h on (uh.id_hospital = h.id_hospital)
+join covid_cases cc on (uh.id_update = cc.id_update)
+join province p on (h.province = p.id_province)
+where uh.id_questionnare_status = 1 --Jalamos solo updates completos
+group by p.province_name, date_trunc('month', uh.update_date)
+order by p.province_name, 2 
+)
+  --A7.1.2 Rankings muertes por mes
+  create view monthly_death_ranking_by_province as (
+  with counts as (
+select p.province_name, date_trunc('month', uh.update_date) as YM,sum(cc.covid_deaths) as TotalDeaths
+from update_hospital uh 
+join hospital h on (uh.id_hospital = h.id_hospital)
+join covid_cases cc on (uh.id_update = cc.id_update)
+join province p on (h.province = p.id_province)
+where uh.id_questionnare_status = 1 
+group by p.province_name, date_trunc('month', uh.update_date)
+order by  date_trunc('month', uh.update_date) desc,TotalDeaths desc
+) 
+select *, rank() over(partition by  ym order by totaldeaths desc)
+from counts
+    
+)
+  --A7.2 Casos
+  create view monthly_cases_by_province as (
+select p.province_name , date_trunc('month', uh.update_date) as "year-month", sum(cc.positive_patients+cc.patients_with_symptoms+cc.intensive_care) as "Number of Confirmed Patients"
+from update_hospital uh 
+join hospital h on (uh.id_hospital = h.id_hospital)
+join covid_cases cc on (uh.id_update = cc.id_update)
+join province p on (h.province = p.id_province)
+where uh.id_questionnare_status = 1
+group by p.province_name, date_trunc('month', uh.update_date)
+order by province_name, 2
+)
+
+  --A7.2.1 Rankings casos por mes
+  create view monthly_cases_ranking_by_province as(
+    with counts as (
+select p.province_name, date_trunc('month', uh.update_date) as ym,sum(cc.positive_patients+cc.patients_with_symptoms+cc.intensive_care) as TotalCases
+from update_hospital uh 
+join hospital h on (uh.id_hospital = h.id_hospital)
+join covid_cases cc on (uh.id_update = cc.id_update)
+join province p on (h.province = p.id_province)
+where uh.id_questionnare_status = 1 
+group by p.province_name, date_trunc('month', uh.update_date)
+order by  date_trunc('month', uh.update_date) desc,TotalCases desc
+)
+
+select *, rank() over (partition by ym order by TotalCases desc)
+from counts 
+)
+
+  --A7.3 Recuperados
+  create view monthly_recovered_by_province as (
+select p.province_name , date_trunc('month', uh.update_date) as "year-month", sum(cc.covid_deaths) as "Number of Recovered Patients"
+from update_hospital uh 
+join hospital h on (uh.id_hospital = h.id_hospital)
+join covid_cases cc on (uh.id_update = cc.id_update)
+join province p on (h.province = p.id_province)
+where uh.id_questionnare_status = 1
+group by p.province_name, date_trunc('month', uh.update_date)
+order by province_name, 2
+)
+--A7.3.1 Ranking recuperados por mes
+create view monthly_recovered_ranking_by_province as (
+  with counts as(
+select p.province_name, date_trunc('month', uh.update_date) as ym,sum(cc.covid_recovered) as TotalRecoveries
+from update_hospital uh 
+join hospital h on (uh.id_hospital = h.id_hospital)
+join covid_cases cc on (uh.id_update = cc.id_update)
+join province p on (h.province = p.id_province)
+where uh.id_questionnare_status = 1 
+group by p.province_name, date_trunc('month', uh.update_date)
+order by  date_trunc('month', uh.update_date) desc,totalrecoveries desc
+)
+select *, rank() over (partition by ym order by totalrecoveries desc)
+from counts 
+)
+
+
