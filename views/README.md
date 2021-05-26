@@ -138,6 +138,35 @@
   
  <img width="562" alt="RecoveredRank" src="https://user-images.githubusercontent.com/47492091/119739324-ad09fb00-be47-11eb-9da4-e214fa5aaeb8.png">
 
+8. Conteos de personal
+
+         8.1 En el ultimo wave de updates, ¿Cuántos doctores y paramédicos había en cada hospital?
+         
+  **personel_counts_byHospital_lastWave**
+  
+  Regresa cuántos médicos y paramédicos hay en cada hospital con update, junto con sus coordenadas geográficas. 
+  <img width="999" alt="HospitalPersonelCount" src="https://user-images.githubusercontent.com/47492091/119740218-25bd8700-be49-11eb-94d0-dfcd06ab2bbe.png">
+
+  **NOTA**: Depende del view **most_recent_complete_update_by_hospital** para obtener los views completos de esa wave
+  
+     8.2 En el ultimo wave de updates ¿Cuántos doctores y paramédicos había en cada provincia?
+
+Regresa una lista de las provincias, junto con el número de médicos y paramédicos promedio para los hospitales de esa provincia.
+
+<img width="540" alt="PersonelByCounty" src="https://user-images.githubusercontent.com/47492091/119741509-7b932e80-be4b-11eb-985a-9516b0c511c1.png">
+
+  **NOTA**: Depende del view **most_recent_complete_update_by_hospital** para obtener los views completos de esa wave
+
+    8.3 En el ultimo wave de updates, ¿cuántos doctores y paramédicos había en el país?
+    
+ Dado que es solo un país, regresa el total de médicos y paramédicos
+ 
+ 
+ <img width="451" alt="Screen Shot 2021-05-26 at 5 59 28 PM" src="https://user-images.githubusercontent.com/47492091/119741846-24418e00-be4c-11eb-92cd-df920e20c4c0.png">
+ 
+   **NOTA**: Depende del view **most_recent_complete_update_by_hospital** para obtener los views completos de esa wave
+
+
 
 ## Views de utilidad:
 1. ¿Qué hospitales están en riesgo de quedarse sin contactos?
