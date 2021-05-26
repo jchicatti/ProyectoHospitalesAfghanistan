@@ -1,9 +1,6 @@
 insert into telephone 
 (telephone, contact_name, phone_type, id_hospital, active)
 values
-insert into telephone 
-(telephone, contact_name, phone_type, id_hospital, active)
-values
 (7222014678, 'Ulises', 'Landline',1 ,true), 
 (7222014535, 'Memo', 'Landline',2 ,true), 
 (7222014557, 'Julieta', 'Landline',3 ,true), 
