@@ -30,7 +30,7 @@
 
 - ¿Qué hospitales tenemos registrados y cuántos teléfonos de contacto tienen cada uno (divididos en activos y no activos)?
 
-![Captura_telefonoos_hospital](https://user-images.githubusercontent.com/70484786/119583688-bf732e80-bd8c-11eb-8eba-46aa8472ef7e.PNG)
+![tel_hosp](https://user-images.githubusercontent.com/70484786/119703917-aca83a80-be1c-11eb-8fa5-4b1c544ae233.PNG)
 
 - ¿Cuántos updates ha realizado cada empleado del call center en el último mes?
 
