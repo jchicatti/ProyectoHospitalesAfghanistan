@@ -8,8 +8,7 @@ group by id_province;
 
 -- A2: View de hospitales con campañas de awareness
 create view hospitals_with_awareness_campaigns as
-select h.id_hospital, p.covid_awareness from hospital h 
-join most_recent_complete_update_by_hospital mrubh using (id_hospital)
+select mrubh.id_hospital, p.covid_awareness from most_recent_complete_update_by_hospital mrubh
 join protocol p using (id_update)
 where p.covid_awareness = true ;
 
