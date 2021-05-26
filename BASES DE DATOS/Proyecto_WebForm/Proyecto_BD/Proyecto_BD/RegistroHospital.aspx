@@ -17,6 +17,8 @@
         </header>
         <div class="registro">
             <h2>Health Facility/Hospital General Information</h2>
+            <asp:Label ID="Label2" runat="server"></asp:Label>
+            <br />
             <br />
             Name:&nbsp;<br />
 &nbsp;<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
@@ -84,8 +86,13 @@
             <br />
             <asp:GridView ID="GridView1" runat="server" Visible="False">
             </asp:GridView>
+            <br />
             <asp:Button ID="Button3" CssClass="buttonl" runat="server" Text="It is not a duplicate." Visible="False" OnClick="Button3_Click1" />
+            <br />
+            <br />
+            <br />
             <asp:Button ID="Button1" runat="server" CssClass="button" Text="Register this hospital" OnClick="Button1_Click" Width="260px" />
+            <br />
             <br />
             <asp:TextBox ID="TextBox14" runat="server" BorderStyle="None" TextMode="MultiLine" Height="48px" Width="374px"></asp:TextBox>
             <br />

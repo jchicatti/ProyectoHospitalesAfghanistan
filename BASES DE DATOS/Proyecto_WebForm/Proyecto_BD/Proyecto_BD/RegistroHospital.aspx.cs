@@ -49,8 +49,10 @@ namespace Proyecto_BD
             bool isNumeric2 = double.TryParse(numero_2, out _);
             bool isNumeric3 = double.TryParse(numero_3, out _);
 
-            if(!numero_1.Equals("") || !numero_2.Equals("") || !numero_3.Equals(""))
+            if (!numero_1.Equals("") || !numero_2.Equals("") || !numero_3.Equals(""))
+            {
                 if ((isNumeric1 && numero_1.Length == 10) || (isNumeric2 && numero_2.Length == 10) || (isNumeric3 && numero_3.Length == 10))
+                {
                     if (!nombre.Equals("") && !dom.Equals("") && !moph.Equals(""))
                     {
                         Hospital c = new Hospital(nombre, dom, latitude, longitude, district, province, tipo_hospital, moph);
@@ -59,6 +61,7 @@ namespace Proyecto_BD
                         {
                             string resInsert = c.AgregaHospital();
                             bool wasInserted = int.TryParse(resInsert.Substring(28), out int id_hospital);
+                            Label2.Text = id_hospital.ToString();
                             TextBox14.Text = resInsert;
                             Session["id_hospital_register"] = id_hospital;
                             Session["id_hospital_update"] = id_hospital;
@@ -82,6 +85,16 @@ namespace Proyecto_BD
                                     Telephone t = new Telephone(numero_3, nombre_3, tipo_3, id_hospital);
                                     TextBox14.Text += "\n" + t.AddTelephone();
                                 }
+
+                                TextBox1.Text = "";
+                                TextBox2.Text = "";
+                                TextBox13.Text = "";
+                                TextBox3.Text = "";
+                                TextBox6.Text = "";
+                                TextBox8.Text = "";
+                                TextBox5.Text = "";
+                                TextBox7.Text = "";
+                                TextBox9.Text = "";
                             }
                             else
                             {
@@ -95,13 +108,16 @@ namespace Proyecto_BD
                             Label1.Visible = true;
                             Button3.Visible = true;
                             TextBox14.Text = "";
+
                         }
 
                     }
                     else
                         TextBox14.Text = "\nHospital fields required: (NAME, ADDRESS, MOPH NUMBER).";
+                }
                 else
                     TextBox14.Text = "\nVerify contact telephone is numeric and 10 digits long.";
+            }
             else
                 TextBox14.Text = "\n At least 1 contact telephone is required.";
         }
@@ -211,10 +227,21 @@ namespace Proyecto_BD
                                 Telephone t = new Telephone(numero_3, nombre_3, tipo_3, id_hospital);
                                 TextBox14.Text += t.AddTelephone();
                             }
+
                             Button1.Visible = true;
                             GridView1.Visible = false;
                             Label1.Visible = false;
                             Button3.Visible = false;
+
+                            TextBox1.Text = "";
+                            TextBox2.Text = ""; 
+                            TextBox13.Text = "";
+                            TextBox3.Text = "";
+                            TextBox6.Text = "";
+                            TextBox8.Text = "";
+                            TextBox5.Text = "";
+                            TextBox7.Text = "";
+                            TextBox9.Text = ""; 
                         }
                         else
                         {

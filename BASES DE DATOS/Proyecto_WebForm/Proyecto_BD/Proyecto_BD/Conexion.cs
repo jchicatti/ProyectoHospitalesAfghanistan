@@ -53,7 +53,8 @@ namespace Proyecto_BD
             try
             {
                 NpgsqlConnection con = AgregarConexion();
-                NpgsqlCommand cmd = new NpgsqlCommand("SELECT * FROM hospital order by id_hospital desc", con);
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT hospital_name , address , latitude, longitude, district, province, hospital_type, moph_number" +
+                    " FROM hospital order by id_hospital desc", con);
                 NpgsqlDataReader rd = cmd.ExecuteReader();
                 gv.DataSource = rd;
                 gv.DataBind();
@@ -223,7 +224,7 @@ namespace Proyecto_BD
             {
                 NpgsqlConnection con = AgregarConexion();
                 NpgsqlCommand cmd = new NpgsqlCommand(String.Format("select contact_name, telephone, phone_type, " +
-                    "active from telephone where id_hospital = '{0}' order by contact_name ", id_hospital), con);
+                    "active from telephone where id_hospital = '{0}' order by active desc ", id_hospital), con);
                 NpgsqlDataReader rd = cmd.ExecuteReader();
                 gv.DataSource = rd;
                 gv.DataBind();

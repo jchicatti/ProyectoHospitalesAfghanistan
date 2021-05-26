@@ -70,7 +70,7 @@ namespace Proyecto_BD
                     }
                     else
                         contID = 0;
-                    res = "Registration succesful!" + " ID: " + contID + ". \n";
+                    res = "Registration succesful!" + " ID: " + contID;
                 }
                 else
                     res = "Connection error";
