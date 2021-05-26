@@ -161,4 +161,46 @@ join personel p on (mrubh.id_update = p.id_update)
 join province p2 on (h.province = p2.id_province)
 )
 
+-- A9 Resource counts
+  --A9.1 Dias restantes de cada recurso por hospital
+  create view days_remaining_byResource_byHospital_lastWave as ( 
+select h.id_hospital , h.hospital_name, product_name, days_remaining
+from most_recent_complete_update_by_hospital mrubh 
+join inventory i on (mrubh.id_update = i.id_update)
+join resource_catalog rc on (i.id_product = rc.id_product)
+join hospital h using (id_hospital)
+)
+  --A9.2 Dias restantes promedio por hospital
+  create view avg_days_remaining_byHosptial_lastWave as (
+select h.id_hospital , h.hospital_name, avg(days_remaining) as avg_days_remaining
+from most_recent_complete_update_by_hospital mrubh 
+join inventory i on (mrubh.id_update = i.id_update)
+join resource_catalog rc on (i.id_product = rc.id_product)
+join hospital h using (id_hospital)
+group by h.id_hospital, hospital_name
+order by hospital_name 
+)
+  --A9.3 Dias restantes promedio por recurso por provincia
+  
+create view avg_days_remaining_byProduct_Provinces as (
+select pr.province_name ,product_name, avg(days_remaining)
+from most_recent_complete_update_by_hospital mrubh 
+join inventory i on (mrubh.id_update = i.id_update)
+join resource_catalog rc on (i.id_product = rc.id_product)
+join hospital h using (id_hospital)
+join province pr on (h.province = pr.id_province)
+group by pr.province_name , product_name
+order by province_name
+)
+  --A9.4 Dias restantes promedio por recurso en el país
+  create view avg_daysRemaining_byProduct_country as ( 
+select product_name, avg(days_remaining)
+from most_recent_complete_update_by_hospital mrubh 
+join inventory i on (mrubh.id_update = i.id_update)
+join resource_catalog rc on (i.id_product = rc.id_product)
+join hospital h using (id_hospital)
+join province pr on (h.province = pr.id_province)
+group by product_name
+)
+
 
