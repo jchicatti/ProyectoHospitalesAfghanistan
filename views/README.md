@@ -70,20 +70,73 @@
   
 7. Evolución de muertes / casos / recuperados. 
 
+        7.1 ¿Cómo ha evlucionado el número de muertes en cada provincia?
 
-    7.1 ¿Cómo ha evlucionado el número de muertes en cada provincia? **monthly_deaths_by_province**
+ **monthly_deaths_by_province**
+
  
  Utiliza el histórico de todos los updates (completos) y agrupa primero por provincia y luego por mes/año, con la suma de las muertes de los hospitales de esa provincia
+ 
+ 
  <img width="499" alt="DeathTrends" src="https://user-images.githubusercontent.com/47492091/119738257-0a9d4800-be46-11eb-8c3c-1ccdebd8bda4.png">
 
 
 **NOTA**: Trunca las fechas para quedarse solamente con el año y el mes
 
-    7.1.2 Para cada mes, ¿Cómo rankea cada provincia en cuanto a número de muertes?
-    
-  Utiliza el hhistórico de todos los updates (completos) y agrupa por mes y luego por provincia. Ordena las provincias de cada mes por número de muerte y les asigna una posición usando rank().
-  <img width="535" alt="DeathRanks" src="https://user-images.githubusercontent.com/47492091/119738633-9ca55080-be46-11eb-9864-d8f1f2a40c91.png">
 
+    7.1.2 Para cada mes, ¿Cómo rankea cada provincia en cuanto a número de muertes? 
+    
+  **monthly_death_ranking_by_province**
+    
+  Utiliza el histórico de todos los updates (completos) y agrupa por mes y luego por provincia. Ordena las provincias de cada mes por número de muerte y les asigna una posición usando rank().
+  
+  
+  <img width="535" alt="DeathRanks" src="https://user-images.githubusercontent.com/47492091/119738633-9ca55080-be46-11eb-9864-d8f1f2a40c91.png">
+  
+    7.2 ¿Cómo ha evlucionado el número de casos en cada provincia?
+   
+   **monthly_cases_by_province**
+ 
+ Utiliza el histórico de todos los updates (completos) y agrupa primero por provincia y luego por mes/año, con la suma de los casos de los hospitales de esa provincia
+ 
+ 
+<img width="568" alt="CaseTrends" src="https://user-images.githubusercontent.com/47492091/119739051-45ec4680-be47-11eb-84b7-3ef1dcc441b2.png">
+
+
+**NOTA**: Trunca las fechas para quedarse solamente con el año y el mes
+
+    7.2.2 Para cada mes, ¿Cómo rankea cada provincia en cuanto a número de casos? 
+    
+   **monthly_cases_ranking_by_province**
+    
+  Utiliza el histórico de todos los updates (completos) y agrupa por mes y luego por provincia. Ordena las provincias de cada mes por número de casos y les asigna una posición usando rank().
+  
+  
+<img width="536" alt="CaseRanks" src="https://user-images.githubusercontent.com/47492091/119739115-58668000-be47-11eb-885c-3b7526cc47fd.png">
+
+
+**NOTA:** Para el total de casos consideramos pacientes positivos + paceintes con síntomas + pacientes en Intensive Care
+    
+    7.3 ¿Cómo ha evlucionado el número de recuperados en cada provincia? 
+    
+   **monthly_recovered_by_province**
+ 
+ Utiliza el histórico de todos los updates (completos) y agrupa primero por provincia y luego por mes/año, con la suma de los recuperados de los hospitales de esa provincia
+ 
+
+<img width="572" alt="RecoveredTrends" src="https://user-images.githubusercontent.com/47492091/119739287-9a8fc180-be47-11eb-92d0-5eb1bff65810.png">
+
+
+**NOTA**: Trunca las fechas para quedarse solamente con el año y el mes
+
+    7.3.2 Para cada mes, ¿Cómo rankea cada provincia en cuanto a número de recuperados? 
+    
+  **monthly_recovered_ranking_by_province**
+    
+  Utiliza el histórico de todos los updates (completos) y agrupa por mes y luego por provincia. Ordena las provincias de cada mes por número de recuperados y les asigna una posición usando rank().
+  
+  
+ <img width="562" alt="RecoveredRank" src="https://user-images.githubusercontent.com/47492091/119739324-ad09fb00-be47-11eb-9da4-e214fa5aaeb8.png">
 
 
 ## Views de utilidad:
