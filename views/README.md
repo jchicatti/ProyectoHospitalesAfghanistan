@@ -221,6 +221,8 @@ Regresa una lista de las provincias, junto con el número de médicos y paraméd
 
 
 **Protocol_pct_byHospital_lastWave**
+
+
 Un hospital puede implementar varios protocolos contra el COVID. Actualmente, la encuesta de Voxmapp recoge un protocolo de 4 partes. Así, podemos considerar que un hospital cumple con un % de esas partes; un hospital que cumple el 100% implementa los 4 protocolos. 
 
 
