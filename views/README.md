@@ -1,4 +1,3 @@
-![monit_1](https://user-images.githubusercontent.com/77305951/119763816-d9d50700-be75-11eb-9312-a1242b00000d.png)
 # Documentación de las vistas
 
 ## Views de monitoreo: 
