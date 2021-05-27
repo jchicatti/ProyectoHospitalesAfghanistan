@@ -19,6 +19,7 @@
   Depende de la tabla **update_hospital**.
   
 3. ¿Cuáles son los hospitales que tuvieron problemas en el último wave?
+  
   **hospitales_faltantes**
   
   Regresa, los hospitales que no han sido marcados con el estatus 1 del católogo de problemas, es decir aquellos a los que hay que volver a marcar, hay datos faltantes, etc. 
@@ -26,7 +27,9 @@
   Depende de la tabla **update_hospital**
   
 4. ¿Cuáles son los hospitales que no tuvieron problemas en el último wave?
- **hospitales_completos **
+
+**hospitales_completos**
+
  Regresa los hospitales que ya no tienen problemas por resolver, es decir, han sido marcado con el id 1 del catalógo de problemas, que corresponde a "No  hubo problemas".
  
  Depende de la tabla **update_hospital**
