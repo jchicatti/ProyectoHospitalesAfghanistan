@@ -22,6 +22,7 @@ join covid_cases cc using (id_update)
 group by p.covid_awareness
 
 -- A4: View de porcentajes de muertos, recuperados y positivos por hospital
+create view patient_percentages as
 select id_hospital, 
 concat(100*cast(cc.covid_deaths as float)/(cast(cc.covid_recovered+cc.covid_deaths+cc.positive_patients as float)),'%') as "death_percentage",
 concat(100*cast(cc.covid_recovered as float)/(cast(cc.covid_recovered+cc.covid_deaths+cc.positive_patients as float)), '%') as "recovered_percentage",
@@ -36,16 +37,18 @@ from most_recent_complete_update_by_hospital mrubh
 join hospital h using (id_hospital)
 join province p on h.province = p.id_province 
 join protocol p2 using (id_update)
+where p2.test_capacity = false
 order by p.id_province asc
 
 
--- View de distritos sin capacidad de hacer pruebas, falta filtrar
+-- A6: View de distritos sin capacidad de hacer pruebas
 create view districts_wout_covid_test_cap as
 select d2.id_district, d2.district_name, h.hospital_name, p2.test_capacity 
 from most_recent_complete_update_by_hospital mrubh 
 join hospital h using (id_hospital)
 join district d2 on h.district = d2.id_district
 join protocol p2 using (id_update)
+where p2.test_capactiy = false
 order by d2.id_district asc
 
 -- A7: Trends mensuales por provincia
