@@ -53,3 +53,15 @@ INNER JOIN (
  GROUP BY uh2.id_hospital 
 ) ms on uh.id_hospital = ms.id_hospital AND uh.update_date = most_recent
 where id_problem_status in (1);
+
+--¿Cuántos y cuáles problemas se presentaron en el último wave?
+create view count_problemas
+select count(id_problem_status),pc.problem as problem 
+from hospital h join update_hospital uh on (h.id_hospital=uh.id_hospital) join problem_catalog pc on (uh.id_problem_status=pc.id_problem)
+INNER JOIN (
+ SELECT uh2.id_hospital, MAX(uh2.update_date) AS most_recent 
+ FROM update_hospital uh2 
+ GROUP BY uh2.id_hospital 
+) ms on uh.id_hospital = ms.id_hospital AND uh.update_date = most_recent
+where id_problem_status in (2,3,4,5,6)
+group by id_problem_status,pc.problem ;
