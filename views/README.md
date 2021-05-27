@@ -10,6 +10,8 @@
   
   Depende de la tabla **update_hospital**.
   
+  ![monit_1](https://imgur.com/LipZ1ob)
+  
 2. ¿Cuál es el update _completo_ más reciente por hospital?
 
   **most_recent_complete_update_by_hospital**
@@ -17,6 +19,9 @@
   Regresa, para cada hospital, la entrada del update completo más reciente que exista. De no existir ni un solo update completo de cierto hospital, no regresa ninguna entrada para dicho hospital.
   
   Depende de la tabla **update_hospital**.
+  
+  ![monit_2](https://imgur.com/ErcSRhX)
+
   
 3. ¿Cuáles son los hospitales que tuvieron problemas en el último wave?
   
