@@ -33,6 +33,14 @@
  Regresa los hospitales que ya no tienen problemas por resolver, es decir, han sido marcado con el id 1 del catalógo de problemas, que corresponde a "No  hubo problemas".
  
  Depende de la tabla **update_hospital**
+ 
+ 5. ¿Cuántos y cuáles problemas se presentaron en el último wave?
+
+**create view count_problemas**
+
+Regresa el número total de problemas en el último update de los hospitales para un mejor monitoreo interno de actividades.
+
+Depende de la tabla **update_hospital**
   
 ## Views de análisis: 
 
