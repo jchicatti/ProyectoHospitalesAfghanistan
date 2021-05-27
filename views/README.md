@@ -36,7 +36,7 @@
  
  5. ¿Cuántos y cuáles problemas se presentaron en el último wave?
 
-**create view count_problemas**
+**count_problemas**
 
 Regresa el número total de problemas en el último update de los hospitales para un mejor monitoreo interno de actividades.
 
