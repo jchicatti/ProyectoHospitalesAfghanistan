@@ -1,3 +1,4 @@
+![monit_1](https://user-images.githubusercontent.com/77305951/119763816-d9d50700-be75-11eb-9312-a1242b00000d.png)
 # Documentación de las vistas
 
 ## Views de monitoreo: 
@@ -10,7 +11,7 @@
   
   Depende de la tabla **update_hospital**.
   
-  ![monit_1](https://imgur.com/LipZ1ob)
+  ![monit_1](https://user-images.githubusercontent.com/77305951/119763816-d9d50700-be75-11eb-9312-a1242b00000d.png)
   
 2. ¿Cuál es el update _completo_ más reciente por hospital?
 
@@ -20,7 +21,7 @@
   
   Depende de la tabla **update_hospital**.
   
-  ![monit_2](https://imgur.com/ErcSRhX)
+  ![monit_2](https://user-images.githubusercontent.com/77305951/119763880-fc672000-be75-11eb-8305-a3bc14f66527.png)
 
   
 3. ¿Cuáles son los hospitales que tuvieron problemas en el último wave?
@@ -56,6 +57,8 @@ Depende de la tabla **update_hospital**
   Regresa, para cada provincia, el acumulado de muertes y casos.
   
   Depende de las tablas **covid_cases**, **hospital** y **province**, y de la view **most_recent_complete_update_by_hospital**.
+  
+  ![anal_1](https://user-images.githubusercontent.com/77305951/119763945-1f91cf80-be76-11eb-97ff-7b913e5fa467.png)
 
 2. ¿Qué hospitales realizan awareness campaigns?
   
@@ -64,14 +67,18 @@ Depende de la tabla **update_hospital**
   Regresa los hospitales que realizan campañas de prevención COVID-19.
   
   Depende de la tabla **protocol** y de la view **most_recent_complete_update_by_hospital**.
+  
+  ![anal_2](https://user-images.githubusercontent.com/77305951/119763962-2587b080-be76-11eb-9c64-badd4d8f73ec.png)
  
 3. ¿Cómo se correlacionan las campañas de prevención con los casos que hay por hospital?
   
   **hospitals_awareness_cases**
   
-  Regresa, para cada hospital, los casos y si se realizan campañas de prevención COVID-19. (añadir histograma)
+  Regresa el promedio de casos divididos por si se realizan campañas de prevención COVID-19 o no.
   
   Depende de las tablas **covid_cases**, **hospital** y **protocol**, y de la view **most_recent_complete_update_by_hospital**.
+  
+  ![anal_3](https://user-images.githubusercontent.com/77305951/119764151-831bfd00-be76-11eb-90ff-8bbb30e6cba5.png)  
 
 4. ¿Qué porcentaje de muertos, recuperados, y positivos hay por hospital?
   
@@ -80,22 +87,28 @@ Depende de la tabla **update_hospital**
   Regresa, para cada hospital, el porcentaje de muertos, recuperados, y positivos. Se considera que muertos + recuperados + positivos es el número total de pacientes.
   
   Depende de la tabla **covid_cases** y de la view **most_recent_complete_update_by_hospital**.
+  
+  ![anal_4](https://user-images.githubusercontent.com/77305951/119764244-ab0b6080-be76-11eb-9be7-032a312a3514.png)
 
 5. ¿Qué provincias no tienen la capacidad de hacer pruebas COVID-19?
   
   **provinces_wout_test_cap**
   
-  Regresa las provincias con al menos un hospital sin capacidad de hacer pruebas COVID-19.
+  Regresa todos los hospitales agrupados por provincias sin capacidad de hacer pruebas COVID-19.
   
   Depende de las tablas **covid_cases**, **hospital**, **protocol** y **province** y de la view **most_recent_complete_update_by_hospital**.
+  
+  ![anal_5](https://user-images.githubusercontent.com/77305951/119764621-63390900-be77-11eb-98fb-00e1a34ba696.png)
   
 6. ¿Qué distritos no tienen la capacidad de hacer pruebas COVID-19?
   
   **districts_wout_test_cap**
   
-  Regresa los distritos con al menos un hospital sin capacidad de hacer pruebas COVID-19.
+   Regresa todos los hospitales agrupados por distritos sin capacidad de hacer pruebas COVID-19.
   
   Depende de las tablas **covid_cases**, **hospital**, **protocol** y **district** y de la view **most_recent_complete_update_by_hospital**.
+  
+  ![anal_6](https://user-images.githubusercontent.com/77305951/119764638-68965380-be77-11eb-834d-efc381fa8f3e.png)
   
 7. Evolución de muertes / casos / recuperados. 
 
