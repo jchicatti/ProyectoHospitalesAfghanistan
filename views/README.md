@@ -290,12 +290,14 @@ Misma idea de la vista A10, pero promediado por provincia.
 1. ¿Qué hospitales están en riesgo de quedarse sin contactos?
 
 ![Captura_menores_tel](https://user-images.githubusercontent.com/70484786/119583629-9eaad900-bd8c-11eb-8034-d53fcd178970.PNG)
+- Regresa el nombre, id y número de teléfonos de hospitales que tienen 1 o menos teléfonos. No depende de ninguna otra vista. 
 
 2. ¿Qué hospitales tenemos registrados y cuántos teléfonos de contacto tienen cada uno (divididos en activos y no activos)?
 
 ![tel_hosp](https://user-images.githubusercontent.com/70484786/119703917-aca83a80-be1c-11eb-8fa5-4b1c544ae233.PNG)
-
+- Regresa el nombre, id y número de teléfonos activos e inactivos por hospital. No depende de ninguna otra vista. 
 3. ¿Cuántos updates ha realizado cada empleado del call center en el último mes?
 
 ![captura_last_month](https://user-images.githubusercontent.com/70484786/119583709-c8fc9680-bd8c-11eb-9c43-4a66f45246a9.PNG)
+- Regresa el número de updates realizadas por un empleado en el último mes. No depende de ninguna otra vista.
 
