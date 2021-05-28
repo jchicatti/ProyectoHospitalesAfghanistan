@@ -30,26 +30,15 @@ concat(100*cast(cc.positive_patients as float)/(cast(cc.covid_recovered+cc.covid
 from most_recent_complete_update_by_hospital mrubh 
 join covid_cases cc using (id_update)
 
--- A5: View de provincias sin capacidad de hacer pruebas
-create view provinces_wout_covid_test_cap as
-select p.id_province, p.province_name, h.hospital_name, p2.test_capacity 
+-- A5: View de hospitales sin capacidad de hacer pruebas y sus casos
+
+create view hospitals_test_cap as
+select h.id_hospital, h.hospital_name, cc.covid_deaths+cc.covid_recovered+cc.positive_patients as "total_patients", p2.test_capacity 
 from most_recent_complete_update_by_hospital mrubh 
 join hospital h using (id_hospital)
-join province p on h.province = p.id_province 
 join protocol p2 using (id_update)
-where p2.test_capacity = false
-order by p.id_province asc
+join covid_cases cc using (id_update)
 
-
--- A6: View de distritos sin capacidad de hacer pruebas
-create view districts_wout_covid_test_cap as
-select d2.id_district, d2.district_name, h.hospital_name, p2.test_capacity 
-from most_recent_complete_update_by_hospital mrubh 
-join hospital h using (id_hospital)
-join district d2 on h.district = d2.id_district
-join protocol p2 using (id_update)
-where p2.test_capactiy = false
-order by d2.id_district asc
 
 -- A7: Trends mensuales por provincia
 
