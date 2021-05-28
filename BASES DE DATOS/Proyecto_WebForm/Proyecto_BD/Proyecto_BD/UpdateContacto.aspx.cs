@@ -19,8 +19,6 @@ namespace Proyecto_BD
                 Conexion.LlenarContactos(DropDownList7, id_hospital);
                 Conexion.DatosContactos(GridView1, id_hospital);
             }
-
-            
         }
 
         protected void Button1_Click(object sender, EventArgs e)

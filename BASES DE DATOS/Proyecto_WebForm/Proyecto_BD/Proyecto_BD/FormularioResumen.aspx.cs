@@ -103,7 +103,8 @@ namespace Proyecto_BD
                         " id_hospital, id_problem_status, id_action_status, funds, additional_comments, update_date) " +
                         "VALUES('{0}', {1}, {2}, {3}, {4}, {5}, '{6}', '{7}', (select current_timestamp))", name_responder, id_personel_vm, id_questionnare_status,
                         id_hospital, id_problem_status, id_action_status, funds, additional_comments);
-                    NpgsqlCommand cmd1 = new NpgsqlCommand(query1, con1);
+                    NpgsqlTransaction transaction1 = con1.BeginTransaction();
+                    NpgsqlCommand cmd1 = new NpgsqlCommand(query1, con1, transaction1);
 
                     int id_update = 0;
 
@@ -116,7 +117,17 @@ namespace Proyecto_BD
                      */
 
                     {
-                        int a = cmd1.ExecuteNonQuery();
+                        int a = -1;
+                        try
+                        {
+                            a = cmd1.ExecuteNonQuery();
+                            transaction1.Commit();
+                        }
+                        catch
+                        {
+                            transaction1.Rollback();
+                            throw;
+                        }
                         if (a > 0)
                         {
                             String query = "SELECT max(id_update) FROM update_hospital uh";
@@ -149,24 +160,27 @@ namespace Proyecto_BD
 
                     //Insert protocol
                     NpgsqlConnection con3 = Conexion.AgregarConexion();
+                    NpgsqlTransaction transaction3 = con3.BeginTransaction();
                     String query3 = String.Format("insert into protocol (id_update, covid_screening, covid_awareness, avg_test_result_time, test_capacity, covid_tracking, moph_report_often) " +
                         "VALUES({0}, {1}, {2}, {3}, {4}, {5}, {6})", 
                         id_update, tof(screening), tof(awareness), avg_test_result, tof(testcapacity), tof(tracking), tof(moph_report));
-                    NpgsqlCommand cmd3 = new NpgsqlCommand(query3, con3);
+                    NpgsqlCommand cmd3 = new NpgsqlCommand(query3, con3, transaction3);
 
                     //Insert personel
                     NpgsqlConnection con4 = Conexion.AgregarConexion();
+                    NpgsqlTransaction transaction4 = con4.BeginTransaction();
                     String query4 = String.Format("insert into personel (id_update, no_doctors, no_paramedics) " +
                         "VALUES({0}, {1}, {2})",
                         id_update, no_doctors, no_paramedics);
-                    NpgsqlCommand cmd4 = new NpgsqlCommand(query4, con4);
+                    NpgsqlCommand cmd4 = new NpgsqlCommand(query4, con4, transaction4);
 
                     //Insert covid_cases
                     NpgsqlConnection con5 = Conexion.AgregarConexion();
+                    NpgsqlTransaction transaction5 = con5.BeginTransaction();
                     String query5 = String.Format("insert into covid_cases (id_update, patients_with_symptoms, positive_patients, intensive_care, covid_deaths, non_covid_deaths, covid_recovered, phc_referred) " +
                         "VALUES({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})",
                         id_update, symptomatics, positives, icu, covid_deaths, non_covid_deaths, covid_recovered, phc_referred);
-                    NpgsqlCommand cmd5 = new NpgsqlCommand(query5, con5);
+                    NpgsqlCommand cmd5 = new NpgsqlCommand(query5, con5, transaction5);
 
                     /*
                      * Este IF checa que sí se haya insertado un update para
@@ -175,15 +189,58 @@ namespace Proyecto_BD
                      */
                     if (id_update > 0) {
                         int a3 = cmd3.ExecuteNonQuery();
-                        int a4 = cmd4.ExecuteNonQuery();
-                        int a5 = cmd5.ExecuteNonQuery();
+                        try
+                        {
+                            a3 = cmd3.ExecuteNonQuery();
+                            transaction3.Commit();
+                        }
+                        catch
+                        {
+                            transaction3.Rollback();
+                            throw;
+                        }
+
+                        int a4 = -1;
+                        try
+                        {
+                            a4 = cmd4.ExecuteNonQuery();
+                            transaction4.Commit();
+                        }
+                        catch
+                        {
+                            transaction4.Rollback();
+                            throw;
+                        }
+
+                        int a5 = -1;
+                        try
+                        {
+                            a5 = cmd5.ExecuteNonQuery();
+                            transaction5.Commit();
+                        }
+                        catch
+                        {
+                            transaction5.Rollback();
+                            throw;
+                        }
 
                         NpgsqlConnection con2 = Conexion.AgregarConexion();
-                        for(int i = 0; i<counts.Length; i++)
+                        NpgsqlTransaction transaction2 = con2.BeginTransaction();
+                        int a2 = -1;
+                        try
                         {
-                            String query2 = String.Format("insert into inventory (id_update, id_product, days_remaining) VALUES({0}, {1}, {2})", id_update, i+1, counts[i]);
-                            NpgsqlCommand cmd2 = new NpgsqlCommand(query2, con2);
-                            int a2 = cmd2.ExecuteNonQuery();
+                            for (int i = 0; i < counts.Length; i++)
+                            {
+                                String query2 = String.Format("insert into inventory (id_update, id_product, days_remaining) VALUES({0}, {1}, {2})", id_update, i + 1, counts[i]);
+                                NpgsqlCommand cmd2 = new NpgsqlCommand(query2, con2, transaction2);
+                                a2 = cmd2.ExecuteNonQuery();
+                            }
+                            transaction2.Commit();
+                        }
+                        catch
+                        {
+                            transaction2.Rollback();
+                            throw;
                         }
                         con2.Close();
                     }
@@ -250,7 +307,8 @@ namespace Proyecto_BD
                     " id_hospital, id_problem_status, id_action_status, additional_comments, update_date) " +
                     "VALUES('{0}', {1}, {2}, {3}, {4}, {5}, '{6}', (select current_timestamp))", name_responder, id_personel_vm, id_questionnare_status,
                     id_hospital, id_problem_status, id_action_status, additional_comments);
-                NpgsqlCommand cmd1 = new NpgsqlCommand(query1, con1);
+                NpgsqlTransaction transaction1 = con1.BeginTransaction();
+                NpgsqlCommand cmd1 = new NpgsqlCommand(query1, con1, transaction1);
 
                 int id_update = 0;
 
@@ -410,11 +468,22 @@ namespace Proyecto_BD
                     "VALUES('{0}', {1}, {2}, {3}, {4}, {5}, '{6}', (select current_timestamp))", name_responder, id_personel_vm, id_questionnare_status,
                     id_hospital, id_problem_status, id_action_status, additional_comments);
                 }
-                NpgsqlCommand cmd1 = new NpgsqlCommand(query1, con1);
 
                 int id_update = 0;
 
-                int a = cmd1.ExecuteNonQuery();
+                int a = -1;
+                NpgsqlTransaction transaction1 = con1.BeginTransaction();
+                try
+                {
+                    NpgsqlCommand cmd1 = new NpgsqlCommand(query1, con1, transaction1);
+                    a = cmd1.ExecuteNonQuery();
+                    transaction1.Commit();
+                }
+                catch
+                {
+                    transaction1.Rollback();
+                    throw;
+                }
                 if (a > 0)
                 {
                     String query = "SELECT max(id_update) FROM update_hospital uh";
@@ -448,16 +517,38 @@ namespace Proyecto_BD
                     NpgsqlConnection con3 = Conexion.AgregarConexion();
                     String query3 = String.Format("insert into protocol (id_update, covid_screening, covid_awareness, avg_test_result_time, test_capacity, covid_tracking, moph_report_often) " +
                         "VALUES({0}, {1}, {2}, {3}, {4}, {5}, {6})", id_update, protocol[0], protocol[1], protocol[2], protocol[3], protocol[4], protocol[5]);
-                    NpgsqlCommand cmd3 = new NpgsqlCommand(query3, con3);
-                    int a3 = cmd3.ExecuteNonQuery();
+                    NpgsqlTransaction transaction3 = con3.BeginTransaction();
+                    int a3 = -1;
+                    try
+                    {
+                        NpgsqlCommand cmd3 = new NpgsqlCommand(query3, con3, transaction3);
+                        a3 = cmd3.ExecuteNonQuery();
+                        transaction3.Commit();
+                    }
+                    catch
+                    {
+                        transaction3.Rollback();
+                        throw;
+                    }
                     con3.Close();
 
                     // Insert personel
                     NpgsqlConnection con4 = Conexion.AgregarConexion();
                     String query4 = String.Format("insert into personel (id_update, no_doctors, no_paramedics) " +
                         "VALUES({0}, {1}, {2})", id_update, personel[0], personel[1]);
-                    NpgsqlCommand cmd4 = new NpgsqlCommand(query4, con4);
-                    int a4 = cmd4.ExecuteNonQuery();
+                    NpgsqlTransaction transaction4 = con4.BeginTransaction();
+                    int a4 = -1;
+                    try
+                    {
+                        NpgsqlCommand cmd4 = new NpgsqlCommand(query4, con4, transaction4);
+                        a4 = cmd4.ExecuteNonQuery();
+                        transaction4.Commit();
+                    }
+                    catch
+                    {
+                        transaction4.Rollback();
+                        throw;
+                    }
                     con4.Close();
 
                     // Insert covid_cases
@@ -465,16 +556,38 @@ namespace Proyecto_BD
                     String query5 = String.Format("insert into covid_cases (id_update, patients_with_symptoms, positive_patients, intensive_care, covid_deaths, " +
                         "non_covid_deaths, covid_recovered, phc_referred) VALUES({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})",
                             id_update, covid[0], covid[1], covid[2], covid[3], covid[4], covid[5], covid[6]);
-                    NpgsqlCommand cmd5 = new NpgsqlCommand(query5, con5);
-                    int a5 = cmd5.ExecuteNonQuery();
+                    NpgsqlTransaction transaction5 = con5.BeginTransaction();
+                    int a5 = -1;
+                    try
+                    {
+                        NpgsqlCommand cmd5 = new NpgsqlCommand(query5, con5, transaction5);
+                        a5 = cmd5.ExecuteNonQuery();
+                        transaction5.Commit();
+                    }
+                    catch
+                    {
+                        transaction5.Rollback();
+                        throw;
+                    }
                     con5.Close();
 
                     NpgsqlConnection con2 = Conexion.AgregarConexion();
-                    for (int i = 0; i < counts.Length; i++)
+                    NpgsqlTransaction transaction2 = con2.BeginTransaction();
+                    int a2 = -1;
+                    try
                     {
-                        String query2 = String.Format("insert into inventory (id_update, id_product, days_remaining) VALUES({0}, {1}, {2})", id_update, i + 1, counts[i]);
-                        NpgsqlCommand cmd2 = new NpgsqlCommand(query2, con2);
-                        int a2 = cmd2.ExecuteNonQuery();
+                        for (int i = 0; i < counts.Length; i++)
+                        {
+                            String query2 = String.Format("insert into inventory (id_update, id_product, days_remaining) VALUES({0}, {1}, {2})", id_update, i + 1, counts[i]);
+                            NpgsqlCommand cmd2 = new NpgsqlCommand(query2, con2, transaction2);
+                            a2 = cmd2.ExecuteNonQuery();
+                        }
+                        transaction2.Commit();
+                    }
+                    catch
+                    {
+                        transaction2.Rollback();
+                        throw;
                     }
                     con2.Close();
                 }  

@@ -48,8 +48,20 @@ namespace Proyecto_BD
                     "VALUES('{0}','{1}',{2},{3},{4},{5},'{6}','{7}')",
                     this.name, this.address, this.latitude, this.longitude,
                     this.district, this.province, this.type, this.moph);
-                NpgsqlCommand cmd2 = new NpgsqlCommand(query2, con2);
-                int a = cmd2.ExecuteNonQuery();
+                NpgsqlTransaction transaction2 = con2.BeginTransaction();
+                int a = -1;
+                try
+                {
+                    NpgsqlCommand cmd2 = new NpgsqlCommand(query2, con2, transaction2);
+                    a = cmd2.ExecuteNonQuery();
+                    transaction2.Commit();
+                }
+                catch
+                {
+                    transaction2.Rollback();
+                    throw;
+                }
+
                 if (a > 0)
                 {
                     String query = "SELECT max(id_hospital) FROM Hospital";

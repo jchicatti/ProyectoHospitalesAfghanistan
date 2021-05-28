@@ -32,8 +32,18 @@ namespace Proyecto_BD
                 NpgsqlConnection con2 = Conexion.AgregarConexion();
                 String query2 = String.Format("insert into telephone(telephone, contact_name, phone_type, id_hospital, active) values('{0}', '{1}', '{2}', {3}, true)",
                     this.telephone, this.contact_name, this.phone_type, this.id_hospital);
-                NpgsqlCommand cmd2 = new NpgsqlCommand(query2, con2);
-                int a = cmd2.ExecuteNonQuery();
+                NpgsqlTransaction transaction = con2.BeginTransaction();
+                int a = -1;
+                try
+                {
+                    NpgsqlCommand cmd2 = new NpgsqlCommand(query2, con2, transaction);
+                    a = cmd2.ExecuteNonQuery();
+                    transaction.Commit();
+                }
+                catch {
+                    transaction.Rollback();
+                    throw;
+                }
                 if (a > 0)
                     res = "\n Telephone added succesfully!";
                 else
@@ -68,16 +78,36 @@ namespace Proyecto_BD
                 {
                     NpgsqlConnection con2 = Conexion.AgregarConexion();
                     String query2 = String.Format("update telephone set active = true where id_telephone = '{0}'", id_telephone);
-                    NpgsqlCommand cmd2 = new NpgsqlCommand(query2, con2);
-                    cmd2.ExecuteNonQuery();
+                    NpgsqlTransaction transaction = con2.BeginTransaction();
+                    try
+                    {
+                        NpgsqlCommand cmd2 = new NpgsqlCommand(query2, con2, transaction);
+                        cmd2.ExecuteNonQuery();
+                        transaction.Commit();
+                    }
+                    catch
+                    {
+                        transaction.Rollback();
+                        throw;
+                    }
                     con2.Close();
                 }
                 else 
                 {
                     NpgsqlConnection con2 = Conexion.AgregarConexion();
                     String query2 = String.Format("update telephone set active = false where id_telephone = '{0}'", id_telephone);
-                    NpgsqlCommand cmd2 = new NpgsqlCommand(query2, con2);
-                    cmd2.ExecuteNonQuery();
+                    NpgsqlTransaction transaction = con2.BeginTransaction();
+                    try
+                    {
+                        NpgsqlCommand cmd2 = new NpgsqlCommand(query2, con2, transaction);
+                        cmd2.ExecuteNonQuery();
+                        transaction.Commit();
+                    }
+                    catch
+                    {
+                        transaction.Rollback();
+                        throw;
+                    }
                     con2.Close();
                 }
 
@@ -85,7 +115,6 @@ namespace Proyecto_BD
 
             catch (Exception)
             {
-
             }
         }
     }
