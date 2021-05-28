@@ -142,7 +142,7 @@ namespace Proyecto_BD
 
                     //Insert protocol
                     NpgsqlConnection con3 = Conexion.AgregarConexion();
-                    String query3 = String.Format("insert into protocol (id_update, covid_screening, covid_awareness, avg_test_result_time, test_capacity, covid_tracking, moph_report) " +
+                    String query3 = String.Format("insert into protocol (id_update, covid_screening, covid_awareness, avg_test_result_time, test_capacity, covid_tracking, moph_report_often) " +
                         "VALUES({0}, {1}, {2}, {3}, {4}, {5}, {6})", 
                         id_update, tof(screening), tof(awareness), avg_test_result, tof(testcapacity), tof(tracking), tof(moph_report));
                     NpgsqlCommand cmd3 = new NpgsqlCommand(query3, con3);
@@ -188,7 +188,8 @@ namespace Proyecto_BD
             }
 
             // QUESTIONNAIRE NOT DONE
-            else if (RadioButtonList1.SelectedIndex != 0 || RadioButtonList2.SelectedIndex != 0)
+            else if ( RadioButtonList4.SelectedIndex == 1 || (RadioButtonList1.SelectedIndex == 1 &&  RadioButtonList2.SelectedIndex != 0))
+                    // Phone not answered or (Questionnaire not complete and !(Partially complete))
             {
                 //TABLA: Update_hospital
                 string name_responder = "John Doe";
@@ -201,49 +202,42 @@ namespace Proyecto_BD
                 int id_problem_status = 0;
                 int id_action_status = 0;
 
-                if (RadioButtonList3.SelectedIndex == 0) // It was a test
+                
+                if (RadioButtonList4.SelectedIndex == 1) // Phone not answered
                 {
-                    id_questionnare_status = 4;
-                    id_problem_status = 1;
-                    id_action_status = 1;
+                    id_questionnare_status = 3;
+                    id_problem_status = 4;
+                    id_action_status = 2;
                 }
                 else
                 {
-                    if (RadioButtonList4.SelectedIndex == 1) // Phone not answered
+                    if (RadioButtonList2.SelectedIndex == 1) // Wrong contact numbers
                     {
                         id_questionnare_status = 3;
-                        id_problem_status = 4;
-                        id_action_status = 2;
+                        id_problem_status = 5;
+                        id_action_status = 3;
                     }
-                    else
+                    else if (RadioButtonList2.SelectedIndex == 2) // Doctor quit
                     {
-                        if (RadioButtonList2.SelectedIndex == 1) // Wrong contact numbers
-                        {
-                            id_questionnare_status = 3;
-                            id_problem_status = 5;
-                            id_action_status = 3;
-                        }
-                        else if (RadioButtonList2.SelectedIndex == 2) // Doctor quit
-                        {
-                            id_questionnare_status = 3; 
-                            id_problem_status = 6;
-                            id_action_status = 3;
-                        }
-                        else if (RadioButtonList2.SelectedIndex == 3) // Doctor bussy
-                        {
-                            id_questionnare_status = 3;
-                            id_problem_status = 1;
-                            id_action_status = 2;
-                        } 
-                        else if (RadioButtonList2.SelectedIndex == 4) // Refused to speak
-                        {
-                            id_questionnare_status = 3;
-                            id_problem_status = 3;
-                            id_action_status = 4;
-                        }
-                            
+                        id_questionnare_status = 3; 
+                        id_problem_status = 6;
+                        id_action_status = 3;
                     }
+                    else if (RadioButtonList2.SelectedIndex == 3) // Doctor bussy
+                    {
+                        id_questionnare_status = 3;
+                        id_problem_status = 1;
+                        id_action_status = 2;
+                    } 
+                    else if (RadioButtonList2.SelectedIndex == 4) // Refused to speak
+                    {
+                        id_questionnare_status = 3;
+                        id_problem_status = 3;
+                        id_action_status = 4;
+                    }
+                            
                 }
+                
 
                 Label1.Text = id_questionnare_status.ToString() + id_problem_status.ToString() + id_action_status.ToString();
 
@@ -285,10 +279,245 @@ namespace Proyecto_BD
                     else
                         res = "Connection error.";
                 }
-
                 con1.Close();
             }
+
+            else 
+            {
+                Label1.Text = "IN";
+
+                //TABLA: Update_hospital
+                string name_responder = "John Doe";
+                int id_personel_vm = 1;
+                int id_hospital = (int)Session["id_hospital_update"];
+
+                string funds;
+                try
+                {
+                    funds = logF3[1];
+                }
+                catch (Exception)
+                {
+                    funds = null;
+                }
+
+                string additional_comments = TextBox5.Text;
+
+                    // TABLA: Update_hospital -> Status Questionnaire-Problem-Action
+
+                    // Completed
+                    int id_questionnare_status = 0;
+                    int id_problem_status = 0;
+                    int id_action_status = 0;
+
+                if (RadioButtonList3.SelectedIndex == 0) // It was a test
+                {
+                    id_questionnare_status = 4;
+                    id_problem_status = 1;
+                    id_action_status = 1;
+                }
+                else // Questionnaire partially completed
+                {
+                    id_questionnare_status = 2;
+                    id_problem_status = 2;
+                    id_action_status = 2;
+                }
+
+                //TABLA: Inventory (Counts)
+
+                int? oxygen = prueba_null(logF6, 1);
+                int? antipyr = prueba_null(logF6, 3);
+                int? anesth = prueba_null(logF6, 5);
+                int? alcohol = prueba_null(logF6, 7);
+                int? masks = prueba_null(logF2, 1);
+                int? gloves = prueba_null(logF2, 3);
+                int? hats = prueba_null(logF2, 5);
+                int? aprons = prueba_null(logF2, 7);
+                int? visors = prueba_null(logF2, 7);
+                int? covers = prueba_null(logF2, 11);
+                int? tests = prueba_null(logF1, 1);
+
+                string[] counts = { oxygen.ToString(), antipyr.ToString(), anesth.ToString(), alcohol.ToString(), masks.ToString(),
+                    gloves.ToString(), hats.ToString(), aprons.ToString(), visors.ToString(), covers.ToString(), tests.ToString() };
+
+                for (int i = 0; i < counts.Length; i++)
+                {
+                    if (counts[i] == "")
+                        counts[i] = "null";
+                }
+
+                //TABLA: Protocol
+                int? screening = prueba_null_2(logF3, 4);
+                int? awareness = prueba_null_2(logF3, 5);
+                int? avg_test_result = prueba_null(logF4, 2);
+                int? test_capacity = prueba_null_2(logF3,6);
+                int? tracking = prueba_null_2(logF3,7);
+                int? moph_report = prueba_null_2(logF3, 3);
+
+                string[] protocol = { screening.ToString(), awareness.ToString(), avg_test_result.ToString(), test_capacity.ToString(), tracking.ToString(), moph_report.ToString() };
+
+                for (int i = 0; i < protocol.Length; i++)
+                {
+                    if (protocol[i] == "")
+                        protocol[i] = "null";
+                }
+
+                //TABLA: Personel
+                int? no_doctor = prueba_null(logF5, 0);
+                int? no_paramedics = prueba_null(logF5,1);
+
+                string[] personel = { no_doctor.ToString(), no_paramedics.ToString() };
+
+                for (int i = 0; i < personel.Length; i++)
+                {
+                    if (personel[i] == "")
+                        personel[i] = "null";
+                }
+
+                //TABLA: COVID_Cases
+                int? symptomatics = prueba_null(logF4,3);
+                int? positives = prueba_null(logF4, 4);
+                int? icu = prueba_null(logF4,5);
+                int? covid_deaths = prueba_null(logF4, 6);
+                int? non_covid_deaths = prueba_null(logF4,7);
+                int? covid_recovered = prueba_null(logF4,8);
+                int? phc_referres = prueba_null(logF3,8);
+
+                string[] covid = { symptomatics.ToString(), positives.ToString(), icu.ToString(), covid_deaths.ToString(), non_covid_deaths.ToString(),
+                    covid_recovered.ToString(), phc_referres.ToString() };
+
+                for (int i = 0; i < covid.Length; i++)
+                {
+                    if (covid[i] == "")
+                        covid[i] = "null";
+                }
+
+                //Insert update
+                NpgsqlConnection con1 = Conexion.AgregarConexion();
+                String query1;
+                if (funds != null)
+                {
+                    query1 = String.Format("insert into update_hospital (name_responder, id_personel_vm, id_questionnare_status," +
+                    " id_hospital, id_problem_status, id_action_status, funds, additional_comments, update_date) " +
+                    "VALUES('{0}', {1}, {2}, {3}, {4}, {5}, '{6}', '{7}', (select current_timestamp))", name_responder, id_personel_vm, id_questionnare_status,
+                    id_hospital, id_problem_status, id_action_status, funds, additional_comments);
+                }
+                else
+                {
+                    query1 = String.Format("insert into update_hospital (name_responder, id_personel_vm, id_questionnare_status," +
+                    " id_hospital, id_problem_status, id_action_status, additional_comments, update_date) " +
+                    "VALUES('{0}', {1}, {2}, {3}, {4}, {5}, '{6}', (select current_timestamp))", name_responder, id_personel_vm, id_questionnare_status,
+                    id_hospital, id_problem_status, id_action_status, additional_comments);
+                }
+                NpgsqlCommand cmd1 = new NpgsqlCommand(query1, con1);
+
+                int id_update = 0;
+
+                int a = cmd1.ExecuteNonQuery();
+                if (a > 0)
+                {
+                    String query = "SELECT max(id_update) FROM update_hospital uh";
+                    NpgsqlConnection con = Conexion.AgregarConexion();
+                    NpgsqlCommand cmd = new NpgsqlCommand(query, con);
+                    NpgsqlDataReader rd = cmd.ExecuteReader();
+                    if (rd.Read())
+                    {
+                        try
+                        {
+                            id_update = rd.GetInt32(0);
+                            con.Close();
+                        }
+                        catch (Exception)
+                        {
+                            id_update = 1;
+                        }
+                    }
+                    else
+                        id_update = 1;
+                    res += "Updated succesfully! ";
+                }
+                    else
+                        res = "Connection error.";
+
+                con1.Close();
+
+                if (id_update > 0)
+                {
+                    //Insert protocol
+                    NpgsqlConnection con3 = Conexion.AgregarConexion();
+                    String query3 = String.Format("insert into protocol (id_update, covid_screening, covid_awareness, avg_test_result_time, test_capacity, covid_tracking, moph_report_often) " +
+                        "VALUES({0}, {1}, {2}, {3}, {4}, {5}, {6})", id_update, protocol[0], protocol[1], protocol[2], protocol[3], protocol[4], protocol[5]);
+                    NpgsqlCommand cmd3 = new NpgsqlCommand(query3, con3);
+                    int a3 = cmd3.ExecuteNonQuery();
+                    con3.Close();
+
+                    // Insert personel
+                    NpgsqlConnection con4 = Conexion.AgregarConexion();
+                    String query4 = String.Format("insert into personel (id_update, no_doctors, no_paramedics) " +
+                        "VALUES({0}, {1}, {2})", id_update, personel[0], personel[1]);
+                    NpgsqlCommand cmd4 = new NpgsqlCommand(query4, con4);
+                    int a4 = cmd4.ExecuteNonQuery();
+                    con4.Close();
+
+                    // Insert covid_cases
+                    NpgsqlConnection con5 = Conexion.AgregarConexion();
+                    String query5 = String.Format("insert into covid_cases (id_update, patients_with_symptoms, positive_patients, intensive_care, covid_deaths, " +
+                        "non_covid_deaths, covid_recovered, phc_referred) VALUES({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})",
+                            id_update, covid[0], covid[1], covid[2], covid[3], covid[4], covid[5], covid[6]);
+                    NpgsqlCommand cmd5 = new NpgsqlCommand(query5, con5);
+                    int a5 = cmd5.ExecuteNonQuery();
+                    con5.Close();
+
+                    NpgsqlConnection con2 = Conexion.AgregarConexion();
+                    for (int i = 0; i < counts.Length; i++)
+                    {
+                        res += "Producto clave. " + (i + 1) + ". ";
+                        String query2 = String.Format("insert into inventory (id_update, id_product, days_remaining) VALUES({0}, {1}, {2})", id_update, i + 1, counts[i]);
+                        NpgsqlCommand cmd2 = new NpgsqlCommand(query2, con2);
+                        int a2 = cmd2.ExecuteNonQuery();
+                    }
+                    con2.Close();
+                }  
+                
+            }
             return res;
+        }
+
+        private int? prueba_null(List<string> lista, int i)
+        {
+            int? res = null;
+            try
+            {
+                bool isNumeric = int.TryParse(lista[i], out int not_null);
+                if (isNumeric)
+                {
+                    res = not_null;
+                }
+                return res;
+            }
+            catch (Exception)
+            {
+                return res;
+            }
+        }
+
+        private int? prueba_null_2(List<string> lista, int i)
+        {
+            int? res = null;
+            try
+            {
+                int not_null = Convert.ToInt32(lista[i]);
+                if (ib(not_null))
+                {
+                    res = not_null;
+                }
+                return res;
+            }
+            catch (Exception)
+            {
+                return res;
+            }
+            
         }
 
         private bool ib(int b)
