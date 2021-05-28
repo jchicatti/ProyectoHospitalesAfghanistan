@@ -18,4 +18,15 @@ https://public.tableau.com/app/profile/guillermo.naranjo1313/viz/Inventarioydoct
 
 https://public.tableau.com/app/profile/guillermo.naranjo1313/viz/Tablerocasoscovid/Dashboard1
 
+4. Tablero de prevención, testeo, y pacientes por hospital
+
+![Opera Captura de pantalla_2021-05-28_122032_public tableau com](https://user-images.githubusercontent.com/77305951/120020468-5c151680-bfaf-11eb-83ee-d2c97ae6d2fb.png)
+
+https://public.tableau.com/app/profile/sebastian.dulong.salazar/viz/covid_voxmapp/Dashboard1
+
+5. Tablero de protocolo por hospital
+
+![Opera Captura de pantalla_2021-05-28_121958_public tableau com](https://user-images.githubusercontent.com/77305951/120020527-74853100-bfaf-11eb-9640-b687447cb82d.png)
+ 
+ https://public.tableau.com/app/profile/sebastian.dulong.salazar/viz/covid_voxmapp_2/Dashboard1
 
