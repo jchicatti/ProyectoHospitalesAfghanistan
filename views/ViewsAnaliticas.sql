@@ -13,13 +13,12 @@ join most_recent_complete_update_by_hospital mrubh using (id_hospital)
 join protocol p using (id_update)
 where p.covid_awareness = true 
 
--- A3: View de hospitales y el promedio de sus casos agrupados por si tienen campaña de awareness o no
+-- A3: View de hospitales, pacientes, y si tienen campaña de awareness o no
 create view hospitals_awareness_cases as
-select p.covid_awareness, avg(cc.positive_patients) from hospital h 
+select h.id_hospital, h.hospital_name,cc.covid_deaths+cc.covid_recovered+cc.positive_patients as "total_patients",  p.covid_awareness from hospital h 
 join most_recent_complete_update_by_hospital mrubh using (id_hospital)
 join protocol p using (id_update)
 join covid_cases cc using (id_update)
-group by p.covid_awareness
 
 -- A4: View de porcentajes de muertos, recuperados y positivos por hospital
 create view patient_percentages as
