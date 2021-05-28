@@ -178,6 +178,23 @@ namespace Proyecto_BD
             {
             }
         }
+        public static void id_VM (DropDownList dd)
+        {
+            try
+            {
+                NpgsqlConnection con = AgregarConexion();
+                NpgsqlCommand cmd = new NpgsqlCommand(String.Format("select id_personel_vm, employee_name from personel_vm;"), con);
+                NpgsqlDataReader rd = cmd.ExecuteReader();
+                dd.DataSource = rd;
+                dd.DataValueField = "id_personel_vm";
+                dd.DataTextField = "employee_name";
+                dd.DataBind();
+                con.Close();
+            }
+            catch (Exception)
+            {
+            }
+        }
         public static int ObtenerId(string moph)
         {
             int res = -1;

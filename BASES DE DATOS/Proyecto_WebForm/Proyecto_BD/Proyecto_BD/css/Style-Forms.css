@@ -115,13 +115,13 @@
 .buttonr {
     color: white;
     background-color: #ae0e0a;
-    border: none;
+    border: medium none #ae0e0a;
     text-align: center;
-    border-color: #ae0e0a;
     font-size: 16px;
     display: inline-block;
     padding: 15px 32px;
     float: right;
+    margin-left: 0px;
 }
 
 .res {

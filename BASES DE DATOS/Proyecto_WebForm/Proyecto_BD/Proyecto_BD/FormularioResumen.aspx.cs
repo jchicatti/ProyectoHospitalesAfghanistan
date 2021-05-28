@@ -10,7 +10,11 @@ namespace Proyecto_BD
 {
     public partial class FormularioResumen : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e) { }
+        protected void Page_Load(object sender, EventArgs e) 
+        {
+            if (DropDownList1.Items.Count == 0)
+                Conexion.id_VM(DropDownList1);
+        }
 
         protected void Button2_Click(object sender, EventArgs e)
         {
@@ -29,6 +33,8 @@ namespace Proyecto_BD
 
         private string AttemptMainInsert()
         {
+            Button4.Visible = true;
+
             List<string> logF1 = (List<string>)Session["logF1"];
             List<string> logF2 = (List<string>)Session["logF2"];
             List<string> logF3 = (List<string>)Session["logF3"];
@@ -43,8 +49,9 @@ namespace Proyecto_BD
                 if (Conexion.finished1 && Conexion.finished3 && Conexion.finished4 && Conexion.finished5)
                 {
                     //TABLA: Update_hospital
-                    string name_responder = "John Doe";
-                    int id_personel_vm = 1;
+                    int id_personel_vm = Convert.ToInt32(DropDownList1.SelectedValue);
+                    string name_responder = TextBox7.Text;
+
                     int id_hospital = (int)Session["id_hospital_update"];
                     string funds = logF3[1];
                     string additional_comments = TextBox5.Text;
@@ -174,7 +181,6 @@ namespace Proyecto_BD
                         NpgsqlConnection con2 = Conexion.AgregarConexion();
                         for(int i = 0; i<counts.Length; i++)
                         {
-                            res += "Producto clave. " + (i + 1) + ". ";
                             String query2 = String.Format("insert into inventory (id_update, id_product, days_remaining) VALUES({0}, {1}, {2})", id_update, i+1, counts[i]);
                             NpgsqlCommand cmd2 = new NpgsqlCommand(query2, con2);
                             int a2 = cmd2.ExecuteNonQuery();
@@ -192,8 +198,8 @@ namespace Proyecto_BD
                     // Phone not answered or (Questionnaire not complete and !(Partially complete))
             {
                 //TABLA: Update_hospital
-                string name_responder = "John Doe";
-                int id_personel_vm = 1;
+                int id_personel_vm = Convert.ToInt32(DropDownList1.SelectedValue);
+                string name_responder = TextBox7.Text;
                 int id_hospital = (int)Session["id_hospital_update"];
                 string additional_comments = TextBox5.Text;
 
@@ -237,9 +243,6 @@ namespace Proyecto_BD
                     }
                             
                 }
-                
-
-                Label1.Text = id_questionnare_status.ToString() + id_problem_status.ToString() + id_action_status.ToString();
 
                 //Insert update
                 NpgsqlConnection con1 = Conexion.AgregarConexion();
@@ -284,11 +287,9 @@ namespace Proyecto_BD
 
             else 
             {
-                Label1.Text = "IN";
-
                 //TABLA: Update_hospital
-                string name_responder = "John Doe";
-                int id_personel_vm = 1;
+                int id_personel_vm = Convert.ToInt32(DropDownList1.SelectedValue);
+                string name_responder = TextBox7.Text;
                 int id_hospital = (int)Session["id_hospital_update"];
 
                 string funds;
@@ -471,7 +472,6 @@ namespace Proyecto_BD
                     NpgsqlConnection con2 = Conexion.AgregarConexion();
                     for (int i = 0; i < counts.Length; i++)
                     {
-                        res += "Producto clave. " + (i + 1) + ". ";
                         String query2 = String.Format("insert into inventory (id_update, id_product, days_remaining) VALUES({0}, {1}, {2})", id_update, i + 1, counts[i]);
                         NpgsqlCommand cmd2 = new NpgsqlCommand(query2, con2);
                         int a2 = cmd2.ExecuteNonQuery();
@@ -533,6 +533,8 @@ namespace Proyecto_BD
             string ans = RadioButtonList3.SelectedIndex.ToString();
             if (ans.Equals("0"))
             {
+                Label4.Text = "";
+                TextBox7.Visible = false;
                 RadioButtonList1.Items.Clear();
                 RadioButtonList2.Items.Clear();
                 RadioButtonList4.Items.Clear();
@@ -554,6 +556,8 @@ namespace Proyecto_BD
             string ans = RadioButtonList4.SelectedIndex.ToString();
             if (ans.Equals("1"))
             {
+                Label4.Text = "";
+                TextBox7.Visible = false;
                 RadioButtonList1.Items.Clear();
                 RadioButtonList2.Items.Clear();
                 Label3.Text = "You can now finish the update.";
@@ -561,6 +565,8 @@ namespace Proyecto_BD
             }
             else
             {
+                Label4.Text = "Who answered the questions/phone?";
+                TextBox7.Visible = true;
                 RadioButtonList1.Items.Clear();
                 Label3.Text = "Was the questionnaire completed?";
                 RadioButtonList1.Items.Add("Yes");
@@ -586,6 +592,11 @@ namespace Proyecto_BD
                 RadioButtonList2.Items.Add("Doctor said he was busy at the moment.");
                 RadioButtonList2.Items.Add("Doctor refused to give information or says he needs special permition.");
             }
+        }
+
+        protected void Button4_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Inicio.aspx");
         }
     }
 }

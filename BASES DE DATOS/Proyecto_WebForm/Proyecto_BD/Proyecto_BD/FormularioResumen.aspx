@@ -36,6 +36,10 @@
             </asp:Menu>
             <br />
             <h2>Update Report</h2>
+            <strong>Select your name:&nbsp;&nbsp;&nbsp; </strong>
+            <asp:DropDownList ID="DropDownList1" runat="server">
+            </asp:DropDownList>
+            <br />
             <br />
             <strong>Was this a test?<br />
             </strong><br />
@@ -49,6 +53,13 @@
             <br />
             <asp:RadioButtonList ID="RadioButtonList4" runat="server" style="font-size: medium" Width="116px" AutoPostBack="True" OnSelectedIndexChanged="RadioButtonList4_SelectedIndexChanged">
             </asp:RadioButtonList>
+            <br />
+            <br />
+            <asp:Label ID="Label4" runat="server" style="font-weight: 700"></asp:Label>
+            <br />
+            <br />
+            <asp:TextBox ID="TextBox7" runat="server" Visible="False"></asp:TextBox>
+            <br />
             <br />
             <asp:Label ID="Label3" runat="server" style="font-weight: 700"></asp:Label>
             &nbsp;<br />
@@ -71,12 +82,13 @@
             <br />
             <br />
             <br />
-            <asp:Button ID="Button2" runat="server" CssClass="buttonl" Text="Previous Page" OnClick="Button2_Click" />
-            <asp:Button ID="Button1" runat="server" CssClass="buttonr" Text="Finish Update" OnClick="Button1_Click" />
+            <asp:Button ID="Button2" runat="server" CssClass="buttonl" Text="Previous Page" OnClick="Button2_Click" Width="200px"/>
+            <asp:Button ID="Button1" runat="server" CssClass="buttonr" Text="Finish Update" OnClick="Button1_Click" Width="200px" />
             <br />
             <br />
             <br />
-            <asp:Button ID="Button3" runat="server" CssClass="buttonl" Text="Cancel update" OnClick="Button3_Click" />
+            <asp:Button ID="Button3" runat="server" CssClass="buttonl" Text="Cancel update" OnClick="Button3_Click" Width="200px"/>
+            <asp:Button ID="Button4" runat="server" CssClass="buttonr" Text="Exit" Visible="False" Width="200px" OnClick="Button4_Click" />
         </div>
     </form>
     <p>
