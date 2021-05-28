@@ -73,11 +73,12 @@ Depende de la tabla **update_hospital**
   
   **hospitals_awareness_cases**
   
-  Regresa el promedio de casos divididos por si se realizan campañas de prevención COVID-19 o no.
+  Regresa todos los hospitales, sus casos, y si se realizan campañas de prevención COVID-19 o no.
   
   Depende de las tablas **covid_cases**, **hospital** y **protocol**, y de la view **most_recent_complete_update_by_hospital**.
   
-  ![anal_3](https://user-images.githubusercontent.com/77305951/119764151-831bfd00-be76-11eb-90ff-8bbb30e6cba5.png)  
+  ![tabla 2](https://user-images.githubusercontent.com/77305951/120045992-d3aa6c00-bfd6-11eb-9740-f7a44b4a4fa0.png)
+
 
 4. ¿Qué porcentaje de muertos, recuperados, y positivos hay por hospital?
   
@@ -89,26 +90,16 @@ Depende de la tabla **update_hospital**
   
   ![anal_4](https://user-images.githubusercontent.com/77305951/119764244-ab0b6080-be76-11eb-9be7-032a312a3514.png)
 
-5. ¿Qué provincias no tienen la capacidad de hacer pruebas COVID-19?
+5. ¿Qué hospitales no tienen la capacidad de hacer pruebas COVID-19?
   
-  **provinces_wout_test_cap**
+  **hospitals_test_cap**
   
-  Regresa todos los hospitales agrupados por provincias sin capacidad de hacer pruebas COVID-19.
+  Regresa todos los hospitales, sus casos, y su capacidad de hacer pruebas COVID-19.
   
   Depende de las tablas **covid_cases**, **hospital**, **protocol** y **province** y de la view **most_recent_complete_update_by_hospital**.
   
-  ![anal_5](https://user-images.githubusercontent.com/77305951/119764621-63390900-be77-11eb-98fb-00e1a34ba696.png)
-  
-6. ¿Qué distritos no tienen la capacidad de hacer pruebas COVID-19?
-  
-  **districts_wout_test_cap**
-  
-   Regresa todos los hospitales agrupados por distritos sin capacidad de hacer pruebas COVID-19.
-  
-  Depende de las tablas **covid_cases**, **hospital**, **protocol** y **district** y de la view **most_recent_complete_update_by_hospital**.
-  
-  ![anal_6](https://user-images.githubusercontent.com/77305951/119764638-68965380-be77-11eb-834d-efc381fa8f3e.png)
-  
+  ![tabla 1](https://user-images.githubusercontent.com/77305951/120045951-b9708e00-bfd6-11eb-818d-683b2be35434.png)
+
 7. Evolución de muertes / casos / recuperados. 
 
         7.1 ¿Cómo ha evlucionado el número de muertes en cada provincia?
